@@ -36,6 +36,7 @@ const theme = {
                 text: "#888eb0",
             },
         },
+        nav: "#373b53",
         text: { primary: "#0c0e16", secondary: "#7e88c3" },
     },
     dark: {
@@ -54,6 +55,7 @@ const theme = {
                 text: "#dfe3fa",
             },
         },
+        nav: "#1e2139",
         text: { primary: "#fff", secondary: "#dfe3fa" },
     },
 };
