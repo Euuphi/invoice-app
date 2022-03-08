@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { theme } from "themes/theme";
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -11,15 +12,18 @@ const GlobalStyle = createGlobalStyle`
         font-size: 62.5%;
     }
 
+    body {
+        font-family: "Spartan", sans-serif;
+    }
+
 `;
 
 function MyApp({ Component, pageProps }) {
-    // TODO: Add theme provider
     return (
-        <>
+        <ThemeProvider theme={theme}>
             <GlobalStyle />
             <Component {...pageProps} />
-        </>
+        </ThemeProvider>
     );
 }
 
