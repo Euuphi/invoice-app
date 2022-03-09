@@ -1,5 +1,10 @@
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { theme } from "themes/theme";
+// Styled Component
+import { createGlobalStyle } from "styled-components";
+// Redux
+import { Provider as ReduxProvider } from "react-redux";
+import store from "stores/store";
+// Themes
+import DarkThemeProvider from "themes/DarkThemeProvider";
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -20,10 +25,12 @@ const GlobalStyle = createGlobalStyle`
 
 function MyApp({ Component, pageProps }) {
     return (
-        <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <Component {...pageProps} />
-        </ThemeProvider>
+        <ReduxProvider store={store}>
+            <DarkThemeProvider>
+                <GlobalStyle />
+                <Component {...pageProps} />
+            </DarkThemeProvider>
+        </ReduxProvider>
     );
 }
 

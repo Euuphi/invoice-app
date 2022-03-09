@@ -10,7 +10,7 @@ const NavBar = styled.nav`
     align-items: center;
     justify-content: space-between;
 
-    background-color: ${({ theme }) => theme.light.nav};
+    background-color: ${({ theme }) => theme.nav};
     border-radius: 0 20px 20px 0;
     overflow: hidden;
     height: 100vh;

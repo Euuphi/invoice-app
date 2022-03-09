@@ -1,5 +1,8 @@
 import Image from "next/image";
 import styled from "styled-components";
+// Redux
+import { useDispatch } from "react-redux";
+import { TOGGLE_DARKTHEME } from "stores/actions";
 // Icons
 import light from "images/icon-sun.svg";
 import dark from "images/icon-moon.svg";
@@ -13,9 +16,10 @@ const Button = styled.button`
 `;
 
 const ThemeSwitchButton = () => {
-    //TODO: Add theme switching functionality
+    const dispatch = useDispatch();
+
     const clickHandler = () => {
-        console.log("Clicked");
+        dispatch({ type: TOGGLE_DARKTHEME });
     };
 
     return (
