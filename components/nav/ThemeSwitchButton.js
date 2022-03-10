@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 // Redux
 import { useDispatch } from "react-redux";
-import { TOGGLE_DARKTHEME } from "stores/actions";
+import { toggleDarkTheme } from "actions/preferencesActions";
 // Icons
 import light from "images/icon-sun.svg";
 import dark from "images/icon-moon.svg";
@@ -19,7 +19,7 @@ const ThemeSwitchButton = () => {
     const dispatch = useDispatch();
 
     const clickHandler = () => {
-        dispatch({ type: TOGGLE_DARKTHEME });
+        dispatch(toggleDarkTheme());
     };
 
     return (
