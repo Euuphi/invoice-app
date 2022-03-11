@@ -1,7 +1,6 @@
-import NextImage from "next/image";
 import styled from "styled-components";
 // Logo
-import logo from "images/logo.svg";
+import LogoSVG from "images/svgs/logo.svg";
 // Colors
 import { colors } from "themes/colors";
 
@@ -29,14 +28,14 @@ const Block = styled.div`
     }
 `;
 
-const Image = styled(NextImage)`
+const LogoIcon = styled(LogoSVG)`
     z-index: 1;
 `;
 
 const Logo = () => {
     return (
         <Block>
-            <Image src={logo} alt="Logo" height={40} width={43} />
+            <LogoIcon height={40} width={43} />
         </Block>
     );
 };

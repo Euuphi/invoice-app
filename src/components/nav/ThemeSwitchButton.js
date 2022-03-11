@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { toggleDarkTheme } from "actions/preferencesActions";
 // Icons
-import light from "images/icon-sun.svg";
-import dark from "images/icon-moon.svg";
+import Light from "images/svgs/icon-sun.svg";
+import Dark from "images/svgs/icon-moon.svg";
 
 const Button = styled.button`
     background-color: transparent;
@@ -24,7 +24,7 @@ const ThemeSwitchButton = () => {
 
     return (
         <Button onClick={clickHandler}>
-            <Image src={dark} alt="Moon Icon" />
+            <Dark />
         </Button>
     );
 };
