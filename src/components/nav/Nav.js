@@ -1,7 +1,7 @@
 import styled from "styled-components";
 // Components
 import Logo from "./Logo";
-import ThemeSwitchButton from "./ThemeSwitchButton";
+import ThemeSwitchButton from "components/buttons/ThemeSwitchButton";
 import ProfilePicture from "./ProfilePicture";
 
 const NavBar = styled.nav`
