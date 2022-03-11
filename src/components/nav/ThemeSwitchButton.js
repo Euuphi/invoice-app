@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkTheme } from "actions/preferencesActions";
 // Icons
-import Light from "images/svgs/icon-sun.svg";
-import Dark from "images/svgs/icon-moon.svg";
+import Sun from "images/svgs/icon-sun.svg";
+import Moon from "images/svgs/icon-moon.svg";
 
 const Button = styled.button`
     background-color: transparent;
@@ -12,13 +12,20 @@ const Button = styled.button`
     margin-top: auto;
     height: 4rem;
     width: 4rem;
+
+    /* Sun and Moon icons selector when button is hovered */
+    &:hover svg {
+        color: #dfe3fa;
+    }
 `;
 
-const DarkIcon = styled(Dark)`
-    font-size: 2.4rem;
+const SunIcon = styled(Sun)`
+    color: #858bb2;
+    font-size: 3rem;
 `;
 
-const LightIcon = styled(Light)`
+const MoonIcon = styled(Moon)`
+    color: #7e88c3;
     font-size: 2.4rem;
 `;
 
@@ -35,7 +42,7 @@ const ThemeSwitchButton = () => {
 
     return (
         <Button onClick={clickHandler}>
-            {darkTheme ? <LightIcon /> : <DarkIcon />}
+            {darkTheme ? <SunIcon /> : <MoonIcon />}
         </Button>
     );
 };
