@@ -29,13 +29,15 @@ const Container = styled.div`
 
 const Nav = () => {
     return (
-        <NavBar>
-            <Logo />
-            <Container>
-                <ThemeSwitchButton />
-                <ProfilePicture />
-            </Container>
-        </NavBar>
+        <header>
+            <NavBar>
+                <Logo />
+                <Container>
+                    <ThemeSwitchButton />
+                    <ProfilePicture />
+                </Container>
+            </NavBar>
+        </header>
     );
 };
 

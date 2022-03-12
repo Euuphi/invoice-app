@@ -5,6 +5,8 @@ import { Provider as ReduxProvider } from "react-redux";
 import store from "stores/store";
 // Themes
 import DarkThemeProvider from "themes/DarkThemeProvider";
+// Components
+import Nav from "components/nav/Nav";
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -28,6 +30,7 @@ function MyApp({ Component, pageProps }) {
         <ReduxProvider store={store}>
             <DarkThemeProvider>
                 <GlobalStyle />
+                <Nav />
                 <Component {...pageProps} />
             </DarkThemeProvider>
         </ReduxProvider>

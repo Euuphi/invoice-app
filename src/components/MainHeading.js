@@ -14,7 +14,7 @@ const Heading = styled(H1)`
     margin-bottom: 1.2rem;
 `;
 
-const Header = () => {
+const MainHeading = () => {
     return (
         <Container>
             <div>
@@ -28,4 +28,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default MainHeading;

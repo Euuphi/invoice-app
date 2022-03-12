@@ -1,8 +1,7 @@
 import Head from "next/head";
 // Components
 import Background from "components/layout/Background";
-import Nav from "components/nav/Nav";
-import Header from "components/Header";
+import MainHeading from "components/MainHeading";
 
 export default function Home() {
     return (
@@ -10,9 +9,8 @@ export default function Home() {
             <Head>
                 <title>Invoice App</title>
             </Head>
-            <Nav />
             <Background>
-                <Header />
+                <MainHeading />
             </Background>
         </>
     );
