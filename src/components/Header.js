@@ -2,6 +2,7 @@ import styled from "styled-components";
 // Components
 import H1 from "./headings/H1";
 import Text12 from "./text/Text12";
+import NewInvoiceButton from "components/buttons/NewInvoiceButton";
 
 const Container = styled.div`
     display: flex;
@@ -20,7 +21,9 @@ const Header = () => {
                 <Heading>Invoices</Heading>
                 <Text12>There are 0 total invoices</Text12>
             </div>
-            <div>a;lskdjf</div>
+            <div>
+                <NewInvoiceButton />
+            </div>
         </Container>
     );
 };
