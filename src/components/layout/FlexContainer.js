@@ -13,7 +13,6 @@ FlexContainer.defaultProps = {
     alignItems: "stretch",
     flex: "0 1 auto",
     flexDirection: "row",
-    gap: "2.4rem",
     justifyContent: "normal",
 };
 

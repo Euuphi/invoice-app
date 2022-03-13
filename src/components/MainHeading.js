@@ -20,7 +20,7 @@ const MainHeading = () => {
             <FlexContainer
                 alignItems="center"
                 justifyContent="center"
-                gap="1.6rem">
+                gap="3rem">
                 <FilterOptions />
                 <NewInvoiceButton />
             </FlexContainer>
