@@ -23,10 +23,10 @@ const DownArrowIcon = styled(DownArrowSVG)`
     margin-left: x;
 `;
 
-const FilterOptionsButton = () => {
+const FilterOptionsButton = ({ setMenu }) => {
     const clickHandler = () => {
-        // TODO: Add filter menu open and close functionality
-        console.log("Filter button clicked");
+        // Toggle menu open state
+        setMenu((prevState) => !prevState);
     };
 
     return (
