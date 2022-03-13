@@ -1,6 +1,7 @@
 import Head from "next/head";
 // Components
 import Background from "components/layout/Background";
+import MainContainer from "components/layout/MainContainer";
 import MainHeading from "components/MainHeading";
 
 export default function Home() {
@@ -10,7 +11,9 @@ export default function Home() {
                 <title>Invoice App</title>
             </Head>
             <Background as="main">
-                <MainHeading />
+                <MainContainer>
+                    <MainHeading />
+                </MainContainer>
             </Background>
         </>
     );
