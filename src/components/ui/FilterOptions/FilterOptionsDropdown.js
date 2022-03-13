@@ -5,9 +5,9 @@ const Container = styled.div`
     position: absolute;
     bottom: 0;
 
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.background.tertiary};
     border-radius: 1.2rem;
-    box-shadow: 0 1rem 2rem rgba(72, 84, 159, 0.15);
+    box-shadow: 0 1rem 2rem ${({ theme }) => theme.shadow};
     padding: 2.4rem;
     width: 130%;
     transform: translate(-12.5%, 110%);

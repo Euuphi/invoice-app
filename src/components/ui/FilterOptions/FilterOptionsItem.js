@@ -9,7 +9,9 @@ const ListItem = styled.li`
 
 const Label = styled.label`
     ${H3SecondaryStyle}
-    width: 100%
+
+    color: ${({ theme }) => theme.text.primary};
+    width: 100%;
 `;
 
 const FilterOptionsItem = ({ id, label }) => {

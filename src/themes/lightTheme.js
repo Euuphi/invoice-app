@@ -16,6 +16,7 @@ const lightTheme = {
     },
     nav: "#373b53",
     text: { primary: "#0c0e16", secondary: "#7e88c3" },
+    shadow: "rgba(72, 84, 159, 0.15)",
 };
 
 export { lightTheme };

@@ -16,6 +16,7 @@ const darkTheme = {
     },
     nav: "#1e2139",
     text: { primary: "#fff", secondary: "#dfe3fa" },
+    shadow: "rgba(0, 0, 0, 0.15)",
 };
 
 export { darkTheme };

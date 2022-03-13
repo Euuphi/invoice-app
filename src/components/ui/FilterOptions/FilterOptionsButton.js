@@ -25,6 +25,7 @@ const DownArrowIcon = styled(DownArrowSVG)`
 
 const FilterOptionsButton = () => {
     const clickHandler = () => {
+        // TODO: Add filter menu open and close functionality
         console.log("Filter button clicked");
     };
 

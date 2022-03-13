@@ -8,6 +8,7 @@ const Container = styled.div`
 `;
 
 const FilterOptions = () => {
+    // TODO: Add filter functionality for viewing invoices
     return (
         <Container>
             <FilterOptionsButton />
