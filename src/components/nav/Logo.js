@@ -4,7 +4,7 @@ import LogoSVG from "images/svgs/logo.svg";
 // Colors
 import { colors } from "themes/colors";
 
-const Block = styled.div`
+const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,9 +34,9 @@ const LogoIcon = styled(LogoSVG)`
 
 const Logo = () => {
     return (
-        <Block>
+        <Container>
             <LogoIcon height={40} width={43} />
-        </Block>
+        </Container>
     );
 };
 

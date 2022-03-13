@@ -2,13 +2,8 @@ import styled from "styled-components";
 // Components
 import H1 from "./headings/H1";
 import Text12 from "./text/Text12";
+import FlexContainer from "./layout/FlexContainer";
 import NewInvoiceButton from "components/buttons/NewInvoiceButton";
-
-const Container = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-`;
 
 const Heading = styled(H1)`
     margin-bottom: 1.2rem;
@@ -16,7 +11,7 @@ const Heading = styled(H1)`
 
 const MainHeading = () => {
     return (
-        <Container>
+        <FlexContainer alignItem="center" justifyContent="space-between">
             <div>
                 <Heading>Invoices</Heading>
                 <Text12>There are 0 total invoices</Text12>
@@ -24,7 +19,7 @@ const MainHeading = () => {
             <div>
                 <NewInvoiceButton />
             </div>
-        </Container>
+        </FlexContainer>
     );
 };
 
