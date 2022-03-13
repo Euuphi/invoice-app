@@ -9,7 +9,7 @@ export default function Home() {
             <Head>
                 <title>Invoice App</title>
             </Head>
-            <Background>
+            <Background as="main">
                 <MainHeading />
             </Background>
         </>
