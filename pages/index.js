@@ -2,7 +2,8 @@ import Head from "next/head";
 // Components
 import Background from "components/layout/Background";
 import MainContainer from "components/layout/MainContainer";
-import MainHeading from "components/MainHeading";
+import MainHeading from "components/sections/MainHeading";
+import Invoices from "components/sections/Invoices";
 
 export default function Home() {
     return (
@@ -13,6 +14,7 @@ export default function Home() {
             <Background as="main">
                 <MainContainer>
                     <MainHeading />
+                    <Invoices />
                 </MainContainer>
             </Background>
         </>
