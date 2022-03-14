@@ -7,7 +7,7 @@ const Container = styled.div`
 
     background-color: ${({ theme }) => theme.background.tertiary};
     border-radius: 1.2rem;
-    box-shadow: 0 1rem 2rem ${({ theme }) => theme.shadow};
+    box-shadow: 0 1rem 2rem ${({ theme }) => theme.shadow.medium};
     padding: 2.4rem;
     width: 130%;
     transform: translate(-12.5%, 110%);
