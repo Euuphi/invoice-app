@@ -20,19 +20,18 @@ const ButtonText = styled(H3Secondary)`
 `;
 
 const DownArrowIcon = styled(DownArrowSVG)`
-    margin-left: x;
+    transition: all 50ms;
+
+    &.open {
+        transform: rotate(180deg);
+    }
 `;
 
-const FilterOptionsButton = ({ setMenu }) => {
-    const clickHandler = () => {
-        // Toggle menu open state
-        setMenu((prevState) => !prevState);
-    };
-
+const FilterOptionsButton = ({ menuOpen, onClick }) => {
     return (
-        <Button onClick={clickHandler}>
+        <Button onClick={onClick}>
             <ButtonText as="span">Filter by status</ButtonText>
-            <DownArrowIcon />
+            <DownArrowIcon className={menuOpen ? "open" : ""} />
         </Button>
     );
 };

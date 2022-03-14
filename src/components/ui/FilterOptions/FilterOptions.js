@@ -11,10 +11,15 @@ const Container = styled.div`
 const FilterOptions = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const clickHandler = () => {
+        // Toggle menu open state
+        setMenuOpen((prevState) => !prevState);
+    };
+
     // TODO: Add filter functionality for viewing invoices
     return (
         <Container>
-            <FilterOptionsButton setMenu={setMenuOpen} />
+            <FilterOptionsButton onClick={clickHandler} menuOpen={menuOpen} />
             {menuOpen && <FilterOptionsDropdown />}
         </Container>
     );

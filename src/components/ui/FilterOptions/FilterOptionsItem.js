@@ -18,7 +18,7 @@ const FilterOptionsItem = ({ id, label }) => {
     return (
         <ListItem>
             <input type="checkbox" id={id} name={id} value={label} />
-            <Label for={id}>{label}</Label>
+            <Label htmlFor={id}>{label}</Label>
         </ListItem>
     );
 };
