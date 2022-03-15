@@ -4,19 +4,23 @@ import InvoiceItem from "./InvoiceItem";
 import data from "data/data.json";
 
 const Invoices = () => {
-    const invoiceData = JSON.parse(JSON.stringify(data))[0];
-
-    console.log(invoiceData);
+    // Extract invoice data from json file intro an array of objects
+    const invoiceData = JSON.parse(JSON.stringify(data));
 
     return (
         <FlexContainer flexDirection="column" gap="2rem">
-            <InvoiceItem
-                id={invoiceData.id}
-                dueDate={invoiceData.paymentDue}
-                clientName={invoiceData.clientName}
-                total={invoiceData.total}
-                status={invoiceData.status}
-            />
+            {invoiceData.map((invoice) => {
+                return (
+                    <InvoiceItem
+                        id={invoice.id}
+                        dueDate={invoice.paymentDue}
+                        clientName={invoice.clientName}
+                        key={invoice.id}
+                        total={invoice.total}
+                        status={invoice.status}
+                    />
+                );
+            })}
         </FlexContainer>
     );
 };
