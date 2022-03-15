@@ -1,5 +1,5 @@
 import FlexContainer from "components/layout/FlexContainer";
-import InvoiceItem from "./InvoiceItem";
+import InvoiceItem from "./InvoiceItem/";
 // Data
 import data from "data/data.json";
 
