@@ -21,6 +21,7 @@ const FilterOptionsList = styled.ul`
 `;
 
 const FilterOptionsDropdown = () => {
+    //TODO: Create custom checkboxes
     return (
         <Container>
             <FilterOptionsList>
