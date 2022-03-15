@@ -14,6 +14,7 @@ const darkTheme = {
             text: "#dfe3fa",
         },
     },
+    invoiceItem: { dueDate: { due: "#dfe3fa", date: "#dfe3fa" }, name: "#fff" },
     nav: "#1e2139",
     text: { primary: "#fff", secondary: "#dfe3fa" },
     shadow: {

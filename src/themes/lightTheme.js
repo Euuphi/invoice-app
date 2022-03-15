@@ -14,6 +14,10 @@ const lightTheme = {
             text: "#888eb0",
         },
     },
+    invoiceItem: {
+        dueDate: { due: "#888eb0", date: "#7e88c3" },
+        name: "#858bb2",
+    },
     nav: "#373b53",
     text: { primary: "#0c0e16", secondary: "#7e88c3" },
     shadow: {
