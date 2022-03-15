@@ -1,7 +1,7 @@
 import styled from "styled-components";
 // Components
 import H1 from "../headings/H1";
-import Text12 from "../text/Text12";
+import ParagraphMd from "../text/ParagraphMd";
 import FlexContainer from "components/layout/FlexContainer";
 import NewInvoiceButton from "components/buttons/NewInvoiceButton";
 import FilterOptions from "components/ui/FilterOptions/";
@@ -19,7 +19,7 @@ const MainHeading = () => {
         <Container alignItems="center" justifyContent="space-between">
             <div>
                 <Heading>Invoices</Heading>
-                <Text12>There are 0 total invoices</Text12>
+                <ParagraphMd>There are 0 total invoices</ParagraphMd>
             </div>
             <FlexContainer
                 alignItems="center"
