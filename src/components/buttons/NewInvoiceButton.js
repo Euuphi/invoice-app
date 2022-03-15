@@ -18,6 +18,10 @@ const Button = styled.button`
     display: flex;
     align-items: center;
     gap: 1.6rem;
+
+    &:hover {
+        background-color: ${colors.main.tint};
+    }
 `;
 
 const IconContainer = styled.span`
