@@ -15,6 +15,7 @@ const Invoices = () => {
                 dueDate={invoiceData.paymentDue}
                 clientName={invoiceData.clientName}
                 total={invoiceData.total}
+                status={invoiceData.status}
             />
         </FlexContainer>
     );

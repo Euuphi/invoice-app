@@ -14,6 +14,13 @@ const darkTheme = {
             text: "#dfe3fa",
         },
     },
+    icon: {
+        invoiceStatus: {
+            draft: { background: "#292c44", text: "#dfe3fa" },
+            paid: { background: "#1f2b3f", text: "#33d69f" },
+            pending: { background: "#2b2736", text: "#ff8f00" },
+        },
+    },
     invoiceItem: { dueDate: { due: "#dfe3fa", date: "#dfe3fa" }, name: "#fff" },
     nav: "#1e2139",
     text: { primary: "#fff", secondary: "#dfe3fa" },

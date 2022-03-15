@@ -14,6 +14,13 @@ const lightTheme = {
             text: "#888eb0",
         },
     },
+    icon: {
+        invoiceStatus: {
+            draft: { background: "#f3f3f5", text: "#373b53" },
+            paid: { background: "#f3fcf9", text: "#33d69f" },
+            pending: { background: "#fff8f0", text: "#ff8f00" },
+        },
+    },
     invoiceItem: {
         dueDate: { due: "#888eb0", date: "#7e88c3" },
         name: "#858bb2",

@@ -7,6 +7,7 @@ import { ParagraphMdStyle } from "components/text/ParagraphMd";
 // Components
 import DueDate from "./DueDate";
 import Total from "./Total";
+import StatusIcon from "./StatusIcon";
 
 const Container = styled.div`
     display: flex;
@@ -44,7 +45,7 @@ const Name = styled.p`
     margin-right: 3rem;
 `;
 
-const InvoiceItem = ({ id, clientName, dueDate, total }) => {
+const InvoiceItem = ({ id, clientName, dueDate, total, status }) => {
     return (
         <Container>
             <Id>
@@ -54,6 +55,7 @@ const InvoiceItem = ({ id, clientName, dueDate, total }) => {
             <DueDate date={dueDate} />
             <Name>{clientName}</Name>
             <Total total={total} />
+            <StatusIcon status={status} />
         </Container>
     );
 };
