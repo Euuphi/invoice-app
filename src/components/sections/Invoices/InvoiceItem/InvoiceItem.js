@@ -1,11 +1,10 @@
 import styled from "styled-components";
 // Theme
 import { colors } from "themes/colors";
-// Styles
-import { H3SecondaryStyle } from "components/headings/H3Secondary";
-import { ParagraphMdStyle } from "components/text/ParagraphMd";
 // Components
+import Id from "./Id";
 import DueDate from "./DueDate";
+import Name from "./Name";
 import Total from "./Total";
 import StatusIcon from "./StatusIcon";
 
@@ -23,26 +22,6 @@ const Container = styled.div`
     &:hover {
         border-color: ${colors.main.primary};
     }
-`;
-
-const Id = styled.p`
-    ${H3SecondaryStyle};
-
-    color: ${({ theme }) => theme.text.primary};
-    display: inline-block;
-    width: 10rem;
-
-    & span {
-        color: #7e88c3;
-    }
-`;
-
-const Name = styled.p`
-    ${ParagraphMdStyle}
-
-    color: ${({ theme }) => theme.invoiceItem.name};
-    display: inline-block;
-    margin-right: 3rem;
 `;
 
 const InvoiceItem = ({ id, clientName, dueDate, total, status }) => {
