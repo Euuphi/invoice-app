@@ -4,7 +4,7 @@ import { createGlobalStyle } from "styled-components";
 import { Provider as ReduxProvider } from "react-redux";
 import store from "stores/store";
 // Themes
-import DarkThemeProvider from "themes/DarkThemeProvider";
+import DarkThemeProvider from "themes/providers/DarkThemeProvider";
 // Components
 import Nav from "components/nav/Nav";
 
