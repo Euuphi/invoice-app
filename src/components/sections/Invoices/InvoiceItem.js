@@ -29,7 +29,6 @@ const Id = styled.p`
 
     color: ${({ theme }) => theme.text.primary};
     display: inline-block;
-    font-size: 1.4rem;
     width: 10rem;
 
     & span {
@@ -42,7 +41,6 @@ const Name = styled.p`
 
     color: ${({ theme }) => theme.invoiceItem.name};
     display: inline-block;
-    font-size: 1.4rem;
     margin-right: 3rem;
 `;
 

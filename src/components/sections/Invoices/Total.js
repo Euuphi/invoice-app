@@ -7,7 +7,6 @@ const Span = styled.p`
 
     color: ${({ theme }) => theme.text.primary};
     display: inline-block;
-    font-size: 1.8rem;
     text-align: right;
     width: 12rem;
 `;

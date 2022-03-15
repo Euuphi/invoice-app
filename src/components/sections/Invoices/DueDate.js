@@ -6,7 +6,7 @@ const Span = styled.p`
 
     color: ${({ theme }) => theme.invoiceItem.dueDate.date};
     display: inline-block;
-    font-size: 1.4rem;
+
     width: 15rem;
 
     & span {
