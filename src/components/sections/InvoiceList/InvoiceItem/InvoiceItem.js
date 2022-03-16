@@ -18,7 +18,8 @@ const Container = styled.div`
     border-radius: 0.8rem;
     box-shadow: 0 1rem 1rem ${({ theme }) => theme.shadow.light};
     height: 8rem;
-    padding: 0 3.2rem;
+    padding-left: 3.2rem;
+    padding-right: 2.2rem;
 
     &:hover {
         border-color: ${colors.main.primary};

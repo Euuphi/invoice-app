@@ -7,7 +7,7 @@ const Name = styled.p`
 
     color: ${({ theme }) => theme.invoiceItem.name};
     display: inline-block;
-    margin-right: 3rem;
+    width: 14rem;
 `;
 
 export default Name;

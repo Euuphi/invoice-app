@@ -13,7 +13,7 @@ const IconBox = styled.div`
     background-color: ${({ backgroundColor }) => backgroundColor};
     border-radius: 0.6rem;
     color: ${({ textColor }) => textColor};
-    margin-left: auto;
+    margin-left: 3.2rem;
     text-align: center;
     text-transform: capitalize;
     height: 4.4rem;
