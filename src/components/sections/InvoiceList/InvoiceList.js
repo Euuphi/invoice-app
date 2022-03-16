@@ -10,11 +10,17 @@ const InvoiceList = () => {
     let invoiceData = [];
 
     // Extract invoice data from json file intro an array of objects
-    invoiceData = JSON.parse(JSON.stringify(data));
+    const jsonData = JSON.parse(JSON.stringify(data));
 
+    // Filter invoices based on filter options
     const filterOptions = useSelector((state) => state.filterOptions);
 
-    console.log(filterOptions);
+    invoiceData = jsonData.filter(
+        (invoice) =>
+            invoice.status === filterOptions.paid ||
+            invoice.status === filterOptions.pending ||
+            invoice.status === filterOptions.draft
+    );
 
     return (
         <FlexContainer flexDirection="column" gap="2rem" alignItems="center">
