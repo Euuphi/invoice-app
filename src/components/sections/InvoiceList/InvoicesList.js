@@ -1,9 +1,9 @@
 import FlexContainer from "components/layout/FlexContainer";
-import InvoiceItem from "./InvoiceItem/";
+import InvoiceItem from "./InvoiceItem";
 // Data
 import data from "data/data.json";
 
-const Invoices = () => {
+const InvoiceList = () => {
     // Extract invoice data from json file intro an array of objects
     const invoiceData = JSON.parse(JSON.stringify(data));
 
@@ -25,4 +25,4 @@ const Invoices = () => {
     );
 };
 
-export default Invoices;
+export default InvoiceList;

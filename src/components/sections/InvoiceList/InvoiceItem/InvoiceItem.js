@@ -7,6 +7,7 @@ import DueDate from "./DueDate";
 import Name from "./Name";
 import Total from "./Total";
 import StatusIcon from "./StatusIcon";
+import RightArrowIcon from "./RightArrowIcon";
 
 const Container = styled.div`
     display: flex;
@@ -35,6 +36,7 @@ const InvoiceItem = ({ id, clientName, dueDate, total, status }) => {
             <Name>{clientName}</Name>
             <Total total={total} />
             <StatusIcon status={status} />
+            <RightArrowIcon />
         </Container>
     );
 };
