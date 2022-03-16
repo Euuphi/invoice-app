@@ -5,7 +5,8 @@ import data from "data/data.json";
 
 const InvoiceList = () => {
     // Extract invoice data from json file intro an array of objects
-    const invoiceData = JSON.parse(JSON.stringify(data));
+    // TODO: Uncomment data after adding screen for no invoices
+    const invoiceData = []; //JSON.parse(JSON.stringify(data));
 
     return (
         <FlexContainer flexDirection="column" gap="2rem">
