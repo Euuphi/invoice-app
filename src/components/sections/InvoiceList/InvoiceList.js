@@ -2,6 +2,8 @@ import FlexContainer from "components/layout/FlexContainer";
 import InvoiceItem from "./InvoiceItem";
 // Data
 import data from "data/data.json";
+// Illustration
+import IllustrationIcon from "./NoInvoices";
 
 const InvoiceList = () => {
     // Extract invoice data from json file intro an array of objects
@@ -9,7 +11,7 @@ const InvoiceList = () => {
     const invoiceData = []; //JSON.parse(JSON.stringify(data));
 
     return (
-        <FlexContainer flexDirection="column" gap="2rem">
+        <FlexContainer flexDirection="column" gap="2rem" alignItems="center">
             {invoiceData.map((invoice) => {
                 return (
                     <InvoiceItem
@@ -22,6 +24,7 @@ const InvoiceList = () => {
                     />
                 );
             })}
+            <IllustrationIcon />
         </FlexContainer>
     );
 };
