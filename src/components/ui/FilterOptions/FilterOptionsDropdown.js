@@ -1,5 +1,11 @@
 import styled from "styled-components";
 import FilterOptionsItem from "./FilterOptionsItem";
+// Redux Actions
+import {
+    FILTER_PAID,
+    FILTER_PENDING,
+    FILTER_DRAFT,
+} from "actions/filterActions";
 
 const Container = styled.div`
     position: absolute;
@@ -25,9 +31,21 @@ const FilterOptionsDropdown = () => {
     return (
         <Container>
             <FilterOptionsList>
-                <FilterOptionsItem id="draft" label="Draft" />
-                <FilterOptionsItem id="pending" label="Pending" />
-                <FilterOptionsItem id="paid" label="Paid" />
+                <FilterOptionsItem
+                    id="draft"
+                    label="Draft"
+                    checkAction={FILTER_DRAFT}
+                />
+                <FilterOptionsItem
+                    id="pending"
+                    label="Pending"
+                    checkAction={FILTER_PENDING}
+                />
+                <FilterOptionsItem
+                    id="paid"
+                    label="Paid"
+                    checkAction={FILTER_PAID}
+                />
             </FilterOptionsList>
         </Container>
     );

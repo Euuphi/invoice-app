@@ -16,7 +16,6 @@ const FilterOptions = () => {
         setMenuOpen((prevState) => !prevState);
     };
 
-    // TODO: Add filter functionality for viewing invoices
     return (
         <Container>
             <FilterOptionsButton onClick={clickHandler} menuOpen={menuOpen} />

@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 // Components
 import FlexContainer from "components/layout/FlexContainer";
 import InvoiceItem from "./InvoiceItem";
@@ -10,6 +11,10 @@ const InvoiceList = () => {
 
     // Extract invoice data from json file intro an array of objects
     invoiceData = JSON.parse(JSON.stringify(data));
+
+    const filterOptions = useSelector((state) => state.filterOptions);
+
+    console.log(filterOptions);
 
     return (
         <FlexContainer flexDirection="column" gap="2rem" alignItems="center">
