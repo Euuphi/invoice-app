@@ -27,8 +27,13 @@ const Container = styled.div`
 `;
 
 const InvoiceItem = ({ id, clientName, dueDate, total, status }) => {
+    // TODO: Route user to selected invoice
+    const clickHandler = () => {
+        console.log(`Invoice item: ${id} clicked`);
+    };
+
     return (
-        <Container>
+        <Container onClick={clickHandler}>
             <Id>
                 <span>#</span>
                 {id}
