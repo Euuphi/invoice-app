@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 // Components
 import FlexContainer from "components/layout/FlexContainer";
-import InvoiceItem from "./InvoiceItem";
+import InvoiceItem from "../InvoiceItem";
 import NoInvoices from "./NoInvoices";
 // Data
 import data from "data/data.json";

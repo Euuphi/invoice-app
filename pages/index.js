@@ -3,7 +3,7 @@ import Head from "next/head";
 import Background from "components/layout/Background";
 import MainContainer from "components/layout/MainContainer";
 import MainHeading from "components/sections/MainHeading";
-import InvoiceList from "components/sections/InvoiceList";
+import InvoiceList from "components/invoice/InvoiceList";
 
 export default function Home() {
     return (

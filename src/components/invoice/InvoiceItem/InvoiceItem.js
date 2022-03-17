@@ -27,9 +27,9 @@ const Container = styled.div`
 `;
 
 const InvoiceItem = ({ id, clientName, dueDate, total, status }) => {
-    // TODO: Route user to selected invoice
+    // Route user to selected invoice
     const clickHandler = () => {
-        console.log(`Invoice item: ${id} clicked`);
+        console.log(id);
     };
 
     return (
