@@ -21,6 +21,7 @@ const Container = styled.div`
     height: 8rem;
     padding-left: 3.2rem;
     padding-right: 2.2rem;
+    width: 100%;
 
     &:hover {
         border-color: ${colors.main.primary};
