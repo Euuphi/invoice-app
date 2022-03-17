@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
 
     html {
         font-size: 62.5%;
+        overflow-y: scroll;
     }
 
     body {
