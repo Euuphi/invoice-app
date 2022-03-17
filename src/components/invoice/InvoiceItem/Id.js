@@ -2,10 +2,9 @@ import styled from "styled-components";
 // Styles
 import { H3SecondaryStyle } from "components/headings/H3Secondary";
 
-const Id = styled.p`
+const TextContainer = styled.p`
     ${H3SecondaryStyle};
 
-    color: ${({ theme }) => theme.text.primary};
     display: inline-block;
     width: 10rem;
 
@@ -13,5 +12,14 @@ const Id = styled.p`
         color: #7e88c3;
     }
 `;
+
+const Id = ({ text }) => {
+    return (
+        <TextContainer>
+            <span>#</span>
+            {text}
+        </TextContainer>
+    );
+};
 
 export default Id;

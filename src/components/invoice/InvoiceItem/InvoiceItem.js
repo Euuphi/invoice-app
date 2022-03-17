@@ -38,12 +38,9 @@ const InvoiceItem = ({ id, clientName, dueDate, total, status }) => {
 
     return (
         <Container onClick={clickHandler}>
-            <Id>
-                <span>#</span>
-                {id}
-            </Id>
+            <Id text={id} />
             <DueDate date={dueDate} />
-            <Name>{clientName}</Name>
+            <Name text={clientName} />
             <Total total={total} />
             <StatusIcon status={status} />
             <RightArrowIcon />
