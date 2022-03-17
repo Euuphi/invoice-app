@@ -7,7 +7,6 @@ import DownArrowSVG from "images/svgs/icon-arrow-down.svg";
 const Button = styled.button`
     border: none;
     background-color: transparent;
-    color: ${({ theme }) => theme.text.primary};
     font-family: "Spartan", sans-serif;
     padding: 0.8rem;
 

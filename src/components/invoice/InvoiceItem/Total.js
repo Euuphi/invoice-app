@@ -5,7 +5,6 @@ import { H3Style } from "components/headings/H3";
 const Span = styled.p`
     ${H3Style}
 
-    color: ${({ theme }) => theme.text.primary};
     display: inline-block;
     text-align: right;
     width: 12rem;

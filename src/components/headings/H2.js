@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const H2Style = css`
+    color: ${({ theme, color }) => (color ? color : theme.text.primary)};
     font-family: "Spartan", sans-serif;
     font-size: 2rem;
     font-weight: 700;

@@ -11,7 +11,6 @@ const ListItem = styled.li`
 const Label = styled.label`
     ${H3SecondaryStyle}
 
-    color: ${({ theme }) => theme.text.primary};
     width: 100%;
 `;
 
