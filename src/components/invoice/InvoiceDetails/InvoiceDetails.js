@@ -1,5 +1,12 @@
+// Components
+import GoBackButton from "components/buttons/GoBackButton";
+
 const InvoiceDetails = () => {
-    return <>Invoice Details</>;
+    return (
+        <>
+            <GoBackButton />
+        </>
+    );
 };
 
 export default InvoiceDetails;
