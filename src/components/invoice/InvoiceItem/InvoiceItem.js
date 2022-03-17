@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import styled from "styled-components";
 // Theme
 import { colors } from "themes/colors";
@@ -27,9 +28,11 @@ const Container = styled.div`
 `;
 
 const InvoiceItem = ({ id, clientName, dueDate, total, status }) => {
+    const router = useRouter();
+
     // Route user to selected invoice
     const clickHandler = () => {
-        console.log(id);
+        router.push(`/invoices/${id}`);
     };
 
     return (
