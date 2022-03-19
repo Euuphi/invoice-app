@@ -8,6 +8,7 @@ import LeftArrowIcon from "images/svgs/icon-arrow-left.svg";
 const Button = styled.button`
     border: none;
     background-color: transparent;
+    margin-bottom: 3.2rem;
 
     display: flex;
     align-items: flex-start;
