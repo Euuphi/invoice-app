@@ -8,7 +8,8 @@ import LeftArrowIcon from "images/svgs/icon-arrow-left.svg";
 const Button = styled.button`
     border: none;
     background-color: transparent;
-    margin-bottom: 3.2rem;
+    margin-bottom: 2.6rem;
+    padding: 1.2rem 0.8rem;
 
     display: flex;
     align-items: flex-start;
@@ -18,7 +19,7 @@ const Button = styled.button`
 const GoBackButton = () => {
     const router = useRouter();
     return (
-        <Button onClick={() => router.back()}>
+        <Button onClick={() => router.push("/")}>
             <LeftArrowIcon />
             <H3Secondary as="span">Go back</H3Secondary>
         </Button>
