@@ -24,19 +24,22 @@ const InvoiceList = () => {
 
     return (
         <FlexContainer flexDirection="column" gap="2rem" alignItems="center">
-            {invoiceData.length === 0 && <NoInvoices />}
-            {invoiceData.map((invoice) => {
-                return (
-                    <InvoiceItem
-                        id={invoice.id}
-                        dueDate={invoice.paymentDue}
-                        clientName={invoice.clientName}
-                        key={invoice.id}
-                        total={invoice.total}
-                        status={invoice.status}
-                    />
-                );
-            })}
+            {invoiceData.length === 0 ? (
+                <NoInvoices />
+            ) : (
+                invoiceData.map((invoice) => {
+                    return (
+                        <InvoiceItem
+                            id={invoice.id}
+                            dueDate={invoice.paymentDue}
+                            clientName={invoice.clientName}
+                            key={invoice.id}
+                            total={invoice.total}
+                            status={invoice.status}
+                        />
+                    );
+                })
+            )}
         </FlexContainer>
     );
 };
