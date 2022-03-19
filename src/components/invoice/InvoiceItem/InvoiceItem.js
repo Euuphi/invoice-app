@@ -7,7 +7,7 @@ import Id from "./Id";
 import DueDate from "./DueDate";
 import Name from "./Name";
 import Total from "./Total";
-import StatusIcon from "./StatusIcon";
+import StatusIcon from "../../icons/StatusIcon";
 import RightArrowIcon from "./RightArrowIcon";
 import Card from "components/layout/Card";
 
@@ -36,7 +36,7 @@ const InvoiceItem = ({ id, clientName, dueDate, total, status }) => {
             <DueDate date={dueDate} />
             <Name text={clientName} />
             <Total total={total} />
-            <StatusIcon status={status} />
+            <StatusIcon status={status} marginLeft="3.2rem" />
             <RightArrowIcon />
         </Container>
     );

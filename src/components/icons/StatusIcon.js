@@ -13,7 +13,7 @@ const IconBox = styled.div`
     background-color: ${({ backgroundColor }) => backgroundColor};
     border-radius: 0.6rem;
     color: ${({ textColor }) => textColor};
-    margin-left: 3.2rem;
+    margin-left: ${({ marginLeft }) => marginLeft};
     text-align: center;
     text-transform: capitalize;
     height: 4.4rem;
@@ -27,14 +27,24 @@ const Circle = styled.span`
     width: 0.8rem;
 `;
 
-const StatusIcon = ({ status }) => {
+/**
+ * Icon that shows the status of an invoice as paid, pending or draft
+ *
+ * @param {string} status(required) - Status as a string ("paid" || "pending" || "draft")
+ * @return {JSX} - Icon colored based on status
+ */
+const StatusIcon = ({ status, marginLeft }) => {
     const theme = useTheme();
 
+    // Pick bakcground and text color based on value of status prop
     const backgroundColor = theme.icon.invoiceStatus[status].background;
     const textColor = theme.icon.invoiceStatus[status].text;
 
     return (
-        <IconBox backgroundColor={backgroundColor} textColor={textColor}>
+        <IconBox
+            backgroundColor={backgroundColor}
+            textColor={textColor}
+            marginLeft={marginLeft}>
             <Circle color={textColor} />
             {status}
         </IconBox>
