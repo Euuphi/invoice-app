@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-const ButtonStyles = css`
+const ButtonStyle = css`
     border: none;
     border-radius: 100px;
     color: #fff;
@@ -14,4 +14,4 @@ const ButtonStyles = css`
     justify-content: center;
 `;
 
-export default ButtonStyles;
+export default ButtonStyle;
