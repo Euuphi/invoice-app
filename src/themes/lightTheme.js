@@ -7,7 +7,7 @@ const lightTheme = {
     button: {
         edit: {
             background: { default: "#f9fafe", hover: "#dfe3fa" },
-            text: "#7e88c3",
+            text: { default: "#7e88c3", hover: "#7e88c3" },
         },
         saveDraft: {
             background: { default: "#373b53", hover: "#0c0e16" },

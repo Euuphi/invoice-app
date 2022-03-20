@@ -7,7 +7,7 @@ const darkTheme = {
     button: {
         edit: {
             background: { default: "#252945", hover: "#fff" },
-            text: "#dfe3fa",
+            text: { default: "#dfe3fa", hover: "#7e88c3" },
         },
         saveDraft: {
             background: { default: "#373b53", hover: "#1e2139" },

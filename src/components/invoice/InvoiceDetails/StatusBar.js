@@ -5,6 +5,7 @@ import ParagraphMd from "components/text/ParagraphMd";
 import StatusIcon from "../../icons/StatusIcon";
 import CenteredContainer from "components/layout/CenteredContainer";
 import DeleteButton from "components/buttons/DeleteButton";
+import EditButton from "components/buttons/EditButton";
 
 const StatusBar = ({ status }) => {
     return (
@@ -13,7 +14,8 @@ const StatusBar = ({ status }) => {
                 <ParagraphMd>Status</ParagraphMd>
                 <StatusIcon status={status} />
             </CenteredContainer>
-            <CenteredContainer>
+            <CenteredContainer gap="0.8rem">
+                <EditButton />
                 <DeleteButton />
             </CenteredContainer>
         </Card>
