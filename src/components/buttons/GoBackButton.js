@@ -14,6 +14,10 @@ const Button = styled.button`
     display: flex;
     align-items: flex-start;
     gap: 2.3rem;
+
+    &:hover span {
+        color: #7e88c3;
+    }
 `;
 
 const GoBackButton = () => {
