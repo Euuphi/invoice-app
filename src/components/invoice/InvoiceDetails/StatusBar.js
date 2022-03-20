@@ -6,6 +6,7 @@ import StatusIcon from "../../icons/StatusIcon";
 import CenteredContainer from "components/layout/CenteredContainer";
 import DeleteButton from "components/buttons/DeleteButton";
 import EditButton from "components/buttons/EditButton";
+import MarkAsPaidButton from "components/buttons/MarkAsPaidButton";
 
 const StatusBar = ({ status }) => {
     return (
@@ -17,6 +18,7 @@ const StatusBar = ({ status }) => {
             <CenteredContainer gap="0.8rem">
                 <EditButton />
                 <DeleteButton />
+                <MarkAsPaidButton />
             </CenteredContainer>
         </Card>
     );
