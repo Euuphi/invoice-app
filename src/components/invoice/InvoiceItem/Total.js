@@ -1,6 +1,6 @@
 import styled from "styled-components";
 // Styles
-import { H3Style } from "components/headings/H3";
+import H3Style from "styles/headings/H3Style";
 
 const Span = styled.p`
     ${H3Style}

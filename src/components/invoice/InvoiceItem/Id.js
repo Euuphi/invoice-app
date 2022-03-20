@@ -1,6 +1,6 @@
 import styled from "styled-components";
 // Styles
-import { H3SecondaryStyle } from "components/headings/H3Secondary";
+import H3SecondaryStyle from "styles/headings/H3SecondaryStyle";
 
 const TextContainer = styled.p`
     ${H3SecondaryStyle};

@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 // Font
-import { H3SecondaryStyle } from "components/headings/H3Secondary";
+import H3SecondaryStyle from "styles/headings/H3SecondaryStyle";
 
 const ListItem = styled.li`
     display: flex;

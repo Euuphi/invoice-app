@@ -1,6 +1,6 @@
-import { H3SecondaryStyle } from "components/headings/H3Secondary";
 import styled from "styled-components";
 import { useTheme } from "styled-components";
+import H3SecondaryStyle from "styles/headings/H3SecondaryStyle";
 
 const IconBox = styled.div`
     display: flex;
