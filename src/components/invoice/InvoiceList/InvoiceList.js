@@ -3,19 +3,12 @@ import { useSelector } from "react-redux";
 import FlexContainer from "components/layout/FlexContainer";
 import InvoiceItem from "../InvoiceItem";
 import NoInvoices from "./NoInvoices";
-// Data
-import data from "data/data.json";
 
-const InvoiceList = () => {
-    let invoiceData = [];
-
-    // Extract invoice data from json file intro an array of objects
-    const jsonData = JSON.parse(JSON.stringify(data));
-
+const InvoiceList = ({ invoices }) => {
     // Filter invoices based on filter options
     const filterOptions = useSelector((state) => state.filterOptions);
 
-    invoiceData = jsonData.filter(
+    const invoiceData = invoices.filter(
         (invoice) =>
             invoice.status === filterOptions.paid ||
             invoice.status === filterOptions.pending ||
