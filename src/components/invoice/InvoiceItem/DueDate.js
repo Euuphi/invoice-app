@@ -1,7 +1,9 @@
-import { ParagraphMdStyle } from "components/text/ParagraphMd";
 import styled from "styled-components";
+import convertDate from "functions/convertData";
+// Component
+import { ParagraphMdStyle } from "components/text/ParagraphMd";
 
-const Span = styled.p`
+const Text = styled.p`
     ${ParagraphMdStyle}
 
     color: ${({ theme }) => theme.invoiceItem.dueDate.date};
@@ -22,16 +24,12 @@ const Span = styled.p`
  * @return {JSX} <p> element with date formatted to ("dd MMM yyyy ") eg. 20 Mar 2018
  */
 const DueDate = ({ date }) => {
-    const dateString = new Date(date).toLocaleDateString("en-gb", {
-        year: "numeric",
-        day: "numeric",
-        month: "short",
-    });
+    const dateString = convertDate(date);
 
     return (
-        <Span>
+        <Text>
             <span>Due</span> {dateString}
-        </Span>
+        </Text>
     );
 };
 
