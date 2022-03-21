@@ -3,11 +3,11 @@ import styled from "styled-components";
 // Theme
 import { colors } from "themes/colors";
 // Components
-import Id from "./Id";
+import Id from "components/invoice/Id";
 import DueDate from "./DueDate";
 import Name from "./Name";
 import Total from "./Total";
-import StatusIcon from "../../icons/StatusIcon";
+import StatusIcon from "components/icons/StatusIcon";
 import RightArrowIcon from "./RightArrowIcon";
 import Card from "components/layout/Card";
 
