@@ -7,6 +7,7 @@ const FlexContainer = styled.div`
     flex-direction: ${({ flexDirection }) => flexDirection};
     gap: ${({ gap }) => gap};
     justify-content: ${({ justifyContent }) => justifyContent};
+    width: ${({ width }) => width};
 `;
 
 FlexContainer.defaultProps = {

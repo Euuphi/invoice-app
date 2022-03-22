@@ -1,11 +1,15 @@
 // Components
 import Card from "components/layout/Card";
-import DeatailsHeader from "./DeatailHeader";
+import DetailsHeader from "./DeatailsHeader";
 
 const InvoiceDetails = ({ invoice }) => {
     return (
         <Card>
-            <DeatailsHeader id={invoice.id} description={invoice.description} />
+            <DetailsHeader
+                id={invoice.id}
+                description={invoice.description}
+                senderAddress={invoice.senderAddress}
+            />
         </Card>
     );
 };
