@@ -1,7 +1,7 @@
 const lightTheme = {
     background: {
         primary: "#f8f8f8",
-        secondary: "#f9fafe",
+        secondary: "#fff",
         tertiary: "#f9fafe",
     },
     button: {

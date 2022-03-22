@@ -3,10 +3,12 @@ import styled from "styled-components";
 import Card from "components/layout/Card";
 import DetailsHeader from "./DeatailsHeader";
 import Details from "./Details/";
+import Subtotals from "./Subtotals";
 
 const DetailsCard = styled(Card)`
     flex-direction: column;
     gap: 3rem;
+    padding: 4.8rem;
 `;
 
 const InvoiceDetails = ({ invoice }) => {
@@ -24,6 +26,7 @@ const InvoiceDetails = ({ invoice }) => {
                 clientAddress={invoice.clientAddress}
                 clientEmail={invoice.clientEmail}
             />
+            <Subtotals items={invoice.items} total={invoice.total} />
         </DetailsCard>
     );
 };
