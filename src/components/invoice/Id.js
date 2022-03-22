@@ -3,13 +3,13 @@ import styled from "styled-components";
 import H3SecondaryStyle from "styles/headings/H3SecondaryStyle";
 
 const TextContainer = styled.p`
-    ${({ fontStyle }) => fontStyle};
+    ${({ textStyle }) => textStyle};
 
     display: inline-block;
     width: 10rem;
 
     & span {
-        color: #7e88c3;
+        color: ${({ hashColor }) => hashColor};
     }
 `;
 
@@ -18,11 +18,12 @@ const TextContainer = styled.p`
  *
  * @param {string} text - String of text to display
  * @param {css} textStyle - Styled-components css
+ * @param {string} hashColor - Color of "#" as a string
  * @return {JSX} <p> element of styled text
  */
-const Id = ({ text, textStyle }) => {
+const Id = ({ text, textStyle, hashColor }) => {
     return (
-        <TextContainer fontStyle={textStyle}>
+        <TextContainer textStyle={textStyle} hashColor={hashColor}>
             <span>#</span>
             {text}
         </TextContainer>
@@ -33,4 +34,5 @@ export default Id;
 
 Id.defaultProps = {
     textStyle: H3SecondaryStyle,
+    hashColor: "#7e88c3",
 };
