@@ -14,6 +14,13 @@ const DetailText = styled.p`
     font-size: 1.5rem;
 `;
 
+/**
+ * Create element with title and body text
+ *
+ * @param {string} title - String of detail title
+ * @param {string} value - String of detail value
+ * @return {JSX}
+ */
 const DetailItem = ({ title, value }) => {
     return (
         <FlexContainer flexDirection="column" gap="1.2rem">
