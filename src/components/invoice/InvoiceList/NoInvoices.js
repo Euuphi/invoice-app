@@ -3,7 +3,7 @@ import styled from "styled-components";
 // Illustration
 import illustrationUrl from "images/svgs/illustration-empty.svg?url";
 // Components
-import H2 from "components/headings/H2";
+import H2Secondary from "components/headings/H2Secondary";
 import ParagraphMd from "components/text/ParagraphMd";
 
 const ImageBox = styled.div`
@@ -31,7 +31,7 @@ const NoInvoices = () => {
                 />
             </ImageBox>
             <TextContainer>
-                <H2>There is nothing here</H2>
+                <H2Secondary>There is nothing here</H2Secondary>
                 <ParagraphMd>
                     Create an invoice by clicking the{" "}
                     <strong>New Invoice</strong> button and get started
