@@ -3,6 +3,7 @@ const darkTheme = {
         primary: "#141625",
         secondary: "#1e2139",
         tertiary: "#252945",
+        detailsTotal: "#0c0e16",
     },
     button: {
         edit: {

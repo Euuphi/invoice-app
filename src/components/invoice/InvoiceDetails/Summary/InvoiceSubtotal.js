@@ -1,4 +1,5 @@
 import styled from "styled-components";
+// Styles
 import ParagraphSmStyle from "styles/text/ParagraphSmStyle";
 
 const Table = styled.table`
@@ -6,7 +7,7 @@ const Table = styled.table`
     flex-direction: column;
     gap: 3.2rem;
     background-color: ${({ theme }) => theme.background.tertiary};
-    border-radius: 0.8rem 0.8rem 0 0;
+
     padding: 3.2rem;
     text-align: right;
     width: 100%;
@@ -26,7 +27,7 @@ const Table = styled.table`
     }
 `;
 
-const Subtotals = ({ items }) => {
+const InvoiceSubtotal = ({ items }) => {
     return (
         <Table>
             <tr>
@@ -49,4 +50,4 @@ const Subtotals = ({ items }) => {
     );
 };
 
-export default Subtotals;
+export default InvoiceSubtotal;

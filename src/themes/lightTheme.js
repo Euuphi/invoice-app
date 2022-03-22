@@ -3,6 +3,7 @@ const lightTheme = {
         primary: "#f8f8f8",
         secondary: "#fff",
         tertiary: "#f9fafe",
+        detailsTotal: "#373b53",
     },
     button: {
         edit: {
