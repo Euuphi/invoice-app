@@ -20,6 +20,9 @@ const InvoiceDetails = ({ invoice }) => {
             <Details
                 createdDate={invoice.createdAt}
                 dueDate={invoice.paymentDue}
+                clientName={invoice.clientName}
+                clientAddress={invoice.clientAddress}
+                clientEmail={invoice.clientEmail}
             />
         </DetailsCard>
     );
