@@ -1,7 +1,7 @@
 import GridContainer from "components/layout/GridContainer";
 import ClientDetails from "./ClientDetails";
 import Dates from "./Dates";
-import DetailItem from "./DetailItem";
+import DetailInfo from "./DetailInfo";
 
 const Details = ({
     createdDate,
@@ -18,7 +18,7 @@ const Details = ({
                 address={clientAddress}
                 email={clientEmail}
             />
-            <DetailItem title="Sent to" value={clientEmail} />
+            <DetailInfo title="Sent to" value={clientEmail} />
         </GridContainer>
     );
 };

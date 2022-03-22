@@ -21,7 +21,7 @@ const DetailText = styled.p`
  * @param {string} value - String of detail value
  * @return {JSX}
  */
-const DetailItem = ({ title, value }) => {
+const DetailInfo = ({ title, value }) => {
     return (
         <FlexContainer flexDirection="column" gap="1.2rem">
             <DetailTitle>{title}</DetailTitle>
@@ -30,4 +30,4 @@ const DetailItem = ({ title, value }) => {
     );
 };
 
-export default DetailItem;
+export default DetailInfo;
