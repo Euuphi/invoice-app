@@ -34,7 +34,7 @@ export default function InvoiceItem() {
                     <FlexContainer flexDirection="column" gap="2.6rem">
                         <GoBackButton />
                         <StatusBar status={invoice.status} />
-                        <InvoiceDetails />
+                        <InvoiceDetails invoice={invoice} />
                     </FlexContainer>
                 </MainContainer>
             </Background>

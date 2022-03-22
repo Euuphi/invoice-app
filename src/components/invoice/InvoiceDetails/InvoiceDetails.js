@@ -1,11 +1,11 @@
 // Components
 import Card from "components/layout/Card";
-import DeatailHeader from "./DeatailHeader";
+import DeatailsHeader from "./DeatailHeader";
 
-const InvoiceDetails = () => {
+const InvoiceDetails = ({ invoice }) => {
     return (
         <Card>
-            <DeatailHeader />
+            <DeatailsHeader id={invoice.id} description={invoice.description} />
         </Card>
     );
 };
