@@ -11,7 +11,7 @@ const Container = styled.div`
     position: absolute;
     bottom: 0;
 
-    background-color: ${({ theme }) => theme.background.tertiary};
+    background-color: ${({ theme }) => theme.background.filterOptions};
     border-radius: 1.2rem;
     box-shadow: 0 1rem 2rem ${({ theme }) => theme.shadow.medium};
     padding: 2.4rem;
@@ -29,7 +29,7 @@ const FilterOptionsList = styled.ul`
 const FilterOptionsDropdown = () => {
     //TODO: Create custom checkboxes
     return (
-        <Container>
+        <Container autofocus>
             <FilterOptionsList>
                 <FilterOptionsItem
                     id="draft"

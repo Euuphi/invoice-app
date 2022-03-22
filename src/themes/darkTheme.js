@@ -4,6 +4,7 @@ const darkTheme = {
         secondary: "#1e2139",
         tertiary: "#252945",
         detailsTotal: "#0c0e16",
+        filterOptions: "#252945",
     },
     button: {
         edit: {

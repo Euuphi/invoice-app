@@ -4,6 +4,7 @@ const lightTheme = {
         secondary: "#fff",
         tertiary: "#f9fafe",
         detailsTotal: "#373b53",
+        filterOptions: "#fff",
     },
     button: {
         edit: {
