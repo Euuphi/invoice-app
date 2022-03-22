@@ -19,7 +19,7 @@ const FilterOptions = () => {
     return (
         <Container>
             <FilterOptionsButton onClick={clickHandler} menuOpen={menuOpen} />
-            {menuOpen && <FilterOptionsDropdown />}
+            <FilterOptionsDropdown open={menuOpen} />
         </Container>
     );
 };

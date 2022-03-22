@@ -17,6 +17,9 @@ const Container = styled.div`
     padding: 2.4rem;
     width: 130%;
     transform: translate(-12.5%, 110%);
+
+    /* Toggle drop down visibility */
+    display: ${({ open }) => (open ? "block" : "none")};
 `;
 
 const FilterOptionsList = styled.ul`
@@ -26,10 +29,10 @@ const FilterOptionsList = styled.ul`
     list-style: none;
 `;
 
-const FilterOptionsDropdown = () => {
+const FilterOptionsDropdown = ({ open }) => {
     //TODO: Create custom checkboxes
     return (
-        <Container autofocus>
+        <Container open={open}>
             <FilterOptionsList>
                 <FilterOptionsItem
                     id="draft"
