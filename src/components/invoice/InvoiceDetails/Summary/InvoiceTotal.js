@@ -2,6 +2,7 @@ import styled from "styled-components";
 import convertCurrency from "functions/convertCurrency";
 // Styles
 import ParagraphSmStyle from "styles/text/ParagraphSmStyle";
+import H2Style from "styles/headings/H2Style";
 
 const InvoiceTotalContainer = styled.div`
     display: flex;
@@ -20,12 +21,8 @@ const Label = styled.span`
 `;
 
 const Total = styled.span`
+    ${H2Style}
     color: #fff;
-    font-family: "Spartan", sans-serif;
-    font-size: 2.4rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    line-height: 3.2rem;
 `;
 
 const InvoiceTotal = ({ total }) => {
