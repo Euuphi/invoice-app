@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import convertDate from "functions/convertData";
+import convertDate from "functions/convertDate";
 // Component
 import ParagraphMdStyle from "styles/text/ParagraphMdStyle";
 
