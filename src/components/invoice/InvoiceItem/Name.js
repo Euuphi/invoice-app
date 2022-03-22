@@ -1,6 +1,6 @@
 import styled from "styled-components";
 // Styles
-import { ParagraphMdStyle } from "components/text/ParagraphMd";
+import ParagraphMdStyle from "styles/text/ParagraphMdStyle";
 
 const TextContainer = styled.p`
     ${ParagraphMdStyle}

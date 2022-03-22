@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import convertDate from "functions/convertData";
 // Component
-import { ParagraphMdStyle } from "components/text/ParagraphMd";
+import ParagraphMdStyle from "styles/text/ParagraphMdStyle";
 
 const Text = styled.p`
     ${ParagraphMdStyle}
