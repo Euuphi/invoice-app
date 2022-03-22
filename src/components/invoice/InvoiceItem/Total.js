@@ -1,3 +1,4 @@
+import convertCurrency from "functions/convertCurrency";
 import styled from "styled-components";
 // Styles
 import H3Style from "styles/headings/H3Style";
@@ -17,14 +18,9 @@ const Span = styled.p`
  * @return {JSX} - <p> element with input number formatted into EUR currency eg. £ 1,800.9
  */
 const Total = ({ total }) => {
-    const currencyFormatter = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "EUR",
-    });
+    const formattedTotal = convertCurrency(total);
 
-    const totalFormat = currencyFormatter.format(total).replace("€", "£ ");
-
-    return <Span>{totalFormat}</Span>;
+    return <Span>{formattedTotal}</Span>;
 };
 
 export default Total;
