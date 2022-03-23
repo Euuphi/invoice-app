@@ -16,6 +16,7 @@ const Background = styled.div`
 
 const FormContainer = styled.div`
     padding: 5.6rem;
+    padding-bottom: 0;
 `;
 
 const FormTitle = styled.h2`
