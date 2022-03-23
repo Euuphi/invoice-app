@@ -5,6 +5,7 @@ const lightTheme = {
         tertiary: "#f9fafe",
         detailsTotal: "#373b53",
         filterOptions: "#fff",
+        form: "#fff",
     },
     button: {
         edit: {

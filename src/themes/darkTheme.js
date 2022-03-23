@@ -5,6 +5,7 @@ const darkTheme = {
         tertiary: "#252945",
         detailsTotal: "#0c0e16",
         filterOptions: "#252945",
+        form: "#141625",
     },
     button: {
         edit: {

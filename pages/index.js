@@ -1,11 +1,12 @@
 import Head from "next/head";
+// Data
+import data from "data/data.json";
 // Components
 import Background from "components/layout/Background";
 import MainContainer from "components/layout/MainContainer";
 import MainHeading from "components/sections/MainHeading";
 import InvoiceList from "components/invoice/InvoiceList";
-// Data
-import data from "data/data.json";
+import InvoiceForm from "components/forms/InvoiceForm";
 
 export default function Home() {
     // TODO: Placeholder for back-end invoice retrieval
@@ -21,6 +22,7 @@ export default function Home() {
                 <MainContainer>
                     <MainHeading />
                     <InvoiceList invoices={invoices} />
+                    <InvoiceForm />
                 </MainContainer>
             </Background>
         </>
