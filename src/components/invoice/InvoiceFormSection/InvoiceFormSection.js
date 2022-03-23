@@ -3,7 +3,7 @@ import styled from "styled-components";
 import H2Style from "styles/headings/H2Style";
 // Components
 import Backdrop from "components/ui/Backdrop";
-import BillFrom from "./BillFrom";
+import InvoiceForm from "components/forms/InvoiceForm";
 
 const Background = styled.div`
     background-color: ${({ theme }) => theme.background.form};
@@ -22,23 +22,22 @@ const FormTitle = styled.h2`
 
     margin-bottom: 5.6rem;
 `;
-const InvoiceForm = ({ formTitle }) => {
+
+const InvoiceFormSection = ({ formTitle }) => {
     return (
         <Backdrop>
             <Background>
                 <FormContainer>
                     <FormTitle>{formTitle}</FormTitle>
-                    <form>
-                        <BillFrom />
-                    </form>
+                    <InvoiceForm />
                 </FormContainer>
             </Background>
         </Backdrop>
     );
 };
 
-export default InvoiceForm;
+export default InvoiceFormSection;
 
-InvoiceForm.defaultProps = {
+InvoiceFormSection.defaultProps = {
     formTitle: "New Invoice",
 };
