@@ -1,4 +1,6 @@
 import styled from "styled-components";
+// Context
+import { FormProvider } from "context/FormContext";
 // Styles
 import H2Style from "styles/headings/H2Style";
 // Components
@@ -29,7 +31,9 @@ const InvoiceFormSection = ({ formTitle }) => {
             <Background>
                 <FormContainer>
                     <FormTitle>{formTitle}</FormTitle>
-                    <InvoiceForm />
+                    <FormProvider>
+                        <InvoiceForm />
+                    </FormProvider>
                 </FormContainer>
             </Background>
         </Backdrop>
