@@ -31,15 +31,24 @@ const Input = styled.input`
         border-color: ${({ theme }) => theme.form.focus};
         outline: none;
     }
+
+    &::placeholder {
+        color: ${({ theme }) => theme.form.placeholder};
+    }
 `;
 
-const TextInput = ({ name, label, fullGridColumn }) => {
+const TextInput = ({ name, label, placeholder, fullGridColumn }) => {
     const { onChangeHandler } = useContext(FormContext);
 
     return (
         <InputContainer fullGridColumn={fullGridColumn}>
             <Label htmlFor={name}>{label}</Label>
-            <Input name={name} type="text" onChange={onChangeHandler} />
+            <Input
+                name={name}
+                type="text"
+                onChange={onChangeHandler}
+                placeholder={placeholder}
+            />
         </InputContainer>
     );
 };

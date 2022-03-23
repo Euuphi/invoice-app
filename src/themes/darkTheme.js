@@ -28,6 +28,7 @@ const darkTheme = {
         background: "#141625",
         border: "#252945",
         focus: "#9277ff",
+        placeholder: "#fff",
     },
     nav: "#1e2139",
     text: { primary: "#fff", secondary: "#dfe3fa" },

@@ -31,6 +31,7 @@ const lightTheme = {
         background: "#fff",
         border: "#dfe3fa",
         focus: "#7c5dfa",
+        placeholder: "#9e9ea2",
     },
     nav: "#373b53",
     text: { primary: "#0c0e16", secondary: "#7e88c3" },
