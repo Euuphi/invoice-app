@@ -6,7 +6,7 @@ import Background from "components/layout/Background";
 import MainContainer from "components/layout/MainContainer";
 import MainHeading from "components/sections/MainHeading";
 import InvoiceList from "components/invoice/InvoiceList";
-import InvoiceFormSection from "components/invoice/InvoiceFormSection";
+import InvoiceFormSection from "components/invoice/InvoiceFormPage";
 
 export default function Home() {
     // TODO: Placeholder for back-end invoice retrieval

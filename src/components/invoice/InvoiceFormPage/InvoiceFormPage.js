@@ -12,7 +12,6 @@ const Background = styled.div`
     border-radius: 2rem;
     padding-left: 10.3rem;
     width: 72rem;
-    height: 100vh;
 `;
 
 const FormContainer = styled.div`
@@ -25,7 +24,7 @@ const FormTitle = styled.h2`
     margin-bottom: 5.6rem;
 `;
 
-const InvoiceFormSection = ({ formTitle }) => {
+const InvoiceFormPage = ({ formTitle }) => {
     return (
         <Backdrop>
             <Background>
@@ -40,8 +39,8 @@ const InvoiceFormSection = ({ formTitle }) => {
     );
 };
 
-export default InvoiceFormSection;
+export default InvoiceFormPage;
 
-InvoiceFormSection.defaultProps = {
+InvoiceFormPage.defaultProps = {
     formTitle: "New Invoice",
 };
