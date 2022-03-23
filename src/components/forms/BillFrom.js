@@ -20,6 +20,9 @@ const BillFrom = () => {
         <FormSection>
             <FormSectionTitle>Bill From</FormSectionTitle>
             <TextInput name="streetAddress" label="Street Address" />
+            <TextInput name="city" label="City" />
+            <TextInput name="postCode" label="Post Code" />
+            <TextInput name="country" label="Country" />
         </FormSection>
     );
 };

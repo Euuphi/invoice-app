@@ -5,7 +5,6 @@ const darkTheme = {
         tertiary: "#252945",
         detailsTotal: "#0c0e16",
         filterOptions: "#252945",
-        form: "#141625",
     },
     button: {
         edit: {
@@ -25,6 +24,11 @@ const darkTheme = {
         },
     },
     invoiceItem: { dueDate: { due: "#dfe3fa", date: "#dfe3fa" }, name: "#fff" },
+    form: {
+        background: "#141625",
+        border: "#252945",
+        focus: "#9277ff",
+    },
     nav: "#1e2139",
     text: { primary: "#fff", secondary: "#dfe3fa" },
     shadow: {

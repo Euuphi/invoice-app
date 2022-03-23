@@ -8,7 +8,7 @@ import Backdrop from "components/ui/Backdrop";
 import InvoiceForm from "components/forms/InvoiceForm";
 
 const Background = styled.div`
-    background-color: ${({ theme }) => theme.background.form};
+    background-color: ${({ theme }) => theme.form.background};
     border-radius: 2rem;
     padding-left: 10.3rem;
     width: 72rem;
