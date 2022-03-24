@@ -2,6 +2,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import { FormContext } from "context/FormContext";
 import ParagraphMdStyle from "styles/text/ParagraphMdStyle";
+import H3SecondaryStyle from "styles/headings/H3SecondaryStyle";
 
 const InputContainer = styled.div`
     display: flex;
@@ -15,6 +16,8 @@ const Label = styled.label`
 `;
 
 const Select = styled.select`
+    ${H3SecondaryStyle}
+
     background-color: ${({ theme }) => theme.background.secondary};
     border: 1px solid ${({ theme }) => theme.form.border};
     border-radius: 0.4rem;
