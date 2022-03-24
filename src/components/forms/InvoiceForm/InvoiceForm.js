@@ -2,17 +2,14 @@
 import BillFrom from "./BillFrom";
 import BillTo from "./BillTo";
 import InputField from "../InputField";
+import InvoiceFormDetails from "./InvoiceFormDetails";
 
 const InvoiceForm = () => {
     return (
         <form>
             <BillFrom />
             <BillTo />
-            <InputField
-                inputType="date"
-                name="createdAt"
-                label="Invoice Date"
-            />
+            <InvoiceFormDetails />
         </form>
     );
 };
