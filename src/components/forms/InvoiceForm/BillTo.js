@@ -5,7 +5,7 @@ import InputField from "../InputField";
 
 const BillTo = () => {
     return (
-        <FormGroup>
+        <FormGroup columns="1fr 1fr 1fr">
             <FormGroupTitle>Bill To</FormGroupTitle>
             <InputField
                 inputType="text"

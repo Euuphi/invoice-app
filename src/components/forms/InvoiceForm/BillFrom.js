@@ -5,7 +5,7 @@ import InputField from "components/forms/InputField";
 
 const BillFrom = () => {
     return (
-        <FormGroup>
+        <FormGroup columns="1fr 1fr 1fr">
             <FormGroupTitle>Bill From</FormGroupTitle>
             <InputField
                 inputType="text"
