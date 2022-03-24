@@ -2,6 +2,7 @@ import GridContainer from "components/layout/GridContainer";
 import ParagraphSmStyle from "styles/text/ParagraphSmStyle";
 import styled from "styled-components";
 import FormGroup from "../FormGroup";
+import AddNewItemButton from "components/buttons/formButtons/AddNewItem";
 
 const Heading = styled.legend`
     color: #777f98;
@@ -25,8 +26,9 @@ const ItemList = () => {
                 <Label>Item Name</Label>
                 <Label>Qty.</Label>
                 <Label>Price</Label>
-                <Label style={{ gridColumn: "-3 / -1" }}>Total</Label>
+                <Label style={{ gridColumn: "span 2" }}>Total</Label>
             </GridContainer>
+            <AddNewItemButton />
         </FormGroup>
     );
 };
