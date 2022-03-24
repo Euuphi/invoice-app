@@ -1,8 +1,8 @@
 // Components
 import BillFrom from "./BillFrom";
 import BillTo from "./BillTo";
-import InputField from "../InputField";
 import InvoiceFormDetails from "./InvoiceFormDetails";
+import ItemList from "./ItemList";
 
 const InvoiceForm = () => {
     return (
@@ -10,6 +10,7 @@ const InvoiceForm = () => {
             <BillFrom />
             <BillTo />
             <InvoiceFormDetails />
+            <ItemList />
         </form>
     );
 };
