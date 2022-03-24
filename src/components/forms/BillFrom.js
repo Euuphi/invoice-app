@@ -1,20 +1,21 @@
 // Components
 import FormGroup from "./FormGroup";
 import FormGroupTitle from "./FormGroupTitle";
-import TextInput from "./TextInput";
+import InputField from "./InputField";
 
 const BillFrom = () => {
     return (
         <FormGroup>
             <FormGroupTitle>Bill From</FormGroupTitle>
-            <TextInput
+            <InputField
+                inputType="text"
                 name="streetAddress"
                 label="Street Address"
                 fullGridColumn
             />
-            <TextInput name="city" label="City" />
-            <TextInput name="postCode" label="Post Code" />
-            <TextInput name="country" label="Country" />
+            <InputField inputType="text" name="city" label="City" />
+            <InputField inputType="text" name="postCode" label="Post Code" />
+            <InputField inputType="text" name="country" label="Country" />
         </FormGroup>
     );
 };

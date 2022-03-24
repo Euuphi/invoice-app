@@ -1,26 +1,33 @@
 // Components
 import FormGroup from "./FormGroup";
 import FormGroupTitle from "./FormGroupTitle";
-import TextInput from "./TextInput";
+import InputField from "./InputField";
 
 const BillTo = () => {
     return (
         <FormGroup>
             <FormGroupTitle>Bill To</FormGroupTitle>
-            <TextInput name="clientName" label="Client's Name" fullGridColumn />
-            <TextInput
+            <InputField
+                inputType="text"
+                name="clientName"
+                label="Client's Name"
+                fullGridColumn
+            />
+            <InputField
+                inputType="text"
                 name="clientEmail"
                 label="Client's Email"
                 fullGridColumn
             />
-            <TextInput
+            <InputField
+                inputType="text"
                 name="streetAddress"
                 label="Street Address"
                 fullGridColumn
             />
-            <TextInput name="city" label="City" />
-            <TextInput name="postCode" label="Post Code" />
-            <TextInput name="country" label="Country" />
+            <InputField inputType="text" name="city" label="City" />
+            <InputField inputType="text" name="postCode" label="Post Code" />
+            <InputField inputType="text" name="country" label="Country" />
         </FormGroup>
     );
 };

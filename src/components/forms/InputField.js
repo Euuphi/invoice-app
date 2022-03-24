@@ -37,7 +37,13 @@ const Input = styled.input`
     }
 `;
 
-const TextInput = ({ name, label, placeholder, fullGridColumn }) => {
+const InputField = ({
+    inputType,
+    name,
+    label,
+    placeholder,
+    fullGridColumn,
+}) => {
     const { onChangeHandler } = useContext(FormContext);
 
     return (
@@ -45,7 +51,7 @@ const TextInput = ({ name, label, placeholder, fullGridColumn }) => {
             <Label htmlFor={name}>{label}</Label>
             <Input
                 name={name}
-                type="text"
+                type={inputType}
                 onChange={onChangeHandler}
                 placeholder={placeholder}
             />
@@ -53,4 +59,4 @@ const TextInput = ({ name, label, placeholder, fullGridColumn }) => {
     );
 };
 
-export default TextInput;
+export default InputField;
