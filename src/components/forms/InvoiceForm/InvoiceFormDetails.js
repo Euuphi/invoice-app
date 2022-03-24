@@ -11,6 +11,12 @@ const InvoiceFormDetails = () => {
                 label="Invoice Date"
             />
             <SelectField name="paymentTerms" label="Payment Terms" />
+            <InputField
+                inputType="text"
+                name="description"
+                label="Project Description"
+                fullGridColumn
+            />
         </FormGroup>
     );
 };
