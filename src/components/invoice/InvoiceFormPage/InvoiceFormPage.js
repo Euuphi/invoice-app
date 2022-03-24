@@ -5,7 +5,7 @@ import { FormProvider } from "context/FormContext";
 import H2Style from "styles/headings/H2Style";
 // Components
 import Backdrop from "components/ui/Backdrop";
-import InvoiceForm from "components/forms/InvoiceForm";
+import InvoiceForm from "components/forms/InvoiceForm/";
 
 const Background = styled.div`
     background-color: ${({ theme }) => theme.form.background};

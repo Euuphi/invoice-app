@@ -1,7 +1,7 @@
 // Components
-import FormGroup from "./FormGroup";
-import FormGroupTitle from "./FormGroupTitle";
-import InputField from "./InputField";
+import FormGroup from "components/forms/FormGroup";
+import FormGroupTitle from "components/forms/FormGroupTitle";
+import InputField from "components/forms/InputField";
 
 const BillFrom = () => {
     return (
