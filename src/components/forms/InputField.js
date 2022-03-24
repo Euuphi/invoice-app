@@ -27,6 +27,8 @@ const Input = styled.input`
  * @param {string} label - Text for label element
  * @param {string} placeholder - Placeholder for input field
  * @param {string} fullGridColumn - Set element to expand entire width of grid contianer
+ * @param {string} min - Set min value for number input
+ * @param {string} step - Set step for number input
  * @return {JSX} Label and input elements
  */
 const InputField = ({
@@ -35,17 +37,21 @@ const InputField = ({
     label,
     placeholder,
     fullGridColumn,
+    min,
+    step,
 }) => {
     const { onChangeHandler } = useContext(FormContext);
 
     return (
         <InputContainer fullGridColumn={fullGridColumn}>
-            <Label htmlFor={name}>{label}</Label>
+            {label && <Label htmlFor={name}>{label}</Label>}
             <Input
                 name={name}
                 type={inputType}
                 onChange={onChangeHandler}
                 placeholder={placeholder}
+                min={min}
+                step={step}
             />
         </InputContainer>
     );
