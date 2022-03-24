@@ -13,12 +13,12 @@ const InputStyle = css`
     width: 100%;
 
     &:focus {
-        border-color: ${({ theme }) => theme.form.focus};
+        border-color: ${({ theme }) => theme.form.focusBorder};
         outline: none;
     }
 
     &::placeholder {
-        color: ${({ theme }) => theme.form.placeholder};
+        color: ${({ theme }) => theme.form.placeholderText};
     }
 `;
 

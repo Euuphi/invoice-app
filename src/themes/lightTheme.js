@@ -30,8 +30,9 @@ const lightTheme = {
     form: {
         background: "#fff",
         border: "#dfe3fa",
-        focus: "#7c5dfa",
-        placeholder: "#9e9ea2",
+        focusBorder: "#7c5dfa",
+        placeholderText: "#9e9ea2",
+        itemTotalText: "#888eb0",
     },
     nav: "#373b53",
     text: { primary: "#0c0e16", secondary: "#7e88c3" },

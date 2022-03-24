@@ -27,8 +27,9 @@ const darkTheme = {
     form: {
         background: "#141625",
         border: "#252945",
-        focus: "#9277ff",
-        placeholder: "#fff",
+        focusBorder: "#9277ff",
+        placeholderText: "#fff",
+        itemTotalText: "#dfe3fa",
     },
     nav: "#1e2139",
     text: { primary: "#fff", secondary: "#dfe3fa" },
