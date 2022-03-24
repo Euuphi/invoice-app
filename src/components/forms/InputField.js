@@ -19,6 +19,16 @@ const Input = styled.input`
     ${InputStyle}
 `;
 
+/**
+ * Create input field with label element
+ *
+ * @param {string} inputType - Type for input field
+ * @param {string} name - Name for input field
+ * @param {string} label - Text for label element
+ * @param {string} placeholder - Placeholder for input field
+ * @param {string} fullGridColumn - Set element to expand entire width of grid contianer
+ * @return {JSX} Label and input elements
+ */
 const InputField = ({
     inputType,
     name,
