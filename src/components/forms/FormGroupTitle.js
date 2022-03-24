@@ -3,11 +3,11 @@ import styled from "styled-components";
 import H3SecondaryStyle from "styles/headings/H3SecondaryStyle";
 import { colors } from "themes/colors";
 
-const FormSectionTitle = styled.legend`
+const FormGroupTitle = styled.legend`
     ${H3SecondaryStyle}
 
     color: ${colors.main.primary};
     margin-bottom: 2.4rem;
 `;
 
-export default FormSectionTitle;
+export default FormGroupTitle;

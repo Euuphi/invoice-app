@@ -1,12 +1,12 @@
 // Components
-import FormSection from "./FormSection";
-import FormSectionTitle from "./FormSectionTitle";
+import FormGroup from "./FormGroup";
+import FormGroupTitle from "./FormGroupTitle";
 import TextInput from "./TextInput";
 
 const BillFrom = () => {
     return (
-        <FormSection>
-            <FormSectionTitle>Bill From</FormSectionTitle>
+        <FormGroup>
+            <FormGroupTitle>Bill From</FormGroupTitle>
             <TextInput
                 name="streetAddress"
                 label="Street Address"
@@ -15,7 +15,7 @@ const BillFrom = () => {
             <TextInput name="city" label="City" />
             <TextInput name="postCode" label="Post Code" />
             <TextInput name="country" label="Country" />
-        </FormSection>
+        </FormGroup>
     );
 };
 

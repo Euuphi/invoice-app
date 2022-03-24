@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const FormSection = styled.fieldset`
+const FormGroup = styled.fieldset`
     display: grid;
     column-gap: 2.4rem;
     grid-template-columns: 1fr 1fr 1fr;
@@ -9,4 +9,4 @@ const FormSection = styled.fieldset`
     border: none;
 `;
 
-export default FormSection;
+export default FormGroup;

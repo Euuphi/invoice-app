@@ -1,12 +1,12 @@
 // Components
-import FormSection from "./FormSection";
-import FormSectionTitle from "./FormSectionTitle";
+import FormGroup from "./FormGroup";
+import FormGroupTitle from "./FormGroupTitle";
 import TextInput from "./TextInput";
 
 const BillTo = () => {
     return (
-        <FormSection>
-            <FormSectionTitle>Bill To</FormSectionTitle>
+        <FormGroup>
+            <FormGroupTitle>Bill To</FormGroupTitle>
             <TextInput name="clientName" label="Client's Name" fullGridColumn />
             <TextInput
                 name="clientEmail"
@@ -21,7 +21,7 @@ const BillTo = () => {
             <TextInput name="city" label="City" />
             <TextInput name="postCode" label="Post Code" />
             <TextInput name="country" label="Country" />
-        </FormSection>
+        </FormGroup>
     );
 };
 
