@@ -9,7 +9,6 @@ const InputStyle = css`
     border-radius: 0.4rem;
     color: ${({ theme }) => theme.text.primary};
     height: 4.8rem;
-    margin-bottom: 2.4rem;
     padding: 0 2rem;
     width: 100%;
 
