@@ -14,12 +14,25 @@ const Span = styled.span`
 `;
 
 const ItemListItem = () => {
+    // Variable to adjust padding of input fields
+    const inputPadding = "1.7rem";
+    // Input states
     const [inputs, setInputs] = useState({});
+
     return (
         <>
-            <InputField inputType="text" />
-            <InputField inputType="number" min="0" />
-            <InputField inputType="number" step="0.01" min="0.00" />
+            <InputField inputType="text" inputPadding={inputPadding} />
+            <InputField
+                inputType="number"
+                inputPadding={inputPadding}
+                min="0"
+            />
+            <InputField
+                inputType="number"
+                inputPadding={inputPadding}
+                step="0.01"
+                min="0.00"
+            />
             <Span>20,000.00</Span>
             <TrashCanButton />
         </>
