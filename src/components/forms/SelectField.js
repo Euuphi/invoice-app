@@ -26,11 +26,11 @@ const SelectField = ({ name, label, fullGridColumn }) => {
     return (
         <InputContainer fullGridColumn={fullGridColumn}>
             <Label htmlFor={name}>{label}</Label>
-            <Select name={name}>
-                <option>Net 1 Days</option>
-                <option>Net 7 Days</option>
-                <option>Net 14 Days</option>
-                <option>Net 30 Days</option>
+            <Select name={name} onChange={onChangeHandler}>
+                <option value="1">Net 1 Days</option>
+                <option value="7">Net 7 Days</option>
+                <option value="14">Net 14 Days</option>
+                <option value="30">Net 30 Days</option>
             </Select>
         </InputContainer>
     );

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 // Components
 import InputField from "components/forms/InputField";
@@ -16,8 +15,6 @@ const Span = styled.span`
 const ItemListItem = () => {
     // Variable to adjust padding of input fields
     const inputPadding = "1.7rem";
-    // Input states
-    const [inputs, setInputs] = useState({});
 
     return (
         <>
