@@ -17,6 +17,13 @@ const Label = styled.label`
 
 const Input = styled.input`
     ${InputStyle}
+
+    /* Hide  arrows for number input */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 `;
 
 /**
