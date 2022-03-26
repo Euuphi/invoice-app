@@ -18,6 +18,8 @@ const Label = styled.label`
 const Input = styled.input`
     ${InputStyle}
 
+    padding: ${({ inputPadding }) => inputPadding};
+
     /* Hide  arrows for number input */
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
@@ -30,6 +32,7 @@ const Input = styled.input`
  * Create input field with label element
  *
  * @param {string} inputType - Type for input field
+ * @param {string} inputPadding - Padding for input
  * @param {string} name - Name for input field
  * @param {string} label - Text for label element
  * @param {string} placeholder - Placeholder for input field
@@ -42,6 +45,7 @@ const InputField = ({
     inputType,
     name,
     label,
+    inputPadding,
     placeholder,
     fullGridColumn,
     min,
@@ -55,6 +59,7 @@ const InputField = ({
             <Input
                 name={name}
                 type={inputType}
+                inputPadding={inputPadding}
                 onChange={onChangeHandler}
                 placeholder={placeholder}
                 min={min}
