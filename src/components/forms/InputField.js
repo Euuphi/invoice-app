@@ -31,25 +31,27 @@ const Input = styled.input`
 /**
  * Create input field with label element
  *
- * @param {string} inputType - Type for input field
- * @param {string} inputPadding - Padding for input
- * @param {string} name - Name for input field
- * @param {string} label - Text for label element
- * @param {string} placeholder - Placeholder for input field
  * @param {string} fullGridColumn - Set element to expand entire width of grid contianer
+ * @param {string} inputPadding - Padding for input
+ * @param {string} inputType - Type for input field
+ * @param {string} label - Text for label element
  * @param {string} min - Set min value for number input
+ * @param {string} name - Name for input field
+ * @param {string} placeholder - Placeholder for input field
  * @param {string} step - Set step for number input
+ * @param {string} value - Value field for input element
  * @return {JSX} Label and input elements
  */
 const InputField = ({
-    inputType,
-    name,
-    label,
-    inputPadding,
-    placeholder,
     fullGridColumn,
+    inputPadding,
+    inputType,
+    label,
     min,
+    name,
+    placeholder,
     step,
+    value,
 }) => {
     const { onChangeHandler } = useContext(FormContext);
 
@@ -64,6 +66,7 @@ const InputField = ({
                 placeholder={placeholder}
                 min={min}
                 step={step}
+                value={value}
             />
         </InputContainer>
     );

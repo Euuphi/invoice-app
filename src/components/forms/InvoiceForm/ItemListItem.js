@@ -21,13 +21,19 @@ const ItemListItem = () => {
 
     return (
         <>
-            <InputField inputType="text" inputPadding={inputPadding} />
             <InputField
+                name="itemName"
+                inputType="text"
+                inputPadding={inputPadding}
+            />
+            <InputField
+                name="itemQuantity"
                 inputType="number"
                 inputPadding={inputPadding}
                 min="0"
             />
             <InputField
+                name="itemPrice"
                 inputType="number"
                 inputPadding={inputPadding}
                 step="0.01"
