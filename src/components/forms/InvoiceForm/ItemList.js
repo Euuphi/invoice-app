@@ -25,6 +25,7 @@ const ItemList = () => {
         <FormGroup>
             <Heading>Item List</Heading>
             <GridContainer
+                alignItems="center"
                 columns="8fr 3fr 4fr 4fr 1fr"
                 columnGap="1.6rem"
                 rowGap="1.6rem">
