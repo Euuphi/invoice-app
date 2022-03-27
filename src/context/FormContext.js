@@ -6,8 +6,22 @@ const createFormContext = () => {
     const FormProvider = ({ children }) => {
         const [inputs, setInputs] = useState({});
 
-        const onChangeHandler = (e) => {
-            setInputs({ ...inputs, [e.target.name]: e.target.value });
+        const onChangeHandler = (e, formGroup) => {
+            const inputName = e.target.name;
+            const inputValue = e.target.value;
+
+            if (formGroup) {
+                setInputs({
+                    ...inputs,
+                    [formGroup]: {
+                        ...inputs[formGroup],
+                        [inputName]: inputValue,
+                    },
+                });
+            } else {
+                setInputs({ ...inputs, [inputName]: inputValue });
+            }
+
             console.log(inputs);
         };
 
