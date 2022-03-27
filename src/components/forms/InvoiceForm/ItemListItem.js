@@ -6,7 +6,7 @@ import { FormContext } from "context/FormContext";
 import InputField from "components/forms/InputField";
 import TrashCanButton from "components/buttons/TrashCanButton";
 
-const ItemListItem = ({ index }) => {
+const ItemListItem = ({ index, onDeleteClickHandler }) => {
     // Variable to adjust padding of input fields
     const inputPadding = "1.7rem";
 
@@ -63,7 +63,7 @@ const ItemListItem = ({ index }) => {
                 inputPadding="0"
                 value={calculateTotal()}
             />
-            <TrashCanButton />
+            <TrashCanButton onClick={(e) => onDeleteClickHandler(e, index)} />
         </>
     );
 };

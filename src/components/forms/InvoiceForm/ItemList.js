@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 // Components
 import GridContainer from "components/layout/GridContainer";
@@ -21,6 +22,20 @@ const Label = styled.label`
 `;
 
 const ItemList = () => {
+    const [itemIndex, setItemIndex] = useState(0);
+    const [itemList, setItemList] = useState([]);
+
+    const onAddClickHandler = (e) => {
+        e.preventDefault();
+        setItemList([...itemList, itemIndex]);
+        setItemIndex(itemIndex + 1);
+    };
+
+    const onDeleteClickHandler = (e, index) => {
+        e.preventDefault();
+        setItemList(itemList.filter((item) => item !== index));
+    };
+
     return (
         <FormGroup>
             <Heading>Item List</Heading>
@@ -35,10 +50,17 @@ const ItemList = () => {
                     <Label>Price</Label>
                     <Label style={{ gridColumn: "span 2" }}>Total</Label>
                 </>
-                <ItemListItem index={0} />
-                <ItemListItem index={1} />
+                {itemList.map((item) => {
+                    return (
+                        <ItemListItem
+                            key={item}
+                            index={item}
+                            onDeleteClickHandler={onDeleteClickHandler}
+                        />
+                    );
+                })}
             </GridContainer>
-            <AddNewItemButton />
+            <AddNewItemButton onClick={onAddClickHandler} />
         </FormGroup>
     );
 };
