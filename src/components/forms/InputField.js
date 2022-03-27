@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { FormContext } from "context/FormContext";
 import ParagraphMdStyle from "styles/text/ParagraphMdStyle";
 import InputStyle from "styles/forms/InputStyle";
@@ -18,6 +18,16 @@ const Label = styled.label`
 const Input = styled.input`
     ${InputStyle}
 
+    // Styles when input is disabled
+    ${({ disabled }) => {
+        if (disabled) {
+            return css`
+                border: none;
+                color: ${({ theme }) => theme.form.itemTotalText};
+            `;
+        }
+    }}
+
     padding: ${({ inputPadding }) => inputPadding};
 
     /* Hide  arrows for number input */
@@ -31,6 +41,7 @@ const Input = styled.input`
 /**
  * Create input field with label element
  *
+ * @param {boolean} disabled - Control if input field is disabled
  * @param {string} formGroup - Name of object to group input into
  * @param {number} formIndex - Index number for item in the form group
  * @param {string} fullGridColumn - Set element to expand entire width of grid contianer
@@ -45,6 +56,7 @@ const Input = styled.input`
  * @return {JSX} Label and input elements
  */
 const InputField = ({
+    disabled,
     formGroup,
     formIndex,
     fullGridColumn,
@@ -63,6 +75,7 @@ const InputField = ({
         <InputContainer fullGridColumn={fullGridColumn}>
             {label && <Label htmlFor={name}>{label}</Label>}
             <Input
+                disabled={disabled}
                 name={name}
                 type={inputType}
                 inputPadding={inputPadding}
