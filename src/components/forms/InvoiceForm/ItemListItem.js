@@ -1,20 +1,10 @@
 import { useContext } from "react";
-import styled from "styled-components";
 import convertCurrency from "functions/convertCurrency";
 // Context
 import { FormContext } from "context/FormContext";
 // Components
 import InputField from "components/forms/InputField";
-import H3SecondaryStyle from "styles/headings/H3SecondaryStyle";
 import TrashCanButton from "components/buttons/TrashCanButton";
-
-const Span = styled.span`
-    display: flex;
-    align-items: center;
-
-    ${H3SecondaryStyle}
-    color: ${({ theme }) => theme.form.itemTotalText};
-`;
 
 const ItemListItem = ({ index }) => {
     // Variable to adjust padding of input fields
@@ -22,7 +12,21 @@ const ItemListItem = ({ index }) => {
 
     // Calculate total by multiplying quantity and price inputs and convert string to currency format
     const { inputs } = useContext(FormContext);
-    // const total = convertCurrency(inputs.item[0] * inputs.item[0]);
+    const calculateTotal = () => {
+        // Check if input field contains a value
+        if (
+            !inputs.items ||
+            !inputs.items[index] ||
+            !inputs.items[index].quantity ||
+            !inputs.items[index].price
+        ) {
+            return convertCurrency(0);
+        } else {
+            return convertCurrency(
+                inputs.items[index].quantity * inputs.items[index].price
+            );
+        }
+    };
 
     return (
         <>
@@ -50,7 +54,15 @@ const ItemListItem = ({ index }) => {
                 step="0.01"
                 min="0.00"
             />
-            <Span>{"0"}</Span>
+            <InputField
+                disabled
+                name="total"
+                inputType="text"
+                formGroup="items"
+                formIndex={index}
+                inputPadding="0"
+                value={calculateTotal()}
+            />
             <TrashCanButton />
         </>
     );
