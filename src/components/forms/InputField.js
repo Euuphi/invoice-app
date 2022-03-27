@@ -31,6 +31,7 @@ const Input = styled.input`
 /**
  * Create input field with label element
  *
+ * @param {string} formGroup - Name of object to group input into
  * @param {string} fullGridColumn - Set element to expand entire width of grid contianer
  * @param {string} inputPadding - Padding for input
  * @param {string} inputType - Type for input field
@@ -43,6 +44,7 @@ const Input = styled.input`
  * @return {JSX} Label and input elements
  */
 const InputField = ({
+    formGroup,
     fullGridColumn,
     inputPadding,
     inputType,
@@ -62,7 +64,7 @@ const InputField = ({
                 name={name}
                 type={inputType}
                 inputPadding={inputPadding}
-                onChange={onChangeHandler}
+                onChange={(e) => onChangeHandler(e, formGroup)}
                 placeholder={placeholder}
                 min={min}
                 step={step}

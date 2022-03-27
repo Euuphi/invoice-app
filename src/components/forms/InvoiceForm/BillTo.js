@@ -23,11 +23,27 @@ const BillTo = () => {
                 inputType="text"
                 name="streetAddress"
                 label="Street Address"
+                formGroup="clientAddress"
                 fullGridColumn
             />
-            <InputField inputType="text" name="city" label="City" />
-            <InputField inputType="text" name="postCode" label="Post Code" />
-            <InputField inputType="text" name="country" label="Country" />
+            <InputField
+                inputType="text"
+                name="city"
+                label="City"
+                formGroup="clientAddress"
+            />
+            <InputField
+                inputType="text"
+                name="postCode"
+                label="Post Code"
+                formGroup="clientAddress"
+            />
+            <InputField
+                inputType="text"
+                name="country"
+                label="Country"
+                formGroup="clientAddress"
+            />
         </FormGroup>
     );
 };

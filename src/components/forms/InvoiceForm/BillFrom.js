@@ -11,11 +11,28 @@ const BillFrom = () => {
                 inputType="text"
                 name="streetAddress"
                 label="Street Address"
+                formGroup="senderAddress"
+                Group="senderAddress"
                 fullGridColumn
             />
-            <InputField inputType="text" name="city" label="City" />
-            <InputField inputType="text" name="postCode" label="Post Code" />
-            <InputField inputType="text" name="country" label="Country" />
+            <InputField
+                inputType="text"
+                name="city"
+                label="City"
+                formGroup="senderAddress"
+            />
+            <InputField
+                inputType="text"
+                name="postCode"
+                label="Post Code"
+                formGroup="senderAddress"
+            />
+            <InputField
+                inputType="text"
+                name="country"
+                label="Country"
+                formGroup="senderAddress"
+            />
         </FormGroup>
     );
 };
