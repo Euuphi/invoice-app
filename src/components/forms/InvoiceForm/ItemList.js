@@ -35,7 +35,8 @@ const ItemList = () => {
                     <Label>Price</Label>
                     <Label style={{ gridColumn: "span 2" }}>Total</Label>
                 </>
-                <ItemListItem />
+                <ItemListItem index={0} />
+                <ItemListItem index={1} />
             </GridContainer>
             <AddNewItemButton />
         </FormGroup>

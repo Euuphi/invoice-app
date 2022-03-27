@@ -16,35 +16,41 @@ const Span = styled.span`
     color: ${({ theme }) => theme.form.itemTotalText};
 `;
 
-const ItemListItem = () => {
+const ItemListItem = ({ index }) => {
     // Variable to adjust padding of input fields
     const inputPadding = "1.7rem";
 
     // Calculate total by multiplying quantity and price inputs and convert string to currency format
     const { inputs } = useContext(FormContext);
-    const total = convertCurrency(inputs.itemQuantity * inputs.itemPrice);
+    // const total = convertCurrency(inputs.item[0] * inputs.item[0]);
 
     return (
         <>
             <InputField
-                name="itemName"
+                name="name"
                 inputType="text"
+                formGroup="items"
+                formIndex={index}
                 inputPadding={inputPadding}
             />
             <InputField
-                name="itemQuantity"
+                name="quantity"
                 inputType="number"
+                formGroup="items"
+                formIndex={index}
                 inputPadding={inputPadding}
                 min="0"
             />
             <InputField
-                name="itemPrice"
+                name="price"
                 inputType="number"
+                formGroup="items"
+                formIndex={index}
                 inputPadding={inputPadding}
                 step="0.01"
                 min="0.00"
             />
-            <Span>{total || "0"}</Span>
+            <Span>{"0"}</Span>
             <TrashCanButton />
         </>
     );
