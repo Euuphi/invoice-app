@@ -1,4 +1,8 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import convertCurrency from "functions/convertCurrency";
+// Context
+import { FormContext } from "context/FormContext";
 // Components
 import InputField from "components/forms/InputField";
 import H3SecondaryStyle from "styles/headings/H3SecondaryStyle";
@@ -15,6 +19,10 @@ const Span = styled.span`
 const ItemListItem = () => {
     // Variable to adjust padding of input fields
     const inputPadding = "1.7rem";
+
+    // Calculate total by multiplying quantity and price inputs and convert string to currency format
+    const { inputs } = useContext(FormContext);
+    const total = convertCurrency(inputs.itemQuantity * inputs.itemPrice);
 
     return (
         <>
@@ -36,7 +44,7 @@ const ItemListItem = () => {
                 step="0.01"
                 min="0.00"
             />
-            <Span>20,000.00</Span>
+            <Span>{total || "0"}</Span>
             <TrashCanButton />
         </>
     );
