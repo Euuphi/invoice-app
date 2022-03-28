@@ -1,6 +1,7 @@
+import styled from "styled-components";
+import DiscardButton from "components/buttons/formButtons/DiscardButton";
 import SaveAsDraftButton from "components/buttons/formButtons/SaveAsDraftButton";
 import SaveChangesButton from "components/buttons/formButtons/SaveChangesButton";
-import styled from "styled-components";
 
 const FormButtonsContainer = styled.div`
     display: flex;
@@ -19,6 +20,7 @@ const FormButtonsContainer = styled.div`
 const FormButtons = () => {
     return (
         <FormButtonsContainer>
+            <DiscardButton />
             <SaveAsDraftButton />
             <SaveChangesButton />
         </FormButtonsContainer>

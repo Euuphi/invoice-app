@@ -11,6 +11,10 @@ const lightTheme = {
             background: { default: "#f9fafe", hover: "#dfe3fa" },
             text: { default: "#7e88c3", hover: "#7e88c3" },
         },
+        discard: {
+            background: { default: "#f9fafe" },
+            text: { default: "#7e88c3" },
+        },
         saveDraft: {
             background: { default: "#373b53", hover: "#0c0e16" },
             text: "#888eb0",

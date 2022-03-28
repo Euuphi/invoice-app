@@ -11,6 +11,10 @@ const darkTheme = {
             background: { default: "#252945", hover: "#fff" },
             text: { default: "#dfe3fa", hover: "#7e88c3" },
         },
+        discard: {
+            background: { default: "#f9fafe" },
+            text: { default: "#7e88c3" },
+        },
         saveDraft: {
             background: { default: "#373b53", hover: "#1e2139" },
             text: "#dfe3fa",
