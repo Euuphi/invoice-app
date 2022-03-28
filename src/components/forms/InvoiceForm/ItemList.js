@@ -5,7 +5,7 @@ import GridContainer from "components/layout/GridContainer";
 import ParagraphSmStyle from "styles/text/ParagraphSmStyle";
 import FormGroup from "../FormGroup";
 import ItemListItem from "./ItemListItem";
-import AddNewItemButton from "components/buttons/formButtons/AddNewItem";
+import AddNewItemButton from "components/buttons/formButtons/AddNewItemButton";
 
 const Heading = styled.legend`
     color: #777f98;

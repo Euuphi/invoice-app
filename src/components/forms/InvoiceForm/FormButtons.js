@@ -1,5 +1,5 @@
-import SaveAsDraftButton from "components/buttons/formButtons/SaveAsDraft";
-import SaveChangesButton from "components/buttons/formButtons/SaveChanges";
+import SaveAsDraftButton from "components/buttons/formButtons/SaveAsDraftButton";
+import SaveChangesButton from "components/buttons/formButtons/SaveChangesButton";
 import styled from "styled-components";
 
 const FormButtonsContainer = styled.div`
