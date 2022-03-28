@@ -1,9 +1,9 @@
 import styled from "styled-components";
 // Styles
-import EditButtonStyle from "styles/buttons/EditButtonStyle";
+import LightButtonStyle from "styles/buttons/LightButtonStyle";
 
 const Button = styled.button`
-    ${EditButtonStyle}
+    ${LightButtonStyle}
 `;
 
 const EditButton = ({ onClick }) => {

@@ -1,7 +1,7 @@
 import { css } from "styled-components";
 import ButtonStyle from "./ButtonStyle";
 
-const EditButtonStyle = css`
+const LightButtonStyle = css`
     ${ButtonStyle}
 
     background-color: ${({ theme }) => theme.button.edit.background.default};
@@ -13,4 +13,4 @@ const EditButtonStyle = css`
     }
 `;
 
-export default EditButtonStyle;
+export default LightButtonStyle;
