@@ -7,7 +7,7 @@ import H2Style from "styles/headings/H2Style";
 import Backdrop from "components/ui/Backdrop";
 import InvoiceForm from "components/forms/InvoiceForm/";
 
-const Background = styled.div`
+const FormBackground = styled.div`
     background-color: ${({ theme }) => theme.form.background};
     border-radius: 2rem;
     padding-left: 10.3rem;
@@ -16,7 +16,9 @@ const Background = styled.div`
 
 const FormContainer = styled.div`
     padding: 5.6rem;
-    padding-bottom: 0;
+    padding-bottom: 9.2rem;
+
+    position: relative;
 `;
 
 const FormTitle = styled.h2`
@@ -28,14 +30,14 @@ const FormTitle = styled.h2`
 const InvoiceFormPage = ({ formTitle }) => {
     return (
         <Backdrop>
-            <Background>
+            <FormBackground>
                 <FormContainer>
                     <FormTitle>{formTitle}</FormTitle>
                     <FormProvider>
                         <InvoiceForm />
                     </FormProvider>
                 </FormContainer>
-            </Background>
+            </FormBackground>
         </Backdrop>
     );
 };
