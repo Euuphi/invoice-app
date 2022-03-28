@@ -1,3 +1,4 @@
+import SaveAsDraftButton from "components/buttons/formButtons/SaveAsDraft";
 import SaveChangesButton from "components/buttons/formButtons/SaveChanges";
 import styled from "styled-components";
 
@@ -5,6 +6,7 @@ const FormButtonsContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    gap: 0.8rem;
 
     position: absolute;
     bottom: 0;
@@ -17,6 +19,7 @@ const FormButtonsContainer = styled.div`
 const FormButtons = () => {
     return (
         <FormButtonsContainer>
+            <SaveAsDraftButton />
             <SaveChangesButton />
         </FormButtonsContainer>
     );
