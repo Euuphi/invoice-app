@@ -61,6 +61,7 @@ const InputField = ({
     formIndex,
     fullGridColumn,
     inputPadding,
+    inputStyle,
     inputType,
     label,
     min,
@@ -85,6 +86,7 @@ const InputField = ({
                 min={min}
                 step={step}
                 value={value}
+                style={inputStyle}
             />
         </InputContainer>
     );

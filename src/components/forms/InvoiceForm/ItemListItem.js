@@ -61,6 +61,7 @@ const ItemListItem = ({ index, onDeleteClickHandler }) => {
                 formGroup="items"
                 formIndex={index}
                 inputPadding="0"
+                inputStyle={{ backgroundColor: "transparent" }}
                 value={calculateTotal()}
             />
             <TrashCanButton onClick={(e) => onDeleteClickHandler(e, index)} />
