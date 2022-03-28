@@ -10,13 +10,25 @@ import InvoiceForm from "components/forms/InvoiceForm/";
 const FormBackground = styled.div`
     background-color: ${({ theme }) => theme.form.background};
     border-radius: 2rem;
+    height: 100vh;
+    overflow-y: scroll;
     padding-left: 10.3rem;
     width: 72rem;
+
+    /*----- Hide scroll bar -----*/
+    /* Internet Explorer, Edge */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
+    /* Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 const FormContainer = styled.div`
     padding: 5.6rem;
-    padding-bottom: 9.2rem;
+    padding-bottom: 0;
 
     position: relative;
 `;
