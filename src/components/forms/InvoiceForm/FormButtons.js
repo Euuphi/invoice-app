@@ -1,3 +1,4 @@
+import SaveChangesButton from "components/buttons/formButtons/SaveChanges";
 import styled from "styled-components";
 
 const FormButtonsContainer = styled.div`
@@ -14,7 +15,11 @@ const FormButtonsContainer = styled.div`
 `;
 
 const FormButtons = () => {
-    return <FormButtonsContainer>Form Buttons</FormButtonsContainer>;
+    return (
+        <FormButtonsContainer>
+            <SaveChangesButton />
+        </FormButtonsContainer>
+    );
 };
 
 export default FormButtons;
