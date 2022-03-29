@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Head from "next/head";
 // Data
 import data from "data/data.json";
@@ -8,14 +8,20 @@ import MainContainer from "components/layout/MainContainer";
 import MainHeading from "components/sections/MainHeading";
 import InvoiceList from "components/invoice/InvoiceList";
 import InvoiceFormSection from "components/invoice/InvoiceFormPage";
+import { fetchInvoices } from "actions/invoicesActions";
+import { useEffect } from "react";
 
 export default function Home() {
-    // Toggle scroll state of main wrapper
+    const dispatch = useDispatch();
+
+    // State for displaying and hiding invoice form
     const displayForm = useSelector((state) => state.form.display);
 
-    // TODO: Placeholder for back-end invoice retrieval
-    // Extract invoice data from json file intro an array of objects
-    const invoices = JSON.parse(JSON.stringify(data));
+    // Fetch invoice data
+    useEffect(() => {
+        dispatch(fetchInvoices());
+    }, [dispatch]);
+    const invoices = useSelector((state) => state.invoices);
 
     return (
         <>
@@ -31,4 +37,14 @@ export default function Home() {
             </Background>
         </>
     );
+}
+
+export function getStaticProps() {
+    const invoices = JSON.parse(JSON.stringify(data));
+
+    return {
+        props: {
+            invoices: invoices,
+        },
+    };
 }

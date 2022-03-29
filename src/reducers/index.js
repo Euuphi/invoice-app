@@ -3,5 +3,6 @@ import { combineReducers } from "@reduxjs/toolkit";
 import preferences from "./preferencesReducer";
 import filterOptions from "./filterOptionsReducer";
 import form from "./formReducer";
+import invoices from "./invoicesReducer";
 
-export default combineReducers({ preferences, filterOptions, form });
+export default combineReducers({ invoices, filterOptions, form, preferences });
