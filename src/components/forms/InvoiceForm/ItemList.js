@@ -34,6 +34,7 @@ const ItemList = () => {
     const onDeleteClickHandler = (e, index) => {
         e.preventDefault();
         setItemList(itemList.filter((item) => item !== index));
+        // TODO: Update form input state
     };
 
     return (
