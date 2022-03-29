@@ -1,4 +1,8 @@
 import styled from "styled-components";
+// Redux
+import { useDispatch, useSelector } from "react-redux";
+import { discardNewInvoice } from "actions/formActions";
+// Components
 import DiscardButton from "components/buttons/formButtons/DiscardButton";
 import SaveAsDraftButton from "components/buttons/formButtons/SaveAsDraftButton";
 import SaveChangesButton from "components/buttons/formButtons/SaveChangesButton";
@@ -24,9 +28,15 @@ const FormButtonsContainer = styled.div`
 `;
 
 const FormButtons = () => {
+    const dispatch = useDispatch();
+
+    const discardClickHandler = () => {
+        dispatch(discardNewInvoice());
+    };
+
     return (
         <FormButtonsContainer>
-            <DiscardButton />
+            <DiscardButton onClick={discardClickHandler} />
             <SaveAsDraftButton />
             <SaveChangesButton />
         </FormButtonsContainer>
