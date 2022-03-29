@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+import { createNewInvoice } from "actions/formActions";
 import styled from "styled-components";
 // Themes
 import { colors } from "themes/colors";
@@ -36,8 +38,10 @@ const IconContainer = styled.span`
 `;
 
 const NewInvoiceButton = () => {
+    const dispatch = useDispatch();
+
     const clickHandler = () => {
-        console.log("New Invoice");
+        dispatch(createNewInvoice());
     };
 
     return (
