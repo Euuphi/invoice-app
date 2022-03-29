@@ -44,22 +44,26 @@ const Table = styled.table`
 const InvoiceSubtotal = ({ items }) => {
     return (
         <Table>
-            <tr>
-                <th>Item Name</th>
-                <th>QTY.</th>
-                <th>Price</th>
-                <th>Total</th>
-            </tr>
-            {items.map((item) => {
-                return (
-                    <tr key={item.name}>
-                        <td>{item.name}</td>
-                        <td>{item.quantity}</td>
-                        <td>{convertCurrency(item.price)}</td>
-                        <td>{convertCurrency(item.total)}</td>
-                    </tr>
-                );
-            })}
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>QTY.</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {items.map((item) => {
+                    return (
+                        <tr key={item.name}>
+                            <td>{item.name}</td>
+                            <td>{item.quantity}</td>
+                            <td>{convertCurrency(item.price)}</td>
+                            <td>{convertCurrency(item.total)}</td>
+                        </tr>
+                    );
+                })}
+            </tbody>
         </Table>
     );
 };

@@ -11,17 +11,9 @@ import InvoiceFormSection from "components/invoice/InvoiceFormPage";
 import { fetchInvoices } from "actions/invoicesActions";
 import { useEffect } from "react";
 
-export default function Home() {
-    const dispatch = useDispatch();
-
+export default function Home({ invoices }) {
     // State for displaying and hiding invoice form
     const displayForm = useSelector((state) => state.form.display);
-
-    // Fetch invoice data
-    useEffect(() => {
-        dispatch(fetchInvoices());
-    }, [dispatch]);
-    const invoices = useSelector((state) => state.invoices);
 
     return (
         <>
