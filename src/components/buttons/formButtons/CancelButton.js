@@ -9,8 +9,12 @@ const Button = styled.button`
     margin-right: auto;
 `;
 
-const DiscardButton = ({ onClick }) => {
-    return <Button onClick={onClick}>Discard</Button>;
+const CancelButton = ({ onClick, text }) => {
+    return (
+        <Button onClick={onClick} type="button">
+            {text}
+        </Button>
+    );
 };
 
-export default DiscardButton;
+export default CancelButton;

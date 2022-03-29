@@ -9,7 +9,11 @@ const Button = styled.button`
 `;
 
 const AddNewItemButton = ({ onClick }) => {
-    return <Button onClick={onClick}>+ Add New Item</Button>;
+    return (
+        <Button onClick={onClick} type="button">
+            + Add New Item
+        </Button>
+    );
 };
 
 export default AddNewItemButton;

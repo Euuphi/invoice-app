@@ -1,11 +1,11 @@
 import styled from "styled-components";
 // Redux
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { discardNewInvoice } from "actions/formActions";
 // Components
-import DiscardButton from "components/buttons/formButtons/DiscardButton";
+import CancelButton from "components/buttons/formButtons/CancelButton";
 import SaveAsDraftButton from "components/buttons/formButtons/SaveAsDraftButton";
-import SaveChangesButton from "components/buttons/formButtons/SaveChangesButton";
+import SaveButton from "components/buttons/formButtons/SaveButton";
 
 const FormButtonsContainer = styled.div`
     display: flex;
@@ -36,9 +36,9 @@ const FormButtons = () => {
 
     return (
         <FormButtonsContainer>
-            <DiscardButton onClick={discardClickHandler} />
+            <CancelButton onClick={discardClickHandler} text="Discard" />
             <SaveAsDraftButton />
-            <SaveChangesButton />
+            <SaveButton text="Save & Send" />
         </FormButtonsContainer>
     );
 };

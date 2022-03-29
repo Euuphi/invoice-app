@@ -5,8 +5,8 @@ const Button = styled.button`
     ${PrimaryButtonStyle}
 `;
 
-const SaveChangesButton = ({ onClick }) => {
-    return <Button onClick={onClick}>Save Changes</Button>;
+const SaveButton = ({ onClick, text }) => {
+    return <Button onClick={onClick}>{text}</Button>;
 };
 
-export default SaveChangesButton;
+export default SaveButton;
