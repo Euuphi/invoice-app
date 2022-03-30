@@ -4,7 +4,6 @@ const connection = {};
 
 async function dbConnect() {
     if (connection.isConnected) {
-        console.log("Connection exit");
         return;
     }
 
@@ -14,7 +13,6 @@ async function dbConnect() {
     });
 
     connection.isConnected = db.connections[0].readyState;
-    console.log(connection.isConnected);
 }
 
 export default dbConnect;
