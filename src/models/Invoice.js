@@ -20,8 +20,8 @@ const InvoiceSchema = new mongoose.Schema({
     clientName: String,
     clientEmail: String,
     status: String,
-    senderAddress: [AddressSchema],
-    clientAddress: [AddressSchema],
+    senderAddress: AddressSchema,
+    clientAddress: AddressSchema,
     items: [
         {
             name: String,
