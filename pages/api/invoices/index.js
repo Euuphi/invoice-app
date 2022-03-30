@@ -12,8 +12,8 @@ const handler = async (req, res) => {
                 const invoices = await Invoice.find({});
 
                 res.status(200).json({ success: true, data: invoices });
-            } catch (err) {
-                res.status(400).json({ success: false });
+            } catch (error) {
+                res.status(400).json({ success: false, error });
             }
             break;
         case "POST":
@@ -21,8 +21,8 @@ const handler = async (req, res) => {
                 const invoice = await Invoice.create(req.body);
 
                 res.status(201).json({ success: true, data: invoice });
-            } catch (err) {
-                res.status(400).json({ success: false, errorMessage: err });
+            } catch (error) {
+                res.status(400).json({ success: false, error });
             }
     }
 };
