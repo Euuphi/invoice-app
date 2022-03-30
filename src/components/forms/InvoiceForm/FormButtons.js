@@ -6,6 +6,7 @@ import { discardNewInvoice } from "stores/actions/formActions";
 import CancelButton from "components/buttons/formButtons/CancelButton";
 import SaveAsDraftButton from "components/buttons/formButtons/SaveAsDraftButton";
 import SaveButton from "components/buttons/formButtons/SaveButton";
+import { togglePageScroll } from "stores/actions/uiActions";
 
 const FormButtonsContainer = styled.div`
     display: flex;
@@ -32,6 +33,7 @@ const FormButtons = () => {
 
     const discardClickHandler = () => {
         dispatch(discardNewInvoice());
+        dispatch(togglePageScroll());
     };
 
     return (
