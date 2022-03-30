@@ -1,7 +1,7 @@
 import styled from "styled-components";
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import { toggleDarkTheme } from "actions/preferencesActions";
+import { toggleDarkTheme } from "stores/actions/preferencesActions";
 // Icons
 import Sun from "images/svgs/icon-sun.svg";
 import Moon from "images/svgs/icon-moon.svg";

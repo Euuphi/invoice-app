@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { createNewInvoice } from "actions/formActions";
+import { createNewInvoice } from "stores/actions/formActions";
 import styled from "styled-components";
 // Themes
 import { colors } from "themes/colors";

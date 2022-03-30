@@ -1,7 +1,7 @@
 import styled from "styled-components";
 // Redux
 import { useDispatch } from "react-redux";
-import { discardNewInvoice } from "actions/formActions";
+import { discardNewInvoice } from "stores/actions/formActions";
 // Components
 import CancelButton from "components/buttons/formButtons/CancelButton";
 import SaveAsDraftButton from "components/buttons/formButtons/SaveAsDraftButton";

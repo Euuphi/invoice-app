@@ -1,4 +1,4 @@
-import * as formActions from "actions/formActions";
+import * as formActions from "stores/actions/formActions";
 
 const initialState = { display: false };
 

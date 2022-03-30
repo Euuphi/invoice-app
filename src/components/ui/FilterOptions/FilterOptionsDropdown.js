@@ -5,7 +5,7 @@ import {
     FILTER_PAID,
     FILTER_PENDING,
     FILTER_DRAFT,
-} from "actions/filterActions";
+} from "stores/actions/filterActions";
 
 const Container = styled.div`
     position: absolute;

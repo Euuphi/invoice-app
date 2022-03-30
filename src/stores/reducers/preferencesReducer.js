@@ -1,4 +1,4 @@
-import * as preferencesActions from "actions/preferencesActions";
+import * as preferencesActions from "stores/actions/preferencesActions";
 
 const initialState = { darkThemeEnabled: false };
 

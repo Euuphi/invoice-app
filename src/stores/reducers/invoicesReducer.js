@@ -1,4 +1,4 @@
-import * as invoiceActions from "actions/invoicesActions";
+import * as invoiceActions from "stores/actions/invoicesActions";
 import data from "data/data.json";
 
 const initialState = [];

@@ -1,4 +1,4 @@
-import * as filterActions from "actions/filterActions";
+import * as filterActions from "stores/actions/filterActions";
 
 const initialState = { paid: "paid", pending: "pending", draft: "draft" };
 
