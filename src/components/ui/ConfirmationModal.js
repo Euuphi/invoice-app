@@ -7,12 +7,28 @@ import ButtonStyle from "styles/buttons/ButtonStyle";
 import PrimaryButtonStyle from "styles/buttons/PrimaryButtonStyle";
 
 const ModalContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
     background-color: ${({ theme }) => theme.background.secondary};
     border-radius: 0.8rem;
     margin: auto;
     padding: 4.8rem;
     height: 25rem;
     width: 48rem;
+`;
+
+const ButtonsContainer = styled.div`
+    display: flex;
+    gap: 0.8rem;
+    justify-content: flex-end;
+    width: 100%;
 `;
 
 const ConfirmButton = styled.button`
@@ -49,16 +65,18 @@ const ConfirmationModal = ({
             <ModalContainer>
                 <H2>{title}</H2>
                 <ParagraphMd>{body}</ParagraphMd>
-                <CancelButton
-                    onClick={cancelOnClick}
-                    customStyle={cancelButtonStyle}>
-                    Cancel
-                </CancelButton>
-                <ConfirmButton
-                    onClick={confirmOnClick}
-                    customStyle={confirmButtonStyle}>
-                    {confirmButtonText || "Confirm"}
-                </ConfirmButton>
+                <ButtonsContainer>
+                    <CancelButton
+                        onClick={cancelOnClick}
+                        customStyle={cancelButtonStyle}>
+                        Cancel
+                    </CancelButton>
+                    <ConfirmButton
+                        onClick={confirmOnClick}
+                        customStyle={confirmButtonStyle}>
+                        {confirmButtonText || "Confirm"}
+                    </ConfirmButton>
+                </ButtonsContainer>
             </ModalContainer>
         </Backdrop>
     );
