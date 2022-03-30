@@ -1,15 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Head from "next/head";
-// Data
-import data from "data/data.json";
 // Components
 import Background from "components/layout/Background";
 import MainContainer from "components/layout/MainContainer";
 import MainHeading from "components/sections/MainHeading";
 import InvoiceList from "components/invoice/InvoiceList";
 import InvoiceFormSection from "components/invoice/InvoiceFormPage";
-import { fetchInvoices } from "actions/invoicesActions";
-import { useEffect } from "react";
 
 export default function Home({ invoices }) {
     // State for displaying and hiding invoice form
@@ -31,12 +27,13 @@ export default function Home({ invoices }) {
     );
 }
 
-export function getStaticProps() {
-    const invoices = JSON.parse(JSON.stringify(data));
+export async function getStaticProps() {
+    const res = await fetch("http://localhost:3000/api/invoices");
+    const { data } = await res.json();
 
     return {
         props: {
-            invoices: invoices,
+            invoices: data,
         },
     };
 }
