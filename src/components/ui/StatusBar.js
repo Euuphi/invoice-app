@@ -8,7 +8,7 @@ import DeleteButton from "components/buttons/DeleteButton";
 import EditButton from "components/buttons/EditButton";
 import MarkAsPaidButton from "components/buttons/MarkAsPaidButton";
 
-const StatusBar = ({ status }) => {
+const StatusBar = ({ deleteClickHandler, status }) => {
     return (
         <Card justifyContent="space-between">
             <CenteredContainer gap="2.4rem">
@@ -17,7 +17,7 @@ const StatusBar = ({ status }) => {
             </CenteredContainer>
             <CenteredContainer gap="0.8rem">
                 <EditButton />
-                <DeleteButton />
+                <DeleteButton onClick={deleteClickHandler} />
                 <MarkAsPaidButton />
             </CenteredContainer>
         </Card>
