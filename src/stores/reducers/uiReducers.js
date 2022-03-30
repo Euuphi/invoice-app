@@ -4,8 +4,10 @@ const initialState = { pageScroll: true };
 
 const ui = (state = initialState, action) => {
     switch (action.type) {
-        case uiActions.TOGGLE_PAGE_SCROLL:
-            return { ...state, pageScroll: !state.pageScroll };
+        case uiActions.PAGE_SCROLL_ON:
+            return { ...state, pageScroll: true };
+        case uiActions.PAGE_SCROLL_OFF:
+            return { ...state, pageScroll: false };
         default:
             return state;
     }

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { createNewInvoice } from "stores/actions/formActions";
-import { togglePageScroll } from "stores/actions/uiActions";
+import { pageScrollOff } from "stores/actions/uiActions";
 import styled from "styled-components";
 // Themes
 import { colors } from "themes/colors";
@@ -43,7 +43,7 @@ const NewInvoiceButton = () => {
 
     const clickHandler = () => {
         dispatch(createNewInvoice());
-        dispatch(togglePageScroll());
+        dispatch(pageScrollOff());
     };
 
     return (

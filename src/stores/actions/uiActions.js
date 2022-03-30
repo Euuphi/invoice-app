@@ -1,7 +1,15 @@
-export const TOGGLE_PAGE_SCROLL = "TOGGLE_PAGE_SCROLL";
+export const PAGE_SCROLL_ON = "PAGE_SCROLL_ON";
 
-export const togglePageScroll = () => {
+export const pageScrollOn = () => {
     return {
-        type: TOGGLE_PAGE_SCROLL,
+        type: PAGE_SCROLL_ON,
+    };
+};
+
+export const PAGE_SCROLL_OFF = "PAGE_SCROLL_OFF";
+
+export const pageScrollOff = () => {
+    return {
+        type: PAGE_SCROLL_OFF,
     };
 };
