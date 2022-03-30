@@ -1,6 +1,5 @@
 import Head from "next/head";
 // Comonents
-import Background from "components/layout/Background";
 import MainContainer from "components/layout/MainContainer";
 import FlexContainer from "components/layout/FlexContainer";
 import GoBackButton from "components/buttons/GoBackButton";
@@ -13,15 +12,13 @@ export default function InvoiceItem({ invoice }) {
             <Head>
                 <title>Invoice App</title>
             </Head>
-            <Background>
-                <MainContainer>
-                    <FlexContainer flexDirection="column" gap="2.6rem">
-                        <GoBackButton />
-                        <StatusBar status={invoice.status} />
-                        <InvoiceDetails invoice={invoice} />
-                    </FlexContainer>
-                </MainContainer>
-            </Background>
+            <MainContainer>
+                <FlexContainer flexDirection="column" gap="2.6rem">
+                    <GoBackButton />
+                    <StatusBar status={invoice.status} />
+                    <InvoiceDetails invoice={invoice} />
+                </FlexContainer>
+            </MainContainer>
         </>
     );
 }

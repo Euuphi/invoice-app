@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import Head from "next/head";
 // Components
-import Background from "components/layout/Background";
 import MainContainer from "components/layout/MainContainer";
 import MainHeading from "components/sections/MainHeading";
 import InvoiceList from "components/invoice/InvoiceList";
@@ -16,13 +15,11 @@ export default function Home({ invoices }) {
             <Head>
                 <title>Invoice App</title>
             </Head>
-            <Background noScroll={displayForm} as="main">
-                <MainContainer>
-                    <MainHeading />
-                    <InvoiceList invoices={invoices} />
-                    {displayForm && <InvoiceFormSection />}
-                </MainContainer>
-            </Background>
+            <MainContainer>
+                <MainHeading />
+                <InvoiceList invoices={invoices} />
+                {displayForm && <InvoiceFormSection />}
+            </MainContainer>
         </>
     );
 }
