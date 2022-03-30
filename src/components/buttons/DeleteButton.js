@@ -1,16 +1,9 @@
 import styled from "styled-components";
 // Styles
-import { colors } from "themes/colors";
-import ButtonStyle from "styles/buttons/ButtonStyle";
+import DeleteButtonStyle from "styles/buttons/DeleteButtonStyle";
 
 const Button = styled.button`
-    ${ButtonStyle}
-
-    background-color: ${colors.button.delete.background.default};
-
-    &:hover {
-        background-color: ${colors.button.delete.background.hover};
-    }
+    ${DeleteButtonStyle}
 `;
 
 const DeleteButton = ({ onClick }) => {
