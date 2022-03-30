@@ -4,12 +4,12 @@ import ButtonStyle from "./ButtonStyle";
 const LightButtonStyle = css`
     ${ButtonStyle}
 
-    background-color: ${({ theme }) => theme.button.edit.background.default};
-    color: ${({ theme }) => theme.button.edit.text.default};
+    background-color: ${({ theme }) => theme.button.light.background.default};
+    color: ${({ theme }) => theme.button.light.text.default};
 
     &:hover {
-        background-color: ${({ theme }) => theme.button.edit.background.hover};
-        color: ${({ theme }) => theme.button.edit.text.hover};
+        background-color: ${({ theme }) => theme.button.light.background.hover};
+        color: ${({ theme }) => theme.button.light.text.hover};
     }
 `;
 

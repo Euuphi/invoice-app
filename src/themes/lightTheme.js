@@ -7,7 +7,7 @@ const lightTheme = {
         filterOptions: "#fff",
     },
     button: {
-        edit: {
+        light: {
             background: { default: "#f9fafe", hover: "#dfe3fa" },
             text: { default: "#7e88c3", hover: "#7e88c3" },
         },

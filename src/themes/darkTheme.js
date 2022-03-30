@@ -7,7 +7,7 @@ const darkTheme = {
         filterOptions: "#252945",
     },
     button: {
-        edit: {
+        light: {
             background: { default: "#252945", hover: "#fff" },
             text: { default: "#dfe3fa", hover: "#7e88c3" },
         },
