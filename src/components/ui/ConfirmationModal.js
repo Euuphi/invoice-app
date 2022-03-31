@@ -52,8 +52,8 @@ const CancelButton = styled.button`
  * @return {JSX}
  */
 const ConfirmationModal = ({
-    cancelOnClick,
-    confirmOnClick,
+    onCancel,
+    onConfirm,
     cancelButtonStyle,
     confirmButtonStyle,
     confirmButtonText,
@@ -67,12 +67,12 @@ const ConfirmationModal = ({
                 <ParagraphMd>{body}</ParagraphMd>
                 <ButtonsContainer>
                     <CancelButton
-                        onClick={cancelOnClick}
+                        onClick={onCancel}
                         customStyle={cancelButtonStyle}>
                         Cancel
                     </CancelButton>
                     <ConfirmButton
-                        onClick={confirmOnClick}
+                        onClick={onConfirm}
                         customStyle={confirmButtonStyle}>
                         {confirmButtonText || "Confirm"}
                     </ConfirmButton>

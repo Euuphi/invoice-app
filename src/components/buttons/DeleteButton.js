@@ -17,27 +17,43 @@ const DeleteButton = () => {
     const router = useRouter();
 
     const [showModal, setshowModal] = useState(false);
-    const { invoiceId } = router.query;
+    const invoiceId = router.query.invoiceId;
 
     const clickHandler = () => {
         setshowModal(true);
         dispatch(pageScrollOff());
     };
 
-    const modalCancelClickHandler = () => {
+    const onCancelHandler = () => {
         setshowModal(false);
         dispatch(pageScrollOn());
     };
 
-    const modalDeleteClickHandler = async () => {};
+    const onDeleteHandler = async () => {
+        try {
+            // Delete invoice
+            const deleted = await fetch(
+                `http://localhost:3000/api/invoices/${invoiceId}`,
+                {
+                    method: "DELETE",
+                }
+            );
+            // Route to home page
+            router.push("/");
+            // Turn on page scroll
+            dispatch(pageScrollOn());
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <>
             <Button onClick={clickHandler}>Delete</Button>
             {showModal && (
                 <ConfirmationModal
-                    cancelOnClick={modalCancelClickHandler}
-                    confirmClickHandler={modalDeleteClickHandler}
+                    onCancel={onCancelHandler}
+                    onConfirm={onDeleteHandler}
                     confirmButtonStyle={DeleteButtonStyle}
                     confirmButtonText="Delete"
                     title="Confirm Deletion"
