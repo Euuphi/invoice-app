@@ -8,7 +8,7 @@ const initialState = {
     paymentTerms: 1,
     clientName: "",
     clientEmail: "",
-    status: "",
+    status: "pending",
     senderAddress: {
         street: "",
         city: "",
@@ -21,44 +21,50 @@ const initialState = {
 };
 
 const formInput = (state = initialState, action) => {
-    const {
-        payload: { name, value, group, index },
-    } = action;
-
     switch (action.type) {
         case formInputActions.UPDATE_INPUT:
-            return { ...state, [name]: value };
+            return { ...state, [action.payload.name]: action.payload.value };
         case formInputActions.UPDATE_GROUP:
             return {
                 ...state,
-                [group]: {
-                    ...state[group],
-                    [name]: value,
+                [action.payload.group]: {
+                    ...state[action.payload.group],
+                    [action.payload.name]: action.payload.value,
                 },
             };
+        case formInputActions.ADD_ITEM:
+            return {
+                ...state,
+                [action.payload.group]: [
+                    ...state[action.payload.group],
+                    { id: action.payload.id },
+                ],
+            };
         case formInputActions.UPDATE_ITEM:
-            // If input group DOES NOT already exist, create new array of object
-            if (!state[group]) {
-                return {
-                    ...state,
-                    [group]: [{ [name]: value }],
-                };
-            }
-            // If input group DOES exists, update array with new input values
-            else {
-                return {
-                    ...state,
-                    // Reslice array to update relevant parts to update input values
-                    [group]: [
-                        ...state[group].slice(0, index),
-                        {
-                            ...state[group][index],
-                            [name]: value,
-                        },
-                        ...state[group].slice(index + 1, state[group].length),
-                    ],
-                };
-            }
+            return {
+                ...state,
+                [action.payload.group]: state[action.payload.group].map(
+                    (item) => {
+                        if (item.id === action.payload.id) {
+                            return {
+                                ...item,
+                                [action.payload.name]: action.payload.value,
+                            };
+                        } else {
+                            return { ...item };
+                        }
+                    }
+                ),
+            };
+        case formInputActions.DELETE_ITEM:
+            return {
+                ...state,
+                [action.payload.group]: state[action.payload.group].filter(
+                    (item) => item.id !== action.payload.id
+                ),
+            };
+        default:
+            return state;
     }
 };
 

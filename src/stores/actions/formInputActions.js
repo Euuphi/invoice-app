@@ -12,15 +12,33 @@ export const UPDATE_GROUP = "UPDATE_GROUP";
 export const updateGroup = (name, value, group) => {
     return {
         type: UPDATE_GROUP,
-        payload: { group, name, value },
+        payload: { name, value, group },
     };
 };
 
-export const UPDATE_INDEX = "UPDATE_INDEX";
+export const ADD_ITEM = "ADD_ITEM";
 
-export const updateIndex = (name, value, group, index) => {
+export const addItem = (group, id) => {
     return {
-        type: UPDATE_INDEX,
-        payload: { name, value, group, index },
+        type: ADD_ITEM,
+        payload: { group, id },
+    };
+};
+
+export const UPDATE_ITEM = "UPDATE_ITEM";
+
+export const updateItem = (name, value, group, id) => {
+    return {
+        type: UPDATE_ITEM,
+        payload: { name, value, group, id },
+    };
+};
+
+export const DELETE_ITEM = "DELETE_ITEM";
+
+export const deleteItem = (group, id) => {
+    return {
+        type: DELETE_ITEM,
+        payload: { group, id },
     };
 };
