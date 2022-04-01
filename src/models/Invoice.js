@@ -24,6 +24,11 @@ const InvoiceSchema = new mongoose.Schema({
     clientAddress: AddressSchema,
     items: [
         {
+            id: {
+                type: Number,
+                required: [true, "Item Id required"],
+                unique: true,
+            },
             name: String,
             quantity: Number,
             price: Number,
