@@ -3,7 +3,7 @@ import Head from "next/head";
 import MainContainer from "components/layout/MainContainer";
 import FlexContainer from "components/layout/FlexContainer";
 import GoBackButton from "components/buttons/GoBackButton";
-import StatusBar from "components/ui/StatusBar";
+import ActionBar from "components/ui/ActionBar";
 import InvoiceDetails from "components/invoice/InvoiceDetails";
 
 export default function InvoiceItem({ invoice }) {
@@ -15,7 +15,7 @@ export default function InvoiceItem({ invoice }) {
             <MainContainer>
                 <FlexContainer flexDirection="column" gap="2.6rem">
                     <GoBackButton />
-                    <StatusBar status={invoice.status} />
+                    <ActionBar status={invoice.status} />
                     <InvoiceDetails invoice={invoice} />
                 </FlexContainer>
             </MainContainer>
