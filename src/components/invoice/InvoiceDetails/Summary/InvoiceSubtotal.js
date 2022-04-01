@@ -14,6 +14,12 @@ const Table = styled.table`
     text-align: right;
     width: 100%;
 
+    & tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+    }
+
     & tr {
         display: grid;
         grid-template-columns: 4fr 1fr 2fr 2fr;
