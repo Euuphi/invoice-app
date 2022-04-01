@@ -1,30 +1,33 @@
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteItem } from "stores/actions/formInputActions";
 import convertCurrency from "functions/convertCurrency";
-// Context
-import { FormContext } from "context/FormContext";
 // Components
 import InputField from "components/forms/InputField";
 import TrashCanButton from "components/buttons/TrashCanButton";
 
-const ItemListItem = ({ index, onDeleteClickHandler }) => {
+const ItemListItem = ({ id, formGroup }) => {
+    const dispatch = useDispatch();
+
     // Variable to adjust padding of input fields
     const inputPadding = "1.7rem";
 
-    // Calculate total by multiplying quantity and price inputs and convert string to currency format
-    const { inputs } = useContext(FormContext);
+    // Multiplying quantity and price inputs and convert string to currency format to calculate items totals
+    const item = useSelector((state) => {
+        const itemList = state.formInput.items;
+        return itemList.filter((item) => item.id === id)[0];
+    });
+
+    const onDeleteClickHandler = (e, group, id) => {
+        e.preventDefault();
+        dispatch(deleteItem(group, id));
+    };
+
     const calculateTotal = () => {
         // Check if input field contains a value
-        if (
-            !inputs.items ||
-            !inputs.items[index] ||
-            !inputs.items[index].quantity ||
-            !inputs.items[index].price
-        ) {
+        if (!item || !item.quantity || !item.price) {
             return convertCurrency(0);
         } else {
-            return convertCurrency(
-                inputs.items[index].quantity * inputs.items[index].price
-            );
+            return convertCurrency(item.quantity * item.price);
         }
     };
 
@@ -33,23 +36,23 @@ const ItemListItem = ({ index, onDeleteClickHandler }) => {
             <InputField
                 name="name"
                 inputType="text"
-                formGroup="items"
-                formIndex={index}
+                formGroup={formGroup}
+                formId={id}
                 inputPadding={inputPadding}
             />
             <InputField
                 name="quantity"
                 inputType="number"
-                formGroup="items"
-                formIndex={index}
+                formGroup={formGroup}
+                formId={id}
                 inputPadding={inputPadding}
                 min="0"
             />
             <InputField
                 name="price"
                 inputType="number"
-                formGroup="items"
-                formIndex={index}
+                formGroup={formGroup}
+                formId={id}
                 inputPadding={inputPadding}
                 step="0.01"
                 min="0.00"
@@ -58,13 +61,15 @@ const ItemListItem = ({ index, onDeleteClickHandler }) => {
                 disabled
                 name="total"
                 inputType="text"
-                formGroup="items"
-                formIndex={index}
+                formGroup={formGroup}
+                formId={id}
                 inputPadding="0"
                 inputStyle={{ backgroundColor: "transparent" }}
                 value={calculateTotal()}
             />
-            <TrashCanButton onClick={(e) => onDeleteClickHandler(e, index)} />
+            <TrashCanButton
+                onClick={(e) => onDeleteClickHandler(e, formGroup, id)}
+            />
         </>
     );
 };
