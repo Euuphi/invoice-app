@@ -9,7 +9,7 @@ const BillFrom = () => {
             <FormGroupTitle>Bill From</FormGroupTitle>
             <InputField
                 inputType="text"
-                name="streetAddress"
+                name="street"
                 label="Street Address"
                 formGroup="senderAddress"
                 Group="senderAddress"
