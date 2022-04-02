@@ -16,7 +16,7 @@ export default function Home({ invoices }) {
                 <title>Invoice App</title>
             </Head>
             <MainContainer>
-                <MainHeading />
+                <MainHeading numberOfInvoices={invoices.length} />
                 <InvoiceList invoices={invoices} />
                 {displayForm && <InvoiceFormSection />}
             </MainContainer>

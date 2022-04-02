@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 // Components
 import H1 from "../headings/H1";
@@ -14,12 +15,14 @@ const Container = styled(FlexContainer)`
     margin-bottom: 6.5rem;
 `;
 
-const MainHeading = () => {
+const MainHeading = ({ numberOfInvoices }) => {
     return (
         <Container alignItems="center" justifyContent="space-between">
             <div>
                 <Heading>Invoices</Heading>
-                <ParagraphMd>There are 0 total invoices</ParagraphMd>
+                <ParagraphMd>
+                    There are {numberOfInvoices} total invoices
+                </ParagraphMd>
             </div>
             <FlexContainer
                 alignItems="center"
