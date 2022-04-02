@@ -14,7 +14,7 @@ const Label = styled.label`
     width: 100%;
 `;
 
-const FilterOptionsItem = ({ id, label, checkAction }) => {
+const FilterOptionsItem = ({ id, label, checkAction, checked }) => {
     const dispatch = useDispatch();
 
     // Dispatch action from checkAction prop
@@ -26,7 +26,7 @@ const FilterOptionsItem = ({ id, label, checkAction }) => {
         <ListItem>
             <input
                 type="checkbox"
-                defaultChecked
+                checked={checked}
                 id={id}
                 name={id}
                 value={label}

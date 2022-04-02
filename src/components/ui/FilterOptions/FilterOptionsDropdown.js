@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import FilterOptionsItem from "./FilterOptionsItem";
 // Redux Actions
@@ -30,6 +31,8 @@ const FilterOptionsList = styled.ul`
 `;
 
 const FilterOptionsDropdown = ({ open }) => {
+    const filterOptions = useSelector((state) => state.filterOptions);
+    console.log(filterOptions);
     //TODO: Create custom checkboxes
     return (
         <Container open={open}>
@@ -38,16 +41,19 @@ const FilterOptionsDropdown = ({ open }) => {
                     id="draft"
                     label="Draft"
                     checkAction={FILTER_DRAFT}
+                    checked={filterOptions.draft}
                 />
                 <FilterOptionsItem
                     id="pending"
                     label="Pending"
                     checkAction={FILTER_PENDING}
+                    checked={filterOptions.pending}
                 />
                 <FilterOptionsItem
                     id="paid"
                     label="Paid"
                     checkAction={FILTER_PAID}
+                    checked={filterOptions.paid}
                 />
             </FilterOptionsList>
         </Container>
