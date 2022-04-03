@@ -5,13 +5,14 @@ import {
     updateItem,
     updateInput,
 } from "stores/actions/formInputActions";
+import { getFormInputs } from "stores/selectors/formInputSelectors";
 
 const createFormContext = () => {
     const FormContext = createContext();
 
     const FormProvider = ({ children }) => {
         const dispatch = useDispatch();
-        const formInputs = useSelector((state) => state.formInput);
+        const formInputs = useSelector((state) => getFormInputs(state));
 
         const onChangeHandler = (e, formGroup, formId) => {
             const name = e.target.name;
