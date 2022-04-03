@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
 // Selectors
 import { getItemById } from "stores/selectors/formInputSelectors";
 // Actions
 import { deleteItem } from "stores/actions/formInputActions";
+import { updateItemTotal } from "stores/actions/formInputActions";
 // Functions
 import convertCurrency from "functions/convertCurrency";
 // Components
@@ -20,6 +22,10 @@ const ItemListItem = ({ id, formGroup, total }) => {
         e.preventDefault();
         dispatch(deleteItem(group, id));
     };
+
+    useEffect(() => {
+        dispatch(updateItemTotal(formGroup, id, total));
+    }, [formGroup, id, total, dispatch]);
 
     return (
         <>
@@ -65,11 +71,14 @@ const ItemListItem = ({ id, formGroup, total }) => {
 };
 
 function mapStateToProps(state, { id }) {
+    // Get item from id
     const item = getItemById(state, id);
+    // Calculate total from item price and quantity
     const total = item.price * item.quantity;
+    const itemTotal = isNaN(total) ? 0 : total;
 
     return {
-        total: total,
+        total: itemTotal,
     };
 }
 
