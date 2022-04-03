@@ -51,3 +51,12 @@ export const updateItemTotal = (group, id, total) => {
         payload: { group, id, total },
     };
 };
+
+export const UPDATE_TOTAL = "UPDATE_TOTAL";
+
+export const updateTotal = (total) => {
+    return {
+        type: UPDATE_TOTAL,
+        payload: { total },
+    };
+};

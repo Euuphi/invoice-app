@@ -79,7 +79,11 @@ const formInput = (state = initialState, action) => {
                     }
                 ),
             };
-
+        case formInputActions.UPDATE_TOTAL:
+            return {
+                ...state,
+                total: action.payload.total,
+            };
         default:
             return state;
     }
