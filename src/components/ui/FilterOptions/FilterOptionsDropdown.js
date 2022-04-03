@@ -32,7 +32,6 @@ const FilterOptionsList = styled.ul`
 
 const FilterOptionsDropdown = ({ open }) => {
     const filterOptions = useSelector((state) => state.filterOptions);
-    console.log(filterOptions);
     //TODO: Create custom checkboxes
     return (
         <Container open={open}>
