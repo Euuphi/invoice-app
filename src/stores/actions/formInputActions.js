@@ -42,3 +42,12 @@ export const deleteItem = (group, id) => {
         payload: { group, id },
     };
 };
+
+export const UPDATE_ITEM_TOTAL = "UPDATE_ITEM_TOTAL";
+
+export const updateItemTotal = (group, id, total) => {
+    return {
+        type: UPDATE_ITEM_TOTAL,
+        payload: { group, id, total },
+    };
+};

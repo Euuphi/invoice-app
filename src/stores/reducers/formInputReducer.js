@@ -51,7 +51,7 @@ const formInput = (state = initialState, action) => {
                                 [action.payload.name]: action.payload.value,
                             };
                         } else {
-                            return { ...item };
+                            return item;
                         }
                     }
                 ),
@@ -63,6 +63,23 @@ const formInput = (state = initialState, action) => {
                     (item) => item.id !== action.payload.id
                 ),
             };
+        case formInputActions.UPDATE_ITEM_TOTAL:
+            return {
+                ...state,
+                [action.payload.group]: state[action.payload.group].map(
+                    (item) => {
+                        if (item.id === action.payload.id) {
+                            return {
+                                ...item,
+                                total: action.payload.total,
+                            };
+                        } else {
+                            return item;
+                        }
+                    }
+                ),
+            };
+
         default:
             return state;
     }
