@@ -21,7 +21,7 @@ const BillTo = () => {
             />
             <InputField
                 inputType="text"
-                name="streetAddress"
+                name="street"
                 label="Street Address"
                 formGroup="clientAddress"
                 fullGridColumn

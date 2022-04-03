@@ -1,55 +1,55 @@
-import { useContext } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { connect } from "react-redux";
+// Selectors
+import { getItems, getItemById } from "stores/selectors/formInputSelectors";
+// Actions
+import { deleteItem } from "stores/actions/formInputActions";
+import { updateItemTotal, updateTotal } from "stores/actions/formInputActions";
+// Functions
 import convertCurrency from "functions/convertCurrency";
-// Context
-import { FormContext } from "context/FormContext";
 // Components
 import InputField from "components/forms/InputField";
 import TrashCanButton from "components/buttons/TrashCanButton";
 
-const ItemListItem = ({ index, onDeleteClickHandler }) => {
+const ItemListItem = ({ id, formGroup, itemTotal, total }) => {
+    const dispatch = useDispatch();
+
     // Variable to adjust padding of input fields
     const inputPadding = "1.7rem";
 
-    // Calculate total by multiplying quantity and price inputs and convert string to currency format
-    const { inputs } = useContext(FormContext);
-    const calculateTotal = () => {
-        // Check if input field contains a value
-        if (
-            !inputs.items ||
-            !inputs.items[index] ||
-            !inputs.items[index].quantity ||
-            !inputs.items[index].price
-        ) {
-            return convertCurrency(0);
-        } else {
-            return convertCurrency(
-                inputs.items[index].quantity * inputs.items[index].price
-            );
-        }
+    const onDeleteClickHandler = (e, group, id) => {
+        e.preventDefault();
+        dispatch(deleteItem(group, id));
     };
+
+    useEffect(() => {
+        dispatch(updateItemTotal(formGroup, id, itemTotal));
+        dispatch(updateTotal(total));
+    }, [formGroup, id, itemTotal, total, dispatch]);
 
     return (
         <>
             <InputField
                 name="name"
                 inputType="text"
-                formGroup="items"
-                formIndex={index}
+                formGroup={formGroup}
+                formId={id}
                 inputPadding={inputPadding}
             />
             <InputField
                 name="quantity"
                 inputType="number"
-                formGroup="items"
-                formIndex={index}
+                formGroup={formGroup}
+                formId={id}
                 inputPadding={inputPadding}
                 min="0"
             />
             <InputField
                 name="price"
                 inputType="number"
-                formGroup="items"
-                formIndex={index}
+                formGroup={formGroup}
+                formId={id}
                 inputPadding={inputPadding}
                 step="0.01"
                 min="0.00"
@@ -58,15 +58,35 @@ const ItemListItem = ({ index, onDeleteClickHandler }) => {
                 disabled
                 name="total"
                 inputType="text"
-                formGroup="items"
-                formIndex={index}
+                formGroup={formGroup}
+                formId={id}
                 inputPadding="0"
                 inputStyle={{ backgroundColor: "transparent" }}
-                value={calculateTotal()}
+                value={convertCurrency(itemTotal)}
             />
-            <TrashCanButton onClick={(e) => onDeleteClickHandler(e, index)} />
+            <TrashCanButton
+                onClick={(e) => onDeleteClickHandler(e, formGroup, id)}
+            />
         </>
     );
 };
 
-export default ItemListItem;
+function mapStateToProps(state, { id }) {
+    const items = getItems(state);
+    // Get item from id
+    const item = getItemById(state, id);
+    // Calculate total of item from price and quantity
+    const calculatedItemTotal = item.price * item.quantity;
+    const itemTotal = isNaN(calculatedItemTotal) ? 0 : calculatedItemTotal;
+    // Calculate total of all item total values
+    const total = items.reduce(
+        (subtotal, currentItem) => subtotal + currentItem.total,
+        0
+    );
+    return {
+        itemTotal,
+        total,
+    };
+}
+
+export default connect(mapStateToProps)(ItemListItem);

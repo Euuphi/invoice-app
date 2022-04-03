@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "stores/actions/formInputActions";
 import styled from "styled-components";
 // Components
 import GridContainer from "components/layout/GridContainer";
@@ -21,20 +22,21 @@ const Label = styled.label`
     ${ParagraphSmStyle}
 `;
 
-const ItemList = () => {
-    const [itemIndex, setItemIndex] = useState(0);
-    const [itemList, setItemList] = useState([]);
+/**
+ * Create list of multiple related input groups
+ *
+ * @param {string} formGroup - Name of array to store items
+ * @return {JSX} - Form component with related input fields
+ */
+const ItemList = ({ formGroup }) => {
+    const dispatch = useDispatch();
+    const items = useSelector((state) => state.formInput.items);
 
     const onAddClickHandler = (e) => {
         e.preventDefault();
-        setItemList([...itemList, itemIndex]);
-        setItemIndex(itemIndex + 1);
-    };
-
-    const onDeleteClickHandler = (e, index) => {
-        e.preventDefault();
-        setItemList(itemList.filter((item) => item !== index));
-        // TODO: Update form input state
+        // Create new id for each item added to item list
+        const id = items.length === 0 ? 0 : items[items.length - 1].id + 1; // Add one to last item's id
+        dispatch(addItem(formGroup, id));
     };
 
     return (
@@ -51,12 +53,12 @@ const ItemList = () => {
                     <Label>Price</Label>
                     <Label style={{ gridColumn: "span 2" }}>Total</Label>
                 </>
-                {itemList.map((item) => {
+                {items.map((item) => {
                     return (
                         <ItemListItem
-                            key={item}
-                            index={item}
-                            onDeleteClickHandler={onDeleteClickHandler}
+                            key={item.id}
+                            id={item.id}
+                            formGroup={formGroup}
                         />
                     );
                 })}

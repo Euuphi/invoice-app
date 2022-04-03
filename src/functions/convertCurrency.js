@@ -5,6 +5,10 @@
  * @return {string} - Pound stering currency format eg. £ 1,800.9
  */
 const convertCurrency = (value) => {
+    if (isNaN(value)) {
+        value = 0;
+    }
+
     const currencyFormatter = new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "EUR",

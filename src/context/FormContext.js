@@ -1,62 +1,37 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+    updateGroup,
+    updateItem,
+    updateInput,
+} from "stores/actions/formInputActions";
+import { getFormInputs } from "stores/selectors/formInputSelectors";
 
 const createFormContext = () => {
     const FormContext = createContext();
 
     const FormProvider = ({ children }) => {
-        const [inputs, setInputs] = useState({});
+        const dispatch = useDispatch();
+        const formInputs = useSelector((state) => getFormInputs(state));
 
-        const onChangeHandler = (e, formGroup, formItem) => {
-            const inputName = e.target.name;
-            const inputValue = e.target.value;
+        const onChangeHandler = (e, formGroup, formId) => {
+            const name = e.target.name;
+            const value = e.target.value;
 
-            // If fromGroup and formIndex props are defined on input field
-            if (formGroup && typeof formItem !== "undefined") {
-                setInputs(() => {
-                    // If input group DOES NOT already exist, create new array of object
-                    if (!inputs[formGroup]) {
-                        return {
-                            ...inputs,
-                            [formGroup]: [{ [inputName]: inputValue }],
-                        };
-                    }
-                    // If input group DOES exists, update array with new input values
-                    else {
-                        return {
-                            ...inputs,
-                            // Reslice array to update relevant parts to update input values
-                            [formGroup]: [
-                                ...inputs[formGroup].slice(0, formItem),
-                                {
-                                    ...inputs[formGroup][formItem],
-                                    [inputName]: inputValue,
-                                },
-                                ...inputs[formGroup].slice(
-                                    formItem + 1,
-                                    inputs[formGroup].length
-                                ),
-                            ],
-                        };
-                    }
-                });
+            // If fromGroup and formId props are defined on input field
+            if (formGroup && typeof formId !== "undefined") {
+                dispatch(updateItem(name, value, formGroup, formId));
             } else if (formGroup) {
-                setInputs({
-                    ...inputs,
-                    [formGroup]: {
-                        ...inputs[formGroup],
-                        [inputName]: inputValue,
-                    },
-                });
+                dispatch(updateGroup(name, value, formGroup));
             } else {
-                setInputs({ ...inputs, [inputName]: inputValue });
+                dispatch(updateInput(name, value));
             }
 
-            console.log(inputs);
+            console.log(formInputs);
         };
 
         return (
-            <FormContext.Provider
-                value={{ inputs, setInputs, onChangeHandler }}>
+            <FormContext.Provider value={{ onChangeHandler }}>
                 {children}
             </FormContext.Provider>
         );

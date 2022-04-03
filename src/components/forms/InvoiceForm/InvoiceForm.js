@@ -11,7 +11,7 @@ const InvoiceForm = () => {
             <BillFrom />
             <BillTo />
             <InvoiceFormDetails />
-            <ItemList />
+            <ItemList formGroup="items" />
             <FormButtons />
         </form>
     );

@@ -43,7 +43,7 @@ const Input = styled.input`
  *
  * @param {boolean} disabled - Control if input field is disabled
  * @param {string} formGroup - Name of object to group input into
- * @param {number} formIndex - Index number for item in the form group
+ * @param {number} formId - Id number for item in the form group
  * @param {string} fullGridColumn - Set element to expand entire width of grid contianer
  * @param {string} inputPadding - Padding for input
  * @param {string} inputType - Type for input field
@@ -58,7 +58,7 @@ const Input = styled.input`
 const InputField = ({
     disabled,
     formGroup,
-    formIndex,
+    formId,
     fullGridColumn,
     inputPadding,
     inputStyle,
@@ -81,7 +81,7 @@ const InputField = ({
                 name={name}
                 type={inputType}
                 inputPadding={inputPadding}
-                onChange={(e) => onChangeHandler(e, formGroup, formIndex)}
+                onChange={(e) => onChangeHandler(e, formGroup, formId)}
                 placeholder={placeholder}
                 min={min}
                 step={step}
