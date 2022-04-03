@@ -7,6 +7,7 @@ import CancelButton from "components/buttons/formButtons/CancelButton";
 import SaveAsDraftButton from "components/buttons/formButtons/SaveAsDraftButton";
 import SaveButton from "components/buttons/formButtons/SaveButton";
 import { pageScrollOn } from "stores/actions/uiActions";
+import { resetInputs } from "stores/actions/formInputActions";
 
 const FormButtonsContainer = styled.div`
     display: flex;
@@ -34,6 +35,7 @@ const FormButtons = () => {
     const discardClickHandler = () => {
         dispatch(discardNewInvoice());
         dispatch(pageScrollOn());
+        dispatch(resetInputs());
     };
 
     return (

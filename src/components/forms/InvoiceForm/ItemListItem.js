@@ -75,6 +75,10 @@ function mapStateToProps(state, { id }) {
     const items = getItems(state);
     // Get item from id
     const item = getItemById(state, id);
+    // Error handler if no items are found
+    if (!item) {
+        return null;
+    }
     // Calculate total of item from price and quantity
     const calculatedItemTotal = item.price * item.quantity;
     const itemTotal = isNaN(calculatedItemTotal) ? 0 : calculatedItemTotal;
