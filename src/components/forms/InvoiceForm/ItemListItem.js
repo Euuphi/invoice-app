@@ -2,17 +2,17 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
 // Selectors
-import { getItemById } from "stores/selectors/formInputSelectors";
+import { getItems, getItemById } from "stores/selectors/formInputSelectors";
 // Actions
 import { deleteItem } from "stores/actions/formInputActions";
-import { updateItemTotal } from "stores/actions/formInputActions";
+import { updateItemTotal, updateTotal } from "stores/actions/formInputActions";
 // Functions
 import convertCurrency from "functions/convertCurrency";
 // Components
 import InputField from "components/forms/InputField";
 import TrashCanButton from "components/buttons/TrashCanButton";
 
-const ItemListItem = ({ id, formGroup, total }) => {
+const ItemListItem = ({ id, formGroup, itemTotal, total }) => {
     const dispatch = useDispatch();
 
     // Variable to adjust padding of input fields
@@ -24,8 +24,9 @@ const ItemListItem = ({ id, formGroup, total }) => {
     };
 
     useEffect(() => {
-        dispatch(updateItemTotal(formGroup, id, total));
-    }, [formGroup, id, total, dispatch]);
+        dispatch(updateItemTotal(formGroup, id, itemTotal));
+        dispatch(updateTotal(total));
+    }, [formGroup, id, itemTotal, total, dispatch]);
 
     return (
         <>
@@ -61,7 +62,7 @@ const ItemListItem = ({ id, formGroup, total }) => {
                 formId={id}
                 inputPadding="0"
                 inputStyle={{ backgroundColor: "transparent" }}
-                value={convertCurrency(total)}
+                value={convertCurrency(itemTotal)}
             />
             <TrashCanButton
                 onClick={(e) => onDeleteClickHandler(e, formGroup, id)}
@@ -71,14 +72,20 @@ const ItemListItem = ({ id, formGroup, total }) => {
 };
 
 function mapStateToProps(state, { id }) {
+    const items = getItems(state);
     // Get item from id
     const item = getItemById(state, id);
-    // Calculate total from item price and quantity
-    const total = item.price * item.quantity;
-    const itemTotal = isNaN(total) ? 0 : total;
-
+    // Calculate total of item from price and quantity
+    const calculatedItemTotal = item.price * item.quantity;
+    const itemTotal = isNaN(calculatedItemTotal) ? 0 : calculatedItemTotal;
+    // Calculate total of all item total values
+    const total = items.reduce(
+        (subtotal, currentItem) => subtotal + currentItem.total,
+        0
+    );
     return {
-        total: itemTotal,
+        itemTotal,
+        total,
     };
 }
 
