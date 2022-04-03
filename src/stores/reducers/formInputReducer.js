@@ -84,6 +84,8 @@ const formInput = (state = initialState, action) => {
                 ...state,
                 total: action.payload.total,
             };
+        case formInputActions.RESET_INPUTS:
+            return initialState;
         default:
             return state;
     }

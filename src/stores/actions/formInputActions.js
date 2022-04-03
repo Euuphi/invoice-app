@@ -60,3 +60,11 @@ export const updateTotal = (total) => {
         payload: { total },
     };
 };
+
+export const RESET_INPUTS = "RESET_INPUTS";
+
+export const resetInputs = () => {
+    return {
+        type: RESET_INPUTS,
+    };
+};
