@@ -4,7 +4,7 @@
  * @param {number} value - Currency value as a number eg. 1800.9
  * @return {string} - Pound stering currency format eg. £ 1,800.9
  */
-const convertCurrency = (value) => {
+export default function convertCurrency(value) {
     if (isNaN(value)) {
         value = 0;
     }
@@ -15,6 +15,4 @@ const convertCurrency = (value) => {
     });
 
     return currencyFormatter.format(value).replace("€", "£ ");
-};
-
-export default convertCurrency;
+}

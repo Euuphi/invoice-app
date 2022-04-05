@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import styled from "styled-components";
 import { FormContext } from "context/FormContext";
+import styled from "styled-components";
 import ParagraphMdStyle from "styles/text/ParagraphMdStyle";
 import InputStyle from "styles/forms/InputStyle";
 
