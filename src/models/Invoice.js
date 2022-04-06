@@ -26,7 +26,7 @@ const InvoiceSchema = new mongoose.Schema({
         {
             id: {
                 type: Number,
-                required: [true, "Item Id required"],
+                required: [true, "Unique id is required"],
                 unique: true,
             },
             name: String,
