@@ -30,8 +30,23 @@ const createFormContext = () => {
             console.log(formInputs);
         };
 
+        const getValue = (name, formGroup, formId) => {
+            let value;
+            if (formGroup && typeof formId !== "undefined") {
+                value = formInputs[formGroup].filter(
+                    (item) => item.id === formId
+                )[0][name];
+            } else if (formGroup) {
+                value = formInputs[formGroup][name];
+            } else {
+                value = formInputs[name];
+            }
+
+            return value;
+        };
+
         return (
-            <FormContext.Provider value={{ onChangeHandler }}>
+            <FormContext.Provider value={{ onChangeHandler, getValue }}>
                 {children}
             </FormContext.Provider>
         );

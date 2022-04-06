@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import styled, { css } from "styled-components";
 import { FormContext } from "context/FormContext";
+// Styles
+import styled, { css } from "styled-components";
 import ParagraphMdStyle from "styles/text/ParagraphMdStyle";
 import InputStyle from "styles/forms/InputStyle";
 
@@ -70,7 +71,8 @@ const InputField = ({
     step,
     value,
 }) => {
-    const { onChangeHandler } = useContext(FormContext);
+    const { onChangeHandler, getValue } = useContext(FormContext);
+    let inputValue = getValue(name, formGroup, formId);
 
     return (
         <InputContainer fullGridColumn={fullGridColumn}>
@@ -85,7 +87,7 @@ const InputField = ({
                 placeholder={placeholder}
                 min={min}
                 step={step}
-                value={value}
+                value={value || inputValue}
                 style={inputStyle}
             />
         </InputContainer>
