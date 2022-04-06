@@ -1,3 +1,12 @@
+export const SET_INPUTS = "SET_INPUTS";
+
+export const setInputs = (inputStates) => {
+    return {
+        type: SET_INPUTS,
+        payload: { inputStates },
+    };
+};
+
 export const UPDATE_INPUT = "UPDATE_INPUT";
 
 export const updateInput = (name, value) => {
