@@ -3,13 +3,13 @@ import { useRouter } from "next/router";
 // Redux
 import { useDispatch, useSelector } from "react-redux";
 import { discardNewInvoice } from "stores/actions/formActions";
+import { resetInputs } from "stores/actions/formInputActions";
 import { getFormInputs } from "stores/selectors/formInputSelectors";
 // Components
 import CancelButton from "components/buttons/formButtons/CancelButton";
 import SaveAsDraftButton from "components/buttons/formButtons/SaveAsDraftButton";
 import SaveButton from "components/buttons/formButtons/SaveButton";
 import { pageScrollOn } from "stores/actions/uiActions";
-import { resetInputs } from "stores/actions/formInputActions";
 
 const FormButtonsContainer = styled.div`
     display: flex;

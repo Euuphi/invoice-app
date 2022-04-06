@@ -14,8 +14,8 @@ const Button = styled.button`
     }
 `;
 
-const SaveAsDraftButton = () => {
-    return <Button>Save as Draft</Button>;
+const SaveAsDraftButton = ({ onClick }) => {
+    return <Button onClick={onClick}>Save as Draft</Button>;
 };
 
 export default SaveAsDraftButton;
