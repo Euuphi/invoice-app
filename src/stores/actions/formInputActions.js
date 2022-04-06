@@ -68,3 +68,11 @@ export const resetInputs = () => {
         type: RESET_INPUTS,
     };
 };
+
+export const GENERATE_NEW_ID = "GENERATE_NEW_ID";
+
+export const generateNewId = () => {
+    return {
+        type: GENERATE_NEW_ID,
+    };
+};

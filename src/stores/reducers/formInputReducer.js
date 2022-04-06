@@ -1,7 +1,8 @@
 import * as formInputActions from "../actions/formInputActions";
+import generateID from "functions/generateID";
 
 const initialState = {
-    id: "",
+    id: generateID(),
     createdAt: "",
     paymentDue: "",
     description: "",
@@ -22,6 +23,11 @@ const initialState = {
 
 const formInput = (state = initialState, action) => {
     switch (action.type) {
+        case formInputActions.GENERATE_NEW_ID:
+            return {
+                ...state,
+                id: generateID(),
+            };
         case formInputActions.UPDATE_INPUT:
             return { ...state, [action.payload.name]: action.payload.value };
         case formInputActions.UPDATE_GROUP:
