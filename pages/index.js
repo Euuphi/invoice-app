@@ -4,7 +4,7 @@ import Head from "next/head";
 import MainContainer from "components/layout/MainContainer";
 import MainHeading from "components/sections/MainHeading";
 import InvoiceList from "components/invoice/InvoiceList";
-import InvoiceFormSection from "components/invoice/InvoiceFormPage";
+import InvoiceFromPage from "components/invoice/InvoiceFormPage";
 
 export default function Home({ invoices }) {
     // State for displaying and hiding invoice form
@@ -18,7 +18,7 @@ export default function Home({ invoices }) {
             <MainContainer>
                 <MainHeading numberOfInvoices={invoices.length} />
                 <InvoiceList invoices={invoices} />
-                {displayForm && <InvoiceFormSection />}
+                {displayForm && <InvoiceFromPage />}
             </MainContainer>
         </>
     );
