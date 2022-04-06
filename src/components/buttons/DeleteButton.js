@@ -39,7 +39,7 @@ const DeleteButton = () => {
                 }
             );
             // Route to home page
-            router.push("/");
+            await router.push("/");
             // Turn on page scroll
             dispatch(pageScrollOn());
         } catch (error) {
