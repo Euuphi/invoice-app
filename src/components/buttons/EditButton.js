@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { createNewInvoice } from "stores/actions/formActions";
+import { pageScrollOff } from "stores/actions/uiActions";
 import styled from "styled-components";
 // Styles
 import LightButtonStyle from "styles/buttons/LightButtonStyle";
@@ -13,6 +14,7 @@ const EditButton = () => {
 
     const editHandler = () => {
         dispatch(createNewInvoice());
+        dispatch(pageScrollOff());
     };
 
     return <Button onClick={editHandler}>Edit</Button>;
