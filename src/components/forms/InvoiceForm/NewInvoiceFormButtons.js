@@ -32,6 +32,7 @@ const NewInvoiceFormButtons = () => {
                 body: JSON.stringify(formInputs),
             });
         } catch (error) {
+            // TODO: Add error handling for duplicate IDs
             console.log(error);
         }
 
