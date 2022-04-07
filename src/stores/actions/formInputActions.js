@@ -1,8 +1,8 @@
-export const SET_INPUTS = "SET_INPUTS";
+export const SET_FORM_INPUTS = "SET_FORM_INPUTS";
 
-export const setInputs = (inputStates) => {
+export const setFormInputs = (inputStates) => {
     return {
-        type: SET_INPUTS,
+        type: SET_FORM_INPUTS,
         payload: { inputStates },
     };
 };

@@ -23,7 +23,7 @@ const initialState = {
 
 const formInput = (state = initialState, action) => {
     switch (action.type) {
-        case formInputActions.SET_INPUTS:
+        case formInputActions.SET_FORM_INPUTS:
             return {
                 ...state,
                 ...action.payload.inputStates,

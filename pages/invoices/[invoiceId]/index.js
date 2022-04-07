@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Head from "next/head";
 // Comonents
 import MainContainer from "components/layout/MainContainer";
@@ -6,9 +8,15 @@ import GoBackButton from "components/buttons/GoBackButton";
 import ActionBar from "components/ui/ActionBar";
 import InvoiceDetails from "components/invoice/InvoiceDetails";
 import InvoiceFormPage from "components/invoice/InvoiceFormPage";
+import { setFormInputs } from "stores/actions/formInputActions";
 
 export default function InvoiceItem({ invoice }) {
+    const dispatch = useDispatch();
     const displayForm = useSelector((state) => state.form.display);
+
+    useEffect(() => {
+        dispatch(setFormInputs(invoice));
+    }, [invoice, dispatch]);
 
     return (
         <>
@@ -20,7 +28,7 @@ export default function InvoiceItem({ invoice }) {
                     <GoBackButton />
                     <ActionBar status={invoice.status} />
                     <InvoiceDetails invoice={invoice} />
-                    {dispayForm && <InvoiceFormPage />}
+                    {displayForm && <InvoiceFormPage />}
                 </FlexContainer>
             </MainContainer>
         </>
@@ -35,9 +43,16 @@ export async function getServerSideProps(context) {
     );
     const { data } = await res.json();
 
+    // Transform dates in data to yyyy-mm-dd
+    const invoice = {
+        ...data,
+        paymentDue: data.paymentDue.split("T")[0],
+        createdAt: data.createdAt.split("T")[0],
+    };
+
     return {
         props: {
-            invoice: data,
+            invoice,
         },
     };
 }
