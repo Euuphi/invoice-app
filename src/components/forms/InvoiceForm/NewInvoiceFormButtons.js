@@ -31,7 +31,7 @@ const FormButtonsContainer = styled.div`
     width: 72rem;
 `;
 
-const FormButtons = () => {
+const NewInvoiceFormButtons = () => {
     const dispatch = useDispatch();
     const router = useRouter();
     const formInputs = useSelector((state) => getFormInputs(state));
@@ -67,4 +67,4 @@ const FormButtons = () => {
     );
 };
 
-export default FormButtons;
+export default NewInvoiceFormButtons;

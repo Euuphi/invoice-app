@@ -1,7 +1,7 @@
 // Components
 import BillFrom from "./BillFrom";
 import BillTo from "./BillTo";
-import FormButtons from "./FormButtons";
+import NewInvoiceFormButtons from "./NewInvoiceFormButtons";
 import InvoiceFormDetails from "./InvoiceFormDetails";
 import ItemList from "./ItemList";
 
@@ -12,7 +12,7 @@ const InvoiceForm = () => {
             <BillTo />
             <InvoiceFormDetails />
             <ItemList formGroup="items" />
-            <FormButtons />
+            <NewInvoiceFormButtons />
         </form>
     );
 };
