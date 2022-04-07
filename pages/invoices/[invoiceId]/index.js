@@ -51,8 +51,8 @@ export async function getServerSideProps(context) {
     // Transform dates in data to yyyy-mm-dd
     const invoice = {
         ...data,
-        paymentDue: data.paymentDue.split("T")[0],
-        createdAt: data.createdAt.split("T")[0],
+        paymentDue: data.paymentDue ? data.paymentDue.split("T")[0] : "",
+        createdAt: data.createdAt ? data.createdAt.split("T")[0] : "",
     };
 
     return {
