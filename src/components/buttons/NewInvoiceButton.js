@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { createNewInvoice } from "stores/actions/formActions";
+import { showForm } from "stores/actions/formActions";
 import { pageScrollOff } from "stores/actions/uiActions";
 import styled from "styled-components";
 // Themes
@@ -42,7 +42,7 @@ const NewInvoiceButton = () => {
     const dispatch = useDispatch();
 
     const clickHandler = () => {
-        dispatch(createNewInvoice());
+        dispatch(showForm());
         dispatch(pageScrollOff());
     };
 

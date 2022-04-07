@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import { discardNewInvoice } from "stores/actions/formActions";
+import { hideForm } from "stores/actions/formActions";
 import { resetInputs } from "stores/actions/formInputActions";
 import { getFormInputs } from "stores/selectors/formInputSelectors";
 // Components
@@ -17,7 +17,7 @@ const NewInvoiceFormButtons = () => {
     const formInputs = useSelector((state) => getFormInputs(state));
 
     const discardClickHandler = () => {
-        dispatch(discardNewInvoice());
+        dispatch(hideForm());
         dispatch(pageScrollOn());
         dispatch(resetInputs());
     };

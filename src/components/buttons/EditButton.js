@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { createNewInvoice } from "stores/actions/formActions";
+import { showForm } from "stores/actions/formActions";
 import { pageScrollOff } from "stores/actions/uiActions";
 import styled from "styled-components";
 // Styles
@@ -13,7 +13,7 @@ const EditButton = () => {
     const dispatch = useDispatch();
 
     const editHandler = () => {
-        dispatch(createNewInvoice());
+        dispatch(showForm());
         dispatch(pageScrollOff());
     };
 

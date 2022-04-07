@@ -1,17 +1,17 @@
 // Create new invoice form
-export const CREATE_NEW_INVOICE = "CREATE_NEW_INVOICE";
+export const SHOW_FORM = "SHOW_FORM";
 
-export const createNewInvoice = () => {
+export const showForm = () => {
     return {
-        type: CREATE_NEW_INVOICE,
+        type: SHOW_FORM,
     };
 };
 
 // Discard current invoice form
-export const DISCARD_NEW_INVOICE = "DISCARD_NEW_INVOICE";
+export const HIDE_FORM = "HIDE_FORM";
 
-export const discardNewInvoice = () => {
+export const hideForm = () => {
     return {
-        type: DISCARD_NEW_INVOICE,
+        type: HIDE_FORM,
     };
 };
