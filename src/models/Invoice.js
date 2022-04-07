@@ -7,11 +7,23 @@ const AddressSchema = new mongoose.Schema({
     country: String,
 });
 
+const ItemSchema = new mongoose.Schema({
+    id: {
+        type: Number,
+        required: [true, "Item id is required"],
+        unique: [true, "Unique item id is required"],
+    },
+    name: String,
+    quantity: Number,
+    price: Number,
+    total: Number,
+});
+
 const InvoiceSchema = new mongoose.Schema({
     id: {
         type: String,
-        required: [true, "Id required"],
-        unique: true,
+        required: [true, "Invoice id is required"],
+        unique: [true, "Unique invoice id is required"],
     },
     createdAt: Date,
     paymentDue: Date,
@@ -22,19 +34,7 @@ const InvoiceSchema = new mongoose.Schema({
     status: String,
     senderAddress: AddressSchema,
     clientAddress: AddressSchema,
-    items: [
-        {
-            id: {
-                type: Number,
-                required: [true, "Unique id is required"],
-                unique: true,
-            },
-            name: String,
-            quantity: Number,
-            price: Number,
-            total: Number,
-        },
-    ],
+    items: [ItemSchema],
     total: Number,
 });
 
