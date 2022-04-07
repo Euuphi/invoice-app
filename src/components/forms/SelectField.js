@@ -21,12 +21,13 @@ const Select = styled.select`
 
 const SelectField = ({ name, label, fullGridColumn }) => {
     // TODO: Create custom select and dropdown options
-    const { onChangeHandler } = useContext(FormContext);
+    const { onChangeHandler, getValue } = useContext(FormContext);
+    let inputValue = getValue(name);
 
     return (
         <InputContainer fullGridColumn={fullGridColumn}>
             <Label htmlFor={name}>{label}</Label>
-            <Select name={name} onChange={onChangeHandler}>
+            <Select name={name} onChange={onChangeHandler} value={inputValue}>
                 <option value="1">Net 1 Days</option>
                 <option value="7">Net 7 Days</option>
                 <option value="14">Net 14 Days</option>
