@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { showForm } from "stores/actions/formActions";
+import { resetInputs } from "stores/actions/formInputActions";
 import { pageScrollOff } from "stores/actions/uiActions";
 import styled from "styled-components";
 // Themes
@@ -42,6 +43,7 @@ const NewInvoiceButton = () => {
     const dispatch = useDispatch();
 
     const clickHandler = () => {
+        dispatch(resetInputs());
         dispatch(showForm());
         dispatch(pageScrollOff());
     };
