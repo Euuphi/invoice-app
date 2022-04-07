@@ -21,8 +21,8 @@ const MarkAsPaidButton = () => {
                     body: JSON.stringify({ status: "paid" }),
                 }
             );
-            // Reload page
-            router.reload(window.location.pathname);
+            // Reload page data
+            router.replace(router.asPath);
         } catch (error) {
             console.log(error);
         }
