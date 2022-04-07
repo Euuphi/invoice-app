@@ -41,7 +41,11 @@ const NewInvoiceFormButtons = () => {
 
     return (
         <FormButtonsContainer>
-            <CancelButton onClick={discardClickHandler} text="Discard" />
+            <CancelButton
+                onClick={discardClickHandler}
+                text="Discard"
+                margin="0 auto 0 0"
+            />
             <SaveAsDraftButton />
             <SaveButton onClick={submitHandler} text="Save & Send" />
         </FormButtonsContainer>

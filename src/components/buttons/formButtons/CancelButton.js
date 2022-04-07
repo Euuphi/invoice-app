@@ -6,12 +6,12 @@ const Button = styled.button`
 
     background-color: ${({ theme }) => theme.button.discard.background.default};
     color: ${({ theme }) => theme.button.discard.text.default};
-    margin-right: auto;
+    margin: ${({ margin }) => margin || 0};
 `;
 
-const CancelButton = ({ onClick, text }) => {
+const CancelButton = ({ onClick, text, margin }) => {
     return (
-        <Button onClick={onClick} type="button">
+        <Button onClick={onClick} type="button" margin={margin}>
             {text}
         </Button>
     );
