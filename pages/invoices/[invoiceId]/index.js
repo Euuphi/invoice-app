@@ -28,7 +28,12 @@ export default function InvoiceItem({ invoice }) {
                     <GoBackButton />
                     <ActionBar status={invoice.status} />
                     <InvoiceDetails invoice={invoice} />
-                    {displayForm && <InvoiceFormPage />}
+                    {displayForm && (
+                        <InvoiceFormPage
+                            formTitle={`Edit #${invoice.id}`}
+                            formStyle="edit"
+                        />
+                    )}
                 </FlexContainer>
             </MainContainer>
         </>

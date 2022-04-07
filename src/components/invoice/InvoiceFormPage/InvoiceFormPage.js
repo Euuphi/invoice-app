@@ -39,14 +39,14 @@ const FormTitle = styled.h2`
     margin-bottom: 5.6rem;
 `;
 
-const InvoiceFormPage = ({ formTitle }) => {
+const InvoiceFormPage = ({ formTitle, formStyle }) => {
     return (
         <Backdrop>
             <FormBackground>
                 <FormContainer>
                     <FormTitle>{formTitle}</FormTitle>
                     <FormProvider>
-                        <InvoiceForm />
+                        <InvoiceForm formStyle={formStyle} />
                     </FormProvider>
                 </FormContainer>
             </FormBackground>
