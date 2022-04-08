@@ -48,7 +48,7 @@ const formInput = (state = initialState, action) => {
                 ...state,
                 [action.payload.group]: [
                     ...state[action.payload.group],
-                    { id: action.payload.id },
+                    { ...action.payload.item },
                 ],
             };
         case formInputActions.UPDATE_ITEM:

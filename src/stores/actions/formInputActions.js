@@ -27,10 +27,10 @@ export const updateGroup = (name, value, group) => {
 
 export const ADD_ITEM = "ADD_ITEM";
 
-export const addItem = (group, id) => {
+export const addItem = (group, item) => {
     return {
         type: ADD_ITEM,
-        payload: { group, id },
+        payload: { group, item },
     };
 };
 

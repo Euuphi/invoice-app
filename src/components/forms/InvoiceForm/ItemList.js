@@ -35,8 +35,15 @@ const ItemList = ({ formGroup }) => {
     const onAddClickHandler = (e) => {
         e.preventDefault();
         // Create new id for each item added to item list
-        const id = items.length === 0 ? 0 : items[items.length - 1].id + 1; // Add one to last item's id
-        dispatch(addItem(formGroup, id));
+        const id = items.length === 0 ? 1 : items[items.length - 1].id + 1; // Add one to last item's id
+        dispatch(
+            addItem(formGroup, {
+                id,
+                name: "",
+                quantity: "",
+                price: "",
+            })
+        );
     };
 
     return (
