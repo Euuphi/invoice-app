@@ -1,4 +1,6 @@
 import { useRouter } from "next/router";
+import { useContext } from "react";
+import { FormContext } from "context/FormContext";
 // Redux
 import { useDispatch, useSelector } from "react-redux";
 import { hideForm } from "stores/actions/formActions";
@@ -14,6 +16,7 @@ import { pageScrollOn } from "stores/actions/uiActions";
 const NewInvoiceFormButtons = () => {
     const dispatch = useDispatch();
     const router = useRouter();
+    const { validate } = useContext(FormContext);
     const formInputs = useSelector((state) => getFormInputs(state));
 
     const discardClickHandler = () => {
@@ -24,19 +27,22 @@ const NewInvoiceFormButtons = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        // Submit form
-        try {
-            const response = await fetch("http://localhost:3000/api/invoices", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formInputs),
-            });
-        } catch (error) {
-            // TODO: Add error handling for duplicate IDs
-            console.log(error);
-        }
 
-        router.reload(window.location.pathname);
+        console.log(validate(formInputs));
+
+        // Submit form
+        // try {
+        //     const response = await fetch("http://localhost:3000/api/invoices", {
+        //         method: "POST",
+        //         headers: { "Content-Type": "application/json" },
+        //         body: JSON.stringify(formInputs),
+        //     });
+        // } catch (error) {
+        //     // TODO: Add error handling for duplicate IDs
+        //     console.log(error);
+        // }
+
+        // router.reload(window.location.pathname);
     };
 
     return (
