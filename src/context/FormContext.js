@@ -6,6 +6,7 @@ import {
     updateInput,
 } from "stores/actions/formInputActions";
 import { getFormInputs } from "stores/selectors/formInputSelectors";
+import { getFormErrors } from "stores/selectors/formSelector";
 
 const createFormContext = () => {
     const FormContext = createContext();
@@ -13,6 +14,7 @@ const createFormContext = () => {
     const FormProvider = ({ children }) => {
         const dispatch = useDispatch();
         const formInputs = useSelector((state) => getFormInputs(state));
+        const errors = useSelector((state) => getFormErrors(state));
 
         // Update input field state value with user input
         const onChangeHandler = (e, formGroup, formId) => {
@@ -53,7 +55,9 @@ const createFormContext = () => {
             let errItems = [];
 
             for (const [name, value] of Object.entries(inputs)) {
-                if (Array.isArray(value)) {
+                if (name === "id") {
+                    errors.id = value;
+                } else if (Array.isArray(value)) {
                     value.forEach((item) => {
                         errItems.push(validate(item));
                     });
@@ -69,9 +73,38 @@ const createFormContext = () => {
             return errors;
         };
 
+        // Retrives input error value and returns true if there is an error with input validation else returns false
+        const getInputError = (name, formGroup, formId) => {
+            if (!errors) {
+                return false;
+            }
+
+            if (formGroup && typeof formId !== "undefined") {
+                if (errors[formGroup]) {
+                    const item = errors[formGroup].filter(
+                        (item) => item.id === formId
+                    )[0];
+
+                    if (!item || !item[name]) {
+                        return false;
+                    }
+                }
+            } else if (formGroup) {
+                if (!errors[formGroup] || !errors[formGroup][name]) {
+                    return false;
+                }
+            } else {
+                if (!errors[name]) {
+                    return false;
+                }
+            }
+
+            return true;
+        };
+
         return (
             <FormContext.Provider
-                value={{ onChangeHandler, getValue, validate }}>
+                value={{ onChangeHandler, getValue, validate, getInputError }}>
                 {children}
             </FormContext.Provider>
         );
