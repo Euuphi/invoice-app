@@ -1,6 +1,6 @@
 import * as formActions from "stores/actions/formActions";
 
-const initialState = { display: false };
+const initialState = { display: false, errors: {} };
 
 const form = (state = initialState, action) => {
     switch (action.type) {
@@ -8,6 +8,9 @@ const form = (state = initialState, action) => {
             return { ...state, display: true };
         case formActions.HIDE_FORM:
             return { ...state, display: false };
+        case formActions.SET_ERRORS: {
+            return { ...state, errors: action.payload };
+        }
         default:
             return state;
     }
