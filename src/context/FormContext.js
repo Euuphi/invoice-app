@@ -14,6 +14,7 @@ const createFormContext = () => {
         const dispatch = useDispatch();
         const formInputs = useSelector((state) => getFormInputs(state));
 
+        // Update input field state value with user input
         const onChangeHandler = (e, formGroup, formId) => {
             const name = e.target.name;
             const value = e.target.value;
@@ -30,6 +31,7 @@ const createFormContext = () => {
             console.log(formInputs);
         };
 
+        // Retrieve value of input field from redux state
         const getValue = (name, formGroup, formId) => {
             let value;
             if (formGroup && typeof formId !== "undefined") {
@@ -45,8 +47,31 @@ const createFormContext = () => {
             return value;
         };
 
+        // Function for validating form input fields. Returns an object oh which fields are still "required"
+        const validate = (inputs) => {
+            let errors = {};
+            let errItems = [];
+
+            for (const [name, value] of Object.entries(inputs)) {
+                if (Array.isArray(value)) {
+                    value.forEach((item) => {
+                        errItems.push(validate(item));
+                    });
+
+                    errors[name] = errItems;
+                } else if (typeof value === "object") {
+                    errors[name] = validate(value);
+                } else if (!value) {
+                    errors[name] = "required";
+                }
+            }
+
+            return errors;
+        };
+
         return (
-            <FormContext.Provider value={{ onChangeHandler, getValue }}>
+            <FormContext.Provider
+                value={{ onChangeHandler, getValue, validate }}>
                 {children}
             </FormContext.Provider>
         );
