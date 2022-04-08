@@ -3,7 +3,8 @@ import { useContext } from "react";
 import { FormContext } from "context/FormContext";
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import { hideForm } from "stores/actions/formActions";
+import { pageScrollOn } from "stores/actions/uiActions";
+import { hideForm, setErrors } from "stores/actions/formActions";
 import { resetInputs } from "stores/actions/formInputActions";
 import { getFormInputs } from "stores/selectors/formInputSelectors";
 // Components
@@ -11,7 +12,6 @@ import FormButtonsContainer from "components/layout/FormButtonsContainer";
 import CancelButton from "components/buttons/formButtons/CancelButton";
 import SaveAsDraftButton from "components/buttons/formButtons/SaveAsDraftButton";
 import SaveButton from "components/buttons/formButtons/SaveButton";
-import { pageScrollOn } from "stores/actions/uiActions";
 
 const NewInvoiceFormButtons = () => {
     const dispatch = useDispatch();
@@ -28,7 +28,9 @@ const NewInvoiceFormButtons = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
 
-        console.log(validate(formInputs));
+        // Validate input fields
+        const errors = validate(formInputs);
+        dispatch(setErrors(errors));
 
         // Submit form
         // try {

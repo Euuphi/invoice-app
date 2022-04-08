@@ -29,6 +29,15 @@ const Input = styled.input`
         }
     }}
 
+    // Styles when input is invalid
+    ${({ error }) => {
+        if (error) {
+            return css`
+                border-color: red;
+            `;
+        }
+    }}
+
     padding: ${({ inputPadding }) => inputPadding};
 
     /* Hide  arrows for number input */
@@ -71,8 +80,10 @@ const InputField = ({
     step,
     value,
 }) => {
-    const { onChangeHandler, getValue } = useContext(FormContext);
+    const { onChangeHandler, getValue, getInputError } =
+        useContext(FormContext);
     let inputValue = getValue(name, formGroup, formId);
+    let inputError = getInputError(name, formGroup, formId);
 
     return (
         <InputContainer fullGridColumn={fullGridColumn}>
@@ -80,6 +91,7 @@ const InputField = ({
             <Input
                 autoComplete="off"
                 disabled={disabled}
+                error={inputError}
                 name={name}
                 type={inputType}
                 inputPadding={inputPadding}
@@ -90,6 +102,7 @@ const InputField = ({
                 value={value || inputValue}
                 style={inputStyle}
             />
+            {inputError && <p>required</p>}
         </InputContainer>
     );
 };
