@@ -8,12 +8,10 @@ const form = (state = initialState, action) => {
             return { ...state, display: true };
         case formActions.HIDE_FORM:
             return { ...state, display: false };
-        case formActions.SET_ERRORS: {
+        case formActions.SET_INPUT_ERRORS:
             return { ...state, errors: action.payload };
-        }
-        case formActions.RESET_ERRORS: {
+        case formActions.RESET_INPUT_ERRORS:
             return { ...state, errors: {} };
-        }
         default:
             return state;
     }

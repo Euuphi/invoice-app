@@ -16,19 +16,19 @@ export const hideForm = () => {
     };
 };
 
-export const SET_ERRORS = "SET_ERRORS";
+export const SET_INPUT_ERRORS = "SET_INPUT_ERRORS";
 
 export const setErrors = (errors) => {
     return {
-        type: SET_ERRORS,
+        type: SET_INPUT_ERRORS,
         payload: errors,
     };
 };
 
-export const RESET_ERRORS = "RESET_ERRORS";
+export const RESET_INPUT_ERRORS = "RESET_INPUT_ERRORS";
 
 export const resetErrors = () => {
     return {
-        type: RESET_ERRORS,
+        type: RESET_INPUT_ERRORS,
     };
 };
