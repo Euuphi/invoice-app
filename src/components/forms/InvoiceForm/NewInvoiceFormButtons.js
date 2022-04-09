@@ -33,19 +33,24 @@ const NewInvoiceFormButtons = () => {
         const errors = validate(formInputs);
         dispatch(setErrors(errors));
 
-        // Submit form
-        // try {
-        //     const response = await fetch("http://localhost:3000/api/invoices", {
-        //         method: "POST",
-        //         headers: { "Content-Type": "application/json" },
-        //         body: JSON.stringify(formInputs),
-        //     });
-        // } catch (error) {
-        //     // TODO: Add error handling for duplicate IDs
-        //     console.log(error);
-        // }
+        // Submit form if there are no input errors
+        if (!errors) {
+            try {
+                const response = await fetch(
+                    "http://localhost:3000/api/invoices",
+                    {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(formInputs),
+                    }
+                );
+            } catch (error) {
+                // TODO: Add error handling for duplicate IDs
+                console.log(error);
+            }
 
-        // router.reload(window.location.pathname);
+            router.reload(window.location.pathname);
+        }
     };
 
     return (
