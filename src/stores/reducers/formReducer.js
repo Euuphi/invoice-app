@@ -11,6 +11,9 @@ const form = (state = initialState, action) => {
         case formActions.SET_ERRORS: {
             return { ...state, errors: action.payload };
         }
+        case formActions.RESET_ERRORS: {
+            return { ...state, errors: {} };
+        }
         default:
             return state;
     }
