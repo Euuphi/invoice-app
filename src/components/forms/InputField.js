@@ -10,10 +10,35 @@ const InputContainer = styled.div`
     flex-direction: column;
     gap: 1.4rem;
     grid-column: ${({ fullGridColumn }) => fullGridColumn && "1 / -1"};
+    position: relative;
+
+    ${({ error }) => {
+        if (error) {
+            return css`
+                &::after {
+                    content: "*";
+                    color: red;
+                    font-size: 2rem;
+                    font-weight: 600;
+                    position: absolute;
+                    top: 0.3rem;
+                    right: 0;
+                }
+            `;
+        }
+    }};
 `;
 
 const Label = styled.label`
     ${ParagraphMdStyle}
+
+    ${({ error }) => {
+        if (error) {
+            return css`
+                color: red;
+            `;
+        }
+    }};
 `;
 
 const Input = styled.input`
@@ -82,12 +107,17 @@ const InputField = ({
 }) => {
     const { onChangeHandler, getValue, getInputError } =
         useContext(FormContext);
+    // Retrieve input error information
     let inputValue = getValue(name, formGroup, formId);
-    let inputError = getInputError(name, formGroup, formId);
+    let inputError = disabled ? false : getInputError(name, formGroup, formId);
 
     return (
-        <InputContainer fullGridColumn={fullGridColumn}>
-            {label && <Label htmlFor={name}>{label}</Label>}
+        <InputContainer error={inputError} fullGridColumn={fullGridColumn}>
+            {label && (
+                <Label htmlFor={name} error={inputError}>
+                    {label}
+                </Label>
+            )}
             <Input
                 autoComplete="off"
                 disabled={disabled}
@@ -102,7 +132,6 @@ const InputField = ({
                 value={value || inputValue}
                 style={inputStyle}
             />
-            {inputError && <p>required</p>}
         </InputContainer>
     );
 };
