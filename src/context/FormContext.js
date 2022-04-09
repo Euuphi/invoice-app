@@ -80,7 +80,9 @@ const createFormContext = () => {
             }
 
             if (formGroup && typeof formId !== "undefined") {
-                if (errors[formGroup]) {
+                if (!errors[formGroup]) {
+                    return false;
+                } else if (errors[formGroup]) {
                     const item = errors[formGroup].filter(
                         (item) => item.id === formId
                     )[0];
