@@ -4,7 +4,7 @@ import { FormContext } from "context/FormContext";
 // Redux
 import { useDispatch, useSelector } from "react-redux";
 import { pageScrollOn } from "stores/actions/uiActions";
-import { hideForm, setErrors } from "stores/actions/formActions";
+import { hideForm, resetErrors, setErrors } from "stores/actions/formActions";
 import { resetInputs } from "stores/actions/formInputActions";
 import { getFormInputs } from "stores/selectors/formInputSelectors";
 // Components
@@ -23,6 +23,7 @@ const NewInvoiceFormButtons = () => {
         dispatch(hideForm());
         dispatch(pageScrollOn());
         dispatch(resetInputs());
+        dispatch(resetErrors());
     };
 
     const submitHandler = async (e) => {
