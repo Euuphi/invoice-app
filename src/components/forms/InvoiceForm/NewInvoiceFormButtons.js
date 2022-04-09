@@ -16,7 +16,7 @@ import SaveButton from "components/buttons/formButtons/SaveButton";
 const NewInvoiceFormButtons = () => {
     const dispatch = useDispatch();
     const router = useRouter();
-    const { validate } = useContext(FormContext);
+    const { validateInputs, validateErrors } = useContext(FormContext);
     const formInputs = useSelector((state) => getFormInputs(state));
 
     const discardClickHandler = () => {
@@ -30,11 +30,12 @@ const NewInvoiceFormButtons = () => {
         e.preventDefault();
 
         // Validate input fields
-        const errors = validate(formInputs);
-        dispatch(setErrors(errors));
+        const inputErrors = validateInputs(formInputs);
+        const errors = validateErrors(inputErrors);
+        dispatch(setErrors(inputErrors));
 
         // Submit form if there are no input errors
-        if (!errors) {
+        if (Object.keys(errors).length === 0) {
             try {
                 const response = await fetch(
                     "http://localhost:3000/api/invoices",

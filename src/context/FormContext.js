@@ -49,28 +49,68 @@ const createFormContext = () => {
             return value;
         };
 
-        // Function for validating form input fields. Returns an object oh which fields are still "required"
-        const validate = (inputs) => {
+        // Function for validating form input fields. Returns an object of which fields are still "required"
+        const validateInputs = (inputs) => {
             let errors = {};
             let errItems = [];
 
             for (const [name, value] of Object.entries(inputs)) {
                 if (name === "id") {
                     errors.id = value;
+                    // Check array
                 } else if (Array.isArray(value)) {
                     value.forEach((item) => {
-                        errItems.push(validate(item));
+                        errItems.push(validateInputs(item));
                     });
 
                     errors[name] = errItems;
+                    // If object
                 } else if (typeof value === "object") {
-                    errors[name] = validate(value);
+                    errors[name] = validateInputs(value);
+                    // If no value
                 } else if (!value) {
                     errors[name] = "required";
                 }
             }
 
             return errors;
+        };
+
+        const validateErrors = (errors) => {
+            let validation = {};
+
+            for (const [name, value] of Object.entries(errors)) {
+                if (name === "id") {
+                    continue;
+                    // Check array
+                } else if (Array.isArray(value)) {
+                    // If no items in array
+                    if (value.length === 0) {
+                        validation[name] = "error";
+                    } else {
+                        value.forEach((item) => {
+                            // Create array of item object keys
+                            const keys = Object.keys(item);
+                            if (keys.length === 1 && keys[0] === "id") {
+                                return;
+                            } else {
+                                validation[name] = "error";
+                            }
+                        });
+                    }
+                    // If object
+                } else if (typeof value === "object") {
+                    if (Object.keys(value).length === 0) {
+                        continue;
+                    } else {
+                        validation[name] = "error";
+                    }
+                } else {
+                    validation[name] = "error";
+                }
+            }
+
+            return validation;
         };
 
         // Retrives input error value and returns true if there is an error with input validation else returns false
@@ -106,7 +146,13 @@ const createFormContext = () => {
 
         return (
             <FormContext.Provider
-                value={{ onChangeHandler, getValue, validate, getInputError }}>
+                value={{
+                    onChangeHandler,
+                    getValue,
+                    validateInputs,
+                    validateErrors,
+                    getInputError,
+                }}>
                 {children}
             </FormContext.Provider>
         );
