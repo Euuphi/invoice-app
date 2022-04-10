@@ -95,7 +95,7 @@ const createFormContext = () => {
                 } else if (Array.isArray(value)) {
                     // If no items in array
                     if (value.length === 0) {
-                        validation[name] = "error";
+                        validation[name] = "no items";
                     } else {
                         value.forEach((item) => {
                             // Create array of item object keys

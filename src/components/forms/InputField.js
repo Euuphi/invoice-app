@@ -12,12 +12,12 @@ const InputContainer = styled.div`
     grid-column: ${({ fullGridColumn }) => fullGridColumn && "1 / -1"};
     position: relative;
 
-    ${({ error }) => {
-        if (error) {
+    ${({ error, label }) => {
+        if (error && label) {
             return css`
                 &::after {
                     content: "*";
-                    color: red;
+                    color: #ec5757;
                     font-size: 2rem;
                     font-weight: 600;
                     position: absolute;
@@ -35,7 +35,7 @@ const Label = styled.label`
     ${({ error }) => {
         if (error) {
             return css`
-                color: red;
+                color: #ec5757;
             `;
         }
     }};
@@ -58,7 +58,7 @@ const Input = styled.input`
     ${({ error }) => {
         if (error) {
             return css`
-                border-color: red;
+                border-color: #ec5757;
             `;
         }
     }}
@@ -112,7 +112,10 @@ const InputField = ({
     let inputError = disabled ? false : getInputError(name, formGroup, formId);
 
     return (
-        <InputContainer error={inputError} fullGridColumn={fullGridColumn}>
+        <InputContainer
+            error={inputError}
+            label={label}
+            fullGridColumn={fullGridColumn}>
             {label && (
                 <Label htmlFor={name} error={inputError}>
                     {label}
