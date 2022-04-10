@@ -27,7 +27,7 @@ export const setSubmitting = (isSubmitting) => {
 
 export const SET_INPUT_ERRORS = "SET_INPUT_ERRORS";
 
-export const setErrors = (errors) => {
+export const setInputErrors = (errors) => {
     return {
         type: SET_INPUT_ERRORS,
         payload: errors,
@@ -36,7 +36,7 @@ export const setErrors = (errors) => {
 
 export const RESET_INPUT_ERRORS = "RESET_INPUT_ERRORS";
 
-export const resetErrors = () => {
+export const resetInputErrors = () => {
     return {
         type: RESET_INPUT_ERRORS,
     };

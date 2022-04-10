@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { pageScrollOn } from "stores/actions/uiActions";
 import {
     hideForm,
-    resetErrors,
-    setErrors,
+    resetInputErrors,
+    setInputErrors,
     setSubmitting,
 } from "stores/actions/formActions";
 import { resetInputs } from "stores/actions/formInputActions";
@@ -28,7 +28,7 @@ const NewInvoiceFormButtons = () => {
         dispatch(hideForm());
         dispatch(pageScrollOn());
         dispatch(resetInputs());
-        dispatch(resetErrors());
+        dispatch(resetInputErrors());
         dispatch(setSubmitting(false));
     };
 
@@ -39,7 +39,7 @@ const NewInvoiceFormButtons = () => {
         // Validate input fields
         const inputErrors = validateInputs(formInputs);
         const errors = validateErrors(inputErrors);
-        dispatch(setErrors(inputErrors));
+        dispatch(setInputErrors(inputErrors));
 
         // Submit form if there are no input errors
         if (Object.keys(errors).length === 0) {
