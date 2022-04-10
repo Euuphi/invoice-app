@@ -34,10 +34,10 @@ export const setInputErrors = (errors) => {
     };
 };
 
-export const RESET_INPUT_ERRORS = "RESET_INPUT_ERRORS";
+export const RESET_ALL_INPUT_ERRORS = "RESET_ALL_INPUT_ERRORS";
 
-export const resetInputErrors = () => {
+export const resetAllInputErrors = () => {
     return {
-        type: RESET_INPUT_ERRORS,
+        type: RESET_ALL_INPUT_ERRORS,
     };
 };

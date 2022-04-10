@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { pageScrollOn } from "stores/actions/uiActions";
 import {
     hideForm,
-    resetInputErrors,
+    resetAllInputErrors,
     setInputErrors,
     setSubmitting,
 } from "stores/actions/formActions";
@@ -28,7 +28,7 @@ const NewInvoiceFormButtons = () => {
         dispatch(hideForm());
         dispatch(pageScrollOn());
         dispatch(resetInputs());
-        dispatch(resetInputErrors());
+        dispatch(resetAllInputErrors());
         dispatch(setSubmitting(false));
     };
 

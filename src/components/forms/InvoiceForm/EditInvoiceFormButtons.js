@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import {
     hideForm,
-    resetInputErrors,
+    resetAllInputErrors,
     setInputErrors,
     setSubmitting,
 } from "stores/actions/formActions";
@@ -26,7 +26,7 @@ const EditInvoiceFormButton = () => {
     const cancelHandler = () => {
         dispatch(hideForm());
         dispatch(pageScrollOn());
-        dispatch(resetInputErrors());
+        dispatch(resetAllInputErrors());
     };
 
     const saveHandler = async (e) => {

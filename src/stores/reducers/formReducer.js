@@ -12,7 +12,7 @@ const form = (state = initialState, action) => {
             return { ...state, isSubmitting: action.payload.isSubmitting };
         case formActions.SET_INPUT_ERRORS:
             return { ...state, errors: action.payload };
-        case formActions.RESET_INPUT_ERRORS:
+        case formActions.RESET_ALL_INPUT_ERRORS:
             return { ...state, errors: {} };
         default:
             return state;

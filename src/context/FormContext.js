@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { resetInputErrors } from "stores/actions/formActions";
+import { resetAllInputErrors } from "stores/actions/formActions";
 import {
     updateGroup,
     updateItem,
@@ -38,7 +38,7 @@ const createFormContext = () => {
         // TODO: Only reset focused input instead of all inputs
         const onFocusHandler = () => {
             if (isSubmitting) {
-                dispatch(resetInputErrors());
+                dispatch(resetAllInputErrors());
             }
         };
 
