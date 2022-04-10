@@ -16,6 +16,15 @@ export const hideForm = () => {
     };
 };
 
+export const SET_SUBMITTING = "SET_SUBMITTING";
+
+export const setSubmitting = (isSubmitting) => {
+    return {
+        type: SET_SUBMITTING,
+        payload: { isSubmitting },
+    };
+};
+
 export const SET_INPUT_ERRORS = "SET_INPUT_ERRORS";
 
 export const setErrors = (errors) => {
