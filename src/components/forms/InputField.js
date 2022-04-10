@@ -105,7 +105,7 @@ const InputField = ({
     step,
     value,
 }) => {
-    const { onChangeHandler, getValue, getInputError } =
+    const { onChangeHandler, onFocusHandler, getValue, getInputError } =
         useContext(FormContext);
     // Retrieve input error information
     let inputValue = getValue(name, formGroup, formId);
@@ -126,6 +126,7 @@ const InputField = ({
                 type={inputType}
                 inputPadding={inputPadding}
                 onChange={(e) => onChangeHandler(e, formGroup, formId)}
+                onFocus={onFocusHandler}
                 placeholder={placeholder}
                 min={min}
                 step={step}

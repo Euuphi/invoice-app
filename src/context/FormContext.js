@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { resetInputErrors } from "stores/actions/formActions";
 import {
     updateGroup,
     updateItem,
@@ -15,6 +16,7 @@ const createFormContext = () => {
         const dispatch = useDispatch();
         const formInputs = useSelector((state) => getFormInputs(state));
         const errors = useSelector((state) => getFormErrors(state));
+        const isSubmitting = useSelector((state) => state.form.isSubmitting);
 
         // Update input field state value with user input
         const onChangeHandler = (e, formGroup, formId) => {
@@ -31,6 +33,13 @@ const createFormContext = () => {
             }
 
             console.log(formInputs);
+        };
+
+        // TODO: Only reset focused input instead of all inputs
+        const onFocusHandler = () => {
+            if (isSubmitting) {
+                dispatch(resetInputErrors());
+            }
         };
 
         // Retrieve value of input field from redux state
@@ -148,6 +157,7 @@ const createFormContext = () => {
             <FormContext.Provider
                 value={{
                     onChangeHandler,
+                    onFocusHandler,
                     getValue,
                     validateInputs,
                     validateErrors,
