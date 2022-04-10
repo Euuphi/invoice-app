@@ -16,7 +16,7 @@ export default function InvoiceItem({ invoice }) {
 
     useEffect(() => {
         dispatch(setFormInputs(invoice));
-    }, [invoice, dispatch]);
+    }, [invoice, displayForm, dispatch]);
 
     return (
         <>
