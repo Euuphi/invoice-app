@@ -4,7 +4,12 @@ import { FormContext } from "context/FormContext";
 // Redux
 import { useDispatch, useSelector } from "react-redux";
 import { pageScrollOn } from "stores/actions/uiActions";
-import { hideForm, resetErrors, setErrors } from "stores/actions/formActions";
+import {
+    hideForm,
+    resetErrors,
+    setErrors,
+    setSubmitting,
+} from "stores/actions/formActions";
 import { resetInputs } from "stores/actions/formInputActions";
 import { getFormInputs } from "stores/selectors/formInputSelectors";
 // Components
@@ -24,10 +29,12 @@ const NewInvoiceFormButtons = () => {
         dispatch(pageScrollOn());
         dispatch(resetInputs());
         dispatch(resetErrors());
+        dispatch(setSubmitting(false));
     };
 
     const submitHandler = async (e) => {
         e.preventDefault();
+        dispatch(setSubmitting(true));
 
         // Validate input fields
         const inputErrors = validateInputs(formInputs);
@@ -54,6 +61,21 @@ const NewInvoiceFormButtons = () => {
         }
     };
 
+    const saveAsDraftHandler = async () => {
+        try {
+            const response = await fetch("http://localhost:3000/api/invoices", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ ...formInputs, status: "draft" }),
+            });
+        } catch (error) {
+            // TODO: Add error handling for duplicate IDs
+            console.log(error);
+        }
+
+        router.reload(window.location.pathname);
+    };
+
     return (
         <FormButtonsContainer>
             <CancelButton
@@ -61,7 +83,7 @@ const NewInvoiceFormButtons = () => {
                 text="Discard"
                 margin="0 auto 0 0"
             />
-            <SaveAsDraftButton />
+            <SaveAsDraftButton onClick={saveAsDraftHandler} />
             <SaveButton onClick={submitHandler} text="Save & Send" />
         </FormButtonsContainer>
     );
