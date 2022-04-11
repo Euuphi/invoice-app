@@ -57,6 +57,7 @@ const NewInvoiceFormButtons = () => {
                 console.log(error);
             }
 
+            dispatch(setSubmitting(false));
             router.reload(window.location.pathname);
         }
     };
@@ -73,6 +74,7 @@ const NewInvoiceFormButtons = () => {
             console.log(error);
         }
 
+        dispatch(setSubmitting(false));
         router.reload(window.location.pathname);
     };
 
