@@ -1,3 +1,4 @@
+import deleteKey from "functions/deleteKey";
 import * as formActions from "stores/actions/formActions";
 
 const initialState = { display: false, errors: {}, isSubmitting: false };
@@ -14,6 +15,38 @@ const form = (state = initialState, action) => {
             return { ...state, errors: action.payload };
         case formActions.RESET_ALL_INPUT_ERRORS:
             return { ...state, errors: {} };
+        case formActions.RESET_INPUT_ERROR:
+            return {
+                ...state,
+                errors: deleteKey(state.errors, action.payload.name),
+            };
+        case formActions.RESET_GROUP_INPUT_ERROR:
+            return {
+                ...state,
+                errors: {
+                    ...state.errors,
+                    [action.payload.group]: deleteKey(
+                        state.errors[action.payload.group],
+                        action.payload.name
+                    ),
+                },
+            };
+        case formActions.RESET_ITEM_INPUT_ERROR:
+            return {
+                ...state,
+                errors: {
+                    ...state.errors,
+                    [action.payload.group]: state.errors[
+                        action.payload.group
+                    ].map((item) => {
+                        if (item.id === action.payload.id) {
+                            return deleteKey(item, action.payload.name);
+                        } else {
+                            return item;
+                        }
+                    }),
+                },
+            };
         default:
             return state;
     }

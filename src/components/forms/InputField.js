@@ -129,7 +129,7 @@ const InputField = ({
                 type={inputType}
                 inputPadding={inputPadding}
                 onChange={(e) => onChangeHandler(e, formGroup, formId)}
-                onFocus={onFocusHandler}
+                onFocus={(e) => onFocusHandler(e, formGroup, formId)}
                 placeholder={placeholder}
                 min={min}
                 step={step}

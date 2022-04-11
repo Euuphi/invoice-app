@@ -41,3 +41,30 @@ export const resetAllInputErrors = () => {
         type: RESET_ALL_INPUT_ERRORS,
     };
 };
+
+export const RESET_INPUT_ERROR = "RESET_INPUT_ERROR";
+
+export const resetInputError = (name) => {
+    return {
+        type: RESET_INPUT_ERROR,
+        payload: { name },
+    };
+};
+
+export const RESET_GROUP_INPUT_ERROR = "RESET_GROUP_INPUT_ERROR";
+
+export const resetGroupInputError = (name, group) => {
+    return {
+        type: RESET_GROUP_INPUT_ERROR,
+        payload: { name, group },
+    };
+};
+
+export const RESET_ITEM_INPUT_ERROR = "RESET_ITEM_INPUT_ERROR";
+
+export const resetItemInputError = (name, group, id) => {
+    return {
+        type: RESET_ITEM_INPUT_ERROR,
+        payload: { name, group, id },
+    };
+};
