@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { setFormInputs } from "stores/actions/formInputActions";
 import Head from "next/head";
+import deleteKey from "functions/deleteKey";
 // Comonents
 import MainContainer from "components/layout/MainContainer";
 import FlexContainer from "components/layout/FlexContainer";
@@ -8,7 +10,6 @@ import GoBackButton from "components/buttons/GoBackButton";
 import ActionBar from "components/ui/ActionBar";
 import InvoiceDetails from "components/invoice/InvoiceDetails";
 import InvoiceFormPage from "components/invoice/InvoiceFormPage";
-import { setFormInputs } from "stores/actions/formInputActions";
 
 export default function InvoiceItem({ invoice }) {
     const dispatch = useDispatch();
@@ -48,12 +49,15 @@ export async function getServerSideProps(context) {
     );
     const { data } = await res.json();
 
-    // Transform dates in data to yyyy-mm-dd
-    const invoice = {
-        ...data,
-        paymentDue: data.paymentDue ? data.paymentDue.split("T")[0] : "",
-        createdAt: data.createdAt ? data.createdAt.split("T")[0] : "",
-    };
+    // Transform dates in data to yyyy-mm-dd and remove mongoose versionKey property (__v)
+    const invoice = deleteKey(
+        {
+            ...data,
+            paymentDue: data.paymentDue ? data.paymentDue.split("T")[0] : "",
+            createdAt: data.createdAt ? data.createdAt.split("T")[0] : "",
+        },
+        "__v"
+    );
 
     return {
         props: {

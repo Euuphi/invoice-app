@@ -52,6 +52,7 @@ const EditInvoiceFormButton = () => {
                 console.log(error);
             }
 
+            dispatch(setSubmitting(false));
             router.reload(window.location.pathname);
         }
     };
