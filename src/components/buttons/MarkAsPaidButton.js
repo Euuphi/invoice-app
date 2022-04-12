@@ -6,10 +6,12 @@ const Button = styled.button`
     ${PrimaryButtonStyle}
 `;
 
-const MarkAsPaidButton = () => {
+const MarkAsPaidButton = ({ status }) => {
     const router = useRouter();
 
     const invoiceId = router.query.invoiceId;
+    const markAs = status === "paid" ? "pending" : "paid";
+    const buttonText = `Mark as ${markAs[0].toUpperCase() + markAs.slice(1)}`;
 
     const onClickHandler = async () => {
         try {
@@ -18,7 +20,7 @@ const MarkAsPaidButton = () => {
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ status: "paid" }),
+                    body: JSON.stringify({ status: markAs }),
                 }
             );
             // Reload page data
@@ -28,7 +30,7 @@ const MarkAsPaidButton = () => {
         }
     };
 
-    return <Button onClick={onClickHandler}>Mark as Paid</Button>;
+    return <Button onClick={onClickHandler}>{buttonText}</Button>;
 };
 
 export default MarkAsPaidButton;

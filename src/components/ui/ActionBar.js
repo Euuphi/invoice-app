@@ -14,7 +14,7 @@ const ActionBar = ({ status }) => {
             <CenteredContainer gap="0.8rem">
                 <EditButton />
                 <DeleteButton />
-                <MarkAsPaidButton />
+                <MarkAsPaidButton status={status} />
             </CenteredContainer>
         </Card>
     );
