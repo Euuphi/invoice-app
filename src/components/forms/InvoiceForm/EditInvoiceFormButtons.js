@@ -38,23 +38,37 @@ const EditInvoiceFormButton = () => {
         const errors = validateErrors(inputErrors);
         dispatch(setInputErrors(inputErrors));
 
-        if (Object.keys(errors).length === 0) {
-            try {
-                const response = await fetch(
-                    `http://localhost:3000/api/invoices/${invoiceId}`,
-                    {
-                        method: "PUT",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(formInputs),
-                    }
-                );
-            } catch (error) {
-                console.log(error);
-            }
-
-            dispatch(setSubmitting(false));
-            router.reload(window.location.pathname);
+        // Set form status based on errors
+        let status;
+        // Leave status as paid if already set to paid
+        if (formInputs.status === "paid") {
+            status = "paid";
         }
+        // Else if there are no errors, set status to pending
+        else if (Object.keys(errors).length === 0) {
+            status = "pending";
+        }
+        // Else set status as draft if there are errors
+        else {
+            status = "draft";
+        }
+
+        // Submit form
+        try {
+            const response = await fetch(
+                `http://localhost:3000/api/invoices/${invoiceId}`,
+                {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ ...formInputs, status }),
+                }
+            );
+        } catch (error) {
+            console.log(error);
+        }
+
+        dispatch(setSubmitting(false));
+        router.reload(window.location.pathname);
     };
 
     return (
