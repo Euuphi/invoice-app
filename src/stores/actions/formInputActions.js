@@ -1,9 +1,25 @@
+export const GENERATE_NEW_ID = "GENERATE_NEW_ID";
+
+export const generateNewId = () => {
+    return {
+        type: GENERATE_NEW_ID,
+    };
+};
+
 export const SET_FORM_INPUTS = "SET_FORM_INPUTS";
 
 export const setFormInputs = (inputStates) => {
     return {
         type: SET_FORM_INPUTS,
         payload: { inputStates },
+    };
+};
+
+export const RESET_INPUTS = "RESET_INPUTS";
+
+export const resetInputs = () => {
+    return {
+        type: RESET_INPUTS,
     };
 };
 
@@ -67,21 +83,5 @@ export const updateTotal = (total) => {
     return {
         type: UPDATE_TOTAL,
         payload: { total },
-    };
-};
-
-export const RESET_INPUTS = "RESET_INPUTS";
-
-export const resetInputs = () => {
-    return {
-        type: RESET_INPUTS,
-    };
-};
-
-export const GENERATE_NEW_ID = "GENERATE_NEW_ID";
-
-export const generateNewId = () => {
-    return {
-        type: GENERATE_NEW_ID,
     };
 };

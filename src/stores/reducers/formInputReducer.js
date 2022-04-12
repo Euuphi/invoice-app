@@ -23,16 +23,18 @@ const initialState = {
 
 const formInput = (state = initialState, action) => {
     switch (action.type) {
-        case formInputActions.SET_FORM_INPUTS:
-            return {
-                ...state,
-                ...action.payload.inputStates,
-            };
         case formInputActions.GENERATE_NEW_ID:
             return {
                 ...state,
                 id: generateID(),
             };
+        case formInputActions.SET_FORM_INPUTS:
+            return {
+                ...state,
+                ...action.payload.inputStates,
+            };
+        case formInputActions.RESET_INPUTS:
+            return initialState;
         case formInputActions.UPDATE_INPUT:
             return { ...state, [action.payload.name]: action.payload.value };
         case formInputActions.UPDATE_GROUP:
@@ -95,8 +97,6 @@ const formInput = (state = initialState, action) => {
                 ...state,
                 total: action.payload.total,
             };
-        case formInputActions.RESET_INPUTS:
-            return initialState;
         default:
             return state;
     }
