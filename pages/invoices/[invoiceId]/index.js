@@ -49,6 +49,8 @@ export async function getServerSideProps(context) {
         params: { invoiceId },
     } = context;
 
+    dbConnect();
+
     const data = await Invoice.findOne({ id: invoiceId });
     const invoiceData = JSON.parse(JSON.stringify(data));
 
