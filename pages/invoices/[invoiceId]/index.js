@@ -1,3 +1,4 @@
+import { BASE_URL } from "../../../config";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFormInputs } from "stores/actions/formInputActions";
@@ -44,9 +45,7 @@ export default function InvoiceItem({ invoice }) {
 export async function getServerSideProps(context) {
     const { params } = context;
 
-    const res = await fetch(
-        `http://localhost:3000/api/invoices/${params.invoiceId}`
-    );
+    const res = await fetch(`${BASE_URL}/api/invoices/${params.invoiceId}`);
     const { data } = await res.json();
 
     // Transform dates in data to yyyy-mm-dd and remove mongoose versionKey property (__v)

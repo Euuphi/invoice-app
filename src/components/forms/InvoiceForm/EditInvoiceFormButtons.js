@@ -1,3 +1,4 @@
+import { BASE_URL } from "../../../../config";
 import { useContext } from "react";
 import { FormContext } from "context/FormContext";
 import { useRouter } from "next/router";
@@ -56,7 +57,7 @@ const EditInvoiceFormButton = () => {
         // Submit form
         try {
             const response = await fetch(
-                `http://localhost:3000/api/invoices/${invoiceId}`,
+                `${BASE_URL}/api/invoices/${invoiceId}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },

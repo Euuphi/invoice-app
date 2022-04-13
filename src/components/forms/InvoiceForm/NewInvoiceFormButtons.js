@@ -1,3 +1,4 @@
+import { BASE_URL } from "../../../../config";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { FormContext } from "context/FormContext";
@@ -44,14 +45,11 @@ const NewInvoiceFormButtons = () => {
         // Submit form if there are no input errors
         if (Object.keys(errors).length === 0) {
             try {
-                const response = await fetch(
-                    "http://localhost:3000/api/invoices",
-                    {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(formInputs),
-                    }
-                );
+                const response = await fetch(`${BASE_URL}/api/invoices`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(formInputs),
+                });
             } catch (error) {
                 // TODO: Add error handling for duplicate IDs
                 console.log(error);
@@ -64,7 +62,7 @@ const NewInvoiceFormButtons = () => {
 
     const saveAsDraftHandler = async () => {
         try {
-            const response = await fetch("http://localhost:3000/api/invoices", {
+            const response = await fetch(`${BASE_URL}/api/invoices`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ ...formInputs, status: "draft" }),

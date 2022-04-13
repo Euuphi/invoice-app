@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { BASE_URL } from "../config";
 import Head from "next/head";
 // Components
 import MainContainer from "components/layout/MainContainer";
@@ -25,7 +26,7 @@ export default function Home({ invoices }) {
 }
 
 export async function getStaticProps() {
-    const res = await fetch("http://localhost:3000/api/invoices");
+    const res = await fetch(`${BASE_URL}/api/invoices`);
     const { data } = await res.json();
 
     return {

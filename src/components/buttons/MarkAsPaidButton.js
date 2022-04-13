@@ -1,3 +1,4 @@
+import { BASE_URL } from "../../../config";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import PrimaryButtonStyle from "styles/buttons/PrimaryButtonStyle";
@@ -15,14 +16,11 @@ const MarkAsPaidButton = ({ status }) => {
 
     const onClickHandler = async () => {
         try {
-            const res = await fetch(
-                `http://localhost:3000/api/invoices/${invoiceId}`,
-                {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ status: markAs }),
-                }
-            );
+            const res = await fetch(`${BASE_URL}/api/invoices/${invoiceId}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ status: markAs }),
+            });
             // Reload page data
             router.replace(router.asPath);
         } catch (error) {

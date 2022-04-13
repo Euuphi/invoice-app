@@ -1,3 +1,4 @@
+import { BASE_URL } from "../../../config";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { pageScrollOff, pageScrollOn } from "stores/actions/uiActions";
@@ -33,7 +34,7 @@ const DeleteButton = () => {
         try {
             // Delete invoice
             const deleted = await fetch(
-                `http://localhost:3000/api/invoices/${invoiceId}`,
+                `${BASE_URL}/api/invoices/${invoiceId}`,
                 {
                     method: "DELETE",
                 }
