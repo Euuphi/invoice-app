@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
-import { BASE_URL } from "../config";
 import Head from "next/head";
+// Mongoose
+import dbConnect from "utils/dbConnect";
+import Invoice from "models/Invoice";
 // Components
 import MainContainer from "components/layout/MainContainer";
 import MainHeading from "components/sections/MainHeading";
@@ -26,12 +28,14 @@ export default function Home({ invoices }) {
 }
 
 export async function getStaticProps() {
-    const res = await fetch(`${BASE_URL}/api/invoices`);
-    const { data } = await res.json();
+    dbConnect();
+
+    const data = await Invoice.find({});
+    const invoices = JSON.parse(JSON.stringify(data));
 
     return {
         props: {
-            invoices: data,
+            invoices,
         },
     };
 }

@@ -1,9 +1,11 @@
-import { BASE_URL } from "../../../config";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFormInputs } from "stores/actions/formInputActions";
-import Head from "next/head";
 import deleteKey from "functions/deleteKey";
+import Head from "next/head";
+// Mongoose
+import dbConnect from "utils/dbConnect";
+import Invoice from "models/Invoice";
 // Comonents
 import MainContainer from "components/layout/MainContainer";
 import FlexContainer from "components/layout/FlexContainer";
@@ -43,17 +45,23 @@ export default function InvoiceItem({ invoice }) {
 }
 
 export async function getServerSideProps(context) {
-    const { params } = context;
+    const {
+        params: { invoiceId },
+    } = context;
 
-    const res = await fetch(`${BASE_URL}/api/invoices/${params.invoiceId}`);
-    const { data } = await res.json();
+    const data = await Invoice.findOne({ id: invoiceId });
+    const invoiceData = JSON.parse(JSON.stringify(data));
 
     // Transform dates in data to yyyy-mm-dd and remove mongoose versionKey property (__v)
     const invoice = deleteKey(
         {
-            ...data,
-            paymentDue: data.paymentDue ? data.paymentDue.split("T")[0] : "",
-            createdAt: data.createdAt ? data.createdAt.split("T")[0] : "",
+            ...invoiceData,
+            paymentDue: invoiceData.paymentDue
+                ? invoiceData.paymentDue.split("T")[0]
+                : "",
+            createdAt: invoiceData.createdAt
+                ? invoiceData.createdAt.split("T")[0]
+                : "",
         },
         "__v"
     );
