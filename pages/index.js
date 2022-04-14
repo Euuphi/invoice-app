@@ -27,7 +27,7 @@ export default function Home({ invoices }) {
     );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     dbConnect();
 
     const data = await Invoice.find({});
@@ -37,6 +37,5 @@ export async function getStaticProps() {
         props: {
             invoices,
         },
-        revalidate: 1,
     };
 }
