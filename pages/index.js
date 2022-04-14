@@ -37,6 +37,6 @@ export async function getStaticProps() {
         props: {
             invoices,
         },
-        revalidate: 5,
+        revalidate: 1,
     };
 }
