@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import screen from "styles/mediaQuery/screens";
 
 const FormButtonsContainer = styled.div`
     display: flex;
@@ -16,8 +17,15 @@ const FormButtonsContainer = styled.div`
     padding-left: 10.3rem;
     padding: 3rem 5.6rem;
     padding-left: 15.9rem;
+    /* Translate same amount as left padding */
     transform: translateX(-15.9rem);
     width: 72rem;
+
+    @media ${screen.tabletl} {
+        padding-left: 5.6rem;
+        transform: translateX(-5.6rem);
+        width: 62rem;
+    }
 `;
 
 export default FormButtonsContainer;

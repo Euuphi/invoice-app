@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import screen from "styles/mediaQuery/screens";
 // Context
 import { FormProvider } from "context/FormContext";
 // Styles
@@ -9,7 +10,7 @@ import InvoiceForm from "components/forms/InvoiceForm/";
 
 const FormBackground = styled.div`
     background-color: ${({ theme }) => theme.form.background};
-    border-radius: 2rem;
+    border-radius: 0 2rem 2rem 0;
     height: 100vh;
     overflow-y: scroll;
     padding-left: 10.3rem;
@@ -23,6 +24,11 @@ const FormBackground = styled.div`
     /* Chrome, Safari and Opera */
     &::-webkit-scrollbar {
         display: none;
+    }
+
+    @media ${screen.tabletL} {
+        padding-left: 0;
+        width: 62rem;
     }
 `;
 
