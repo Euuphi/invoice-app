@@ -9,7 +9,6 @@ import Moon from "images/svgs/icon-moon.svg";
 const Button = styled.button`
     background-color: transparent;
     border: none;
-    margin-top: auto;
     height: 4rem;
     width: 4rem;
 

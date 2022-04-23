@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import screen from "styles/mediaQuery/screens";
 import { useSelector } from "react-redux";
 
 const BackgroundContainer = styled.div`
@@ -9,6 +10,14 @@ const BackgroundContainer = styled.div`
 
     overflow-y: ${({ pageScroll }) => (pageScroll ? "visible" : "hidden")};
     height: ${({ pageScroll }) => (pageScroll ? "100%" : "100vh")};
+
+    @media ${screen.laptop} {
+        padding-left: 10.3rem;
+    }
+
+    @media ${screen.tabletL} {
+        padding: 7.1rem 4.8rem;
+    }
 `;
 
 const Background = ({ as, children }) => {

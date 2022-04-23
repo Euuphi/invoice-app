@@ -75,6 +75,7 @@ const createFormContext = () => {
             let errItems = [];
 
             for (const [name, value] of Object.entries(inputs)) {
+                // Ignore id field
                 if (name === "id") {
                     errors.id = value;
                     // Check array

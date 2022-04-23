@@ -1,12 +1,14 @@
 /*
     --- Media Queries
         1312px - 82em : Laptop
+        944px - 59em : Tablet Large
 
 */
 
 // Object containing all media query sizes
 const sizes = {
     laptop: "82em", // 1312px
+    tabletL: "59em", // 944px
 };
 
 /**

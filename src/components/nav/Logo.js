@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import screen from "styles/mediaQuery/screens";
 // Logo
 import LogoSVG from "images/svgs/logo.svg";
 // Colors
@@ -10,10 +11,10 @@ const Container = styled.div`
     justify-content: center;
 
     background-color: ${colors.main.primary};
-    border-radius: 0 0 20px 0;
-    height: 10.3rem;
+    border-radius: 0 20px 20px 0;
+    height: ${({ size }) => `${size}px`};
     overflow: hidden;
-    width: 100%;
+    width: ${({ size }) => `${size}px`};
     position: relative;
 
     &::after {
@@ -32,10 +33,13 @@ const LogoIcon = styled(LogoSVG)`
     z-index: 1;
 `;
 
-const Logo = () => {
+const Logo = ({ size }) => {
+    const height = Math.round(size * 0.39);
+    const width = Math.round(size * 0.42);
+
     return (
-        <Container>
-            <LogoIcon height={40} width={43} />
+        <Container size={size}>
+            <LogoIcon height={height} width={width} />
         </Container>
     );
 };
