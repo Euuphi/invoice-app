@@ -34,6 +34,20 @@ export default class MyDocument extends Document {
             <Html>
                 <Head>
                     <link rel="icon" href="/favicon-32x32.png" />
+                    <meta property="og:title" content="Invoice App" />
+                    <meta
+                        property="og:description"
+                        content="Application for managing your invoices"
+                    />
+                    <meta
+                        property="og:url"
+                        content="https://kaleidoscopic-piroshki-9af0f5.netlify.app/"
+                    />
+                    <meta
+                        property="og:image"
+                        content="https://i.ibb.co/1QGTbYg/Invoice-App.png"
+                    />
+                    <meta property="og:type" content="website" />
                 </Head>
                 <body>
                     <Main />
