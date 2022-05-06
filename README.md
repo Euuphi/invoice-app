@@ -1,4 +1,4 @@
-# Frontend Mentor - Invoice app solution
+# Invoice App
 
 ## Links
 
