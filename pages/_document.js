@@ -33,6 +33,10 @@ export default class MyDocument extends Document {
         return (
             <Html>
                 <Head>
+                    <meta
+                        name="description"
+                        content="Web application for managing your invoices. Invoice App allows you to create, delete, edit, filter and view your invoices with a simple and easy to use UI."
+                    />
                     <link rel="icon" href="/favicon-32x32.png" />
                     <meta property="og:title" content="Invoice App" />
                     <meta
