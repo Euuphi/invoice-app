@@ -16,6 +16,7 @@ const Button = styled.button`
 
     &:hover span {
         color: #7e88c3;
+        cursor: pointer;
     }
 `;
 

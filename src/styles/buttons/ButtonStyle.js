@@ -4,6 +4,7 @@ const ButtonStyle = css`
     border: none;
     border-radius: 100px;
     color: #fff;
+    cursor: pointer;
     font-family: "Spartan", sans-serif;
     font-size: 1.2rem;
     font-weight: 700;

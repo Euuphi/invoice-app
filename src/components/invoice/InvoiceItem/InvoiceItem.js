@@ -19,6 +19,7 @@ const Container = styled(Card)`
 
     &:hover {
         border-color: ${colors.main.primary};
+        cursor: pointer;
     }
 `;
 
