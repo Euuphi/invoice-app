@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import screen from "styles/mediaQuery/screens";
 import { useTheme } from "styled-components";
 import H3SecondaryStyle from "styles/headings/H3SecondaryStyle";
 
@@ -18,6 +19,11 @@ const IconBox = styled.div`
     text-transform: capitalize;
     height: 4.4rem;
     width: 10.4rem;
+
+    @media ${screen.tablet} {
+        justify-self: right;
+        margin-left: 0;
+    }
 `;
 
 const Circle = styled.span`

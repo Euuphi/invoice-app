@@ -1,5 +1,6 @@
 import convertCurrency from "functions/convertCurrency";
 import styled from "styled-components";
+import screen from "styles/mediaQuery/screens";
 // Styles
 import H3Style from "styles/headings/H3Style";
 
@@ -9,6 +10,10 @@ const Span = styled.p`
     display: inline-block;
     text-align: right;
     width: 12rem;
+
+    @media ${screen.tablet} {
+        text-align: left;
+    }
 `;
 
 /**
