@@ -5,7 +5,6 @@ import store from "stores/store";
 // Themes
 import DarkThemeProvider from "themes/providers/DarkThemeProvider";
 // Components
-import Background from "components/layout/Background";
 import Nav from "components/nav/Nav";
 
 function MyApp({ Component, pageProps }) {
@@ -13,9 +12,7 @@ function MyApp({ Component, pageProps }) {
         <ReduxProvider store={store}>
             <DarkThemeProvider>
                 <Nav />
-                <Background>
-                    <Component {...pageProps} />
-                </Background>
+                <Component {...pageProps} />
             </DarkThemeProvider>
         </ReduxProvider>
     );

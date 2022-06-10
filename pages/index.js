@@ -4,6 +4,7 @@ import Head from "next/head";
 import dbConnect from "utils/dbConnect";
 import Invoice from "models/Invoice";
 // Components
+import Background from "components/layout/Background";
 import MainContainer from "components/layout/MainContainer";
 import MainHeading from "components/sections/MainHeading";
 import InvoiceList from "components/invoice/InvoiceList";
@@ -14,7 +15,7 @@ export default function Home({ invoices }) {
     const displayForm = useSelector((state) => state.form.display);
 
     return (
-        <>
+        <Background>
             <Head>
                 <title>Invoice App</title>
             </Head>
@@ -23,7 +24,7 @@ export default function Home({ invoices }) {
                 <InvoiceList invoices={invoices} />
                 {displayForm && <InvoiceFromPage />}
             </MainContainer>
-        </>
+        </Background>
     );
 }
 
