@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import convertCurrency from "functions/convertCurrency";
+import screen from "styles/mediaQuery/screens";
 // Styles
 import ParagraphSmStyle from "styles/text/ParagraphSmStyle";
 import H2Style from "styles/headings/H2Style";
@@ -23,6 +24,10 @@ const Label = styled.span`
 const Total = styled.span`
     ${H2Style}
     color: #fff;
+
+    @media ${screen.tablet} {
+        font-size: 2rem;
+    }
 `;
 
 const InvoiceTotal = ({ total }) => {

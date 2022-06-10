@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useMediaQuery } from "@mui/material";
+import screen from "styles/mediaQuery/screens";
 // Styles
 import ParagraphSmStyle from "styles/text/ParagraphSmStyle";
 import H3SecondaryStyle from "styles/headings/H3SecondaryStyle";
@@ -35,37 +37,77 @@ const Table = styled.table`
     }
 
     /* Left align "Item Name" column */
-    & tr th:first-child,
-    & tr td:first-child {
+    & .item-name {
         text-align: left;
     }
 
     /* Change text color for "Quantity" & "Price" column data */
-    & tr td:nth-child(2),
-    & tr td:nth-child(3) {
+    & .quantity,
+    & .price {
         color: ${({ theme }) => theme.text.secondary};
+    }
+
+    @media ${screen.tablet} {
+        & tr {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        & .item-name {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        & .total {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+        }
     }
 `;
 
 const InvoiceSubtotal = ({ items }) => {
+    const tabletScreen = useMediaQuery(screen.tablet);
+
     return (
         <Table>
-            <thead>
-                <tr>
-                    <th>Item Name</th>
-                    <th>QTY.</th>
-                    <th>Price</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
+            {!tabletScreen && (
+                <thead>
+                    <tr>
+                        <th className="item-name">Item Name</th>
+                        <th>QTY.</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+            )}
             <tbody>
                 {items.map((item) => {
                     return (
                         <tr key={item.name}>
-                            <td>{item.name}</td>
-                            <td>{item.quantity}</td>
-                            <td>{convertCurrency(item.price)}</td>
-                            <td>{convertCurrency(item.total)}</td>
+                            <td className="item-name">
+                                <span>{item.name}</span>
+                                {tabletScreen && (
+                                    <span className="quantity price">
+                                        {item.quantity}
+                                        &nbsp;&nbsp; x &nbsp;&nbsp;
+                                        {convertCurrency(item.price)}
+                                    </span>
+                                )}
+                            </td>
+                            {!tabletScreen && (
+                                <>
+                                    <td className="quantity">
+                                        {item.quantity}
+                                    </td>
+                                    <td className="price">
+                                        {convertCurrency(item.price)}
+                                    </td>
+                                </>
+                            )}
+                            <td className="total">
+                                {convertCurrency(item.total)}
+                            </td>
                         </tr>
                     );
                 })}
