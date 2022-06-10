@@ -1,4 +1,6 @@
 import styled from "styled-components";
+// Media Query
+import screen from "styles/mediaQuery/screens";
 // Components
 import Card from "components/layout/Card";
 import DetailsHeader from "./DeatailsHeader";
@@ -9,6 +11,10 @@ const DetailsCard = styled(Card)`
     flex-direction: column;
     gap: 3rem;
     padding: 4.8rem;
+
+    @media ${screen.mobileL} {
+        padding: 2.4rem;
+    }
 `;
 
 const InvoiceDetails = ({ invoice }) => {

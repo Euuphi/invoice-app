@@ -3,20 +3,29 @@ import { useDispatch, useSelector } from "react-redux";
 import { setFormInputs } from "stores/actions/formInputActions";
 import deleteKey from "functions/deleteKey";
 import Head from "next/head";
+// Media Query
+import { useMediaQuery } from "@mui/material";
+import screen from "styles/mediaQuery/screens";
 // Mongoose
 import dbConnect from "utils/dbConnect";
 import Invoice from "models/Invoice";
 // Comonents
+import Background from "components/layout/Background";
 import MainContainer from "components/layout/MainContainer";
 import FlexContainer from "components/layout/FlexContainer";
+import StickyContainer from "components/layout/StickyContainer";
 import GoBackButton from "components/buttons/GoBackButton";
 import ActionBar from "components/ui/ActionBar";
 import InvoiceDetails from "components/invoice/InvoiceDetails";
 import InvoiceFormPage from "components/invoice/InvoiceFormPage";
+// Action Button Components
+import Card from "components/layout/Card";
+import ActionButtons from "components/ui/ActionButtons";
 
 export default function InvoiceItem({ invoice }) {
     const dispatch = useDispatch();
     const displayForm = useSelector((state) => state.form.display);
+    const tabletScreen = useMediaQuery(screen.tablet);
 
     useEffect(() => {
         dispatch(setFormInputs(invoice));
@@ -24,22 +33,29 @@ export default function InvoiceItem({ invoice }) {
 
     return (
         <>
-            <Head>
-                <title>Invoice App</title>
-            </Head>
-            <MainContainer>
-                <FlexContainer flexDirection="column" gap="2.6rem">
-                    <GoBackButton />
-                    <ActionBar status={invoice.status} />
-                    <InvoiceDetails invoice={invoice} />
-                    {displayForm && (
-                        <InvoiceFormPage
-                            formTitle={`Edit #${invoice.id}`}
-                            formStyle="edit"
-                        />
-                    )}
-                </FlexContainer>
-            </MainContainer>
+            <Background>
+                <Head>
+                    <title>Invoice App</title>
+                </Head>
+                <MainContainer>
+                    <FlexContainer flexDirection="column" gap="2.6rem">
+                        <GoBackButton />
+                        <ActionBar status={invoice.status} />
+                        <InvoiceDetails invoice={invoice} />
+                        {displayForm && (
+                            <InvoiceFormPage
+                                formTitle={`Edit #${invoice.id}`}
+                                formStyle="edit"
+                            />
+                        )}
+                    </FlexContainer>
+                </MainContainer>
+            </Background>
+            {tabletScreen && (
+                <StickyContainer>
+                    <ActionButtons status={invoice.status} />
+                </StickyContainer>
+            )}
         </>
     );
 }

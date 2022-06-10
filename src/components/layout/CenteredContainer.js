@@ -5,7 +5,8 @@ const CenteredContainer = styled.div`
     align-items: center;
     flex-direction: ${({ flexDirection }) => flexDirection};
     gap: ${({ gap }) => gap};
-    justify-content: center;
+    justify-content: ${({ justifyContent }) => justifyContent || "center"};
+    width: ${({ width }) => width};
 `;
 
 export default CenteredContainer;
