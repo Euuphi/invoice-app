@@ -51,7 +51,7 @@ export default function InvoiceItem({ invoice }) {
                     </FlexContainer>
                 </MainContainer>
             </Background>
-            {tabletScreen && (
+            {tabletScreen && !displayForm && (
                 <StickyContainer>
                     <ActionButtons status={invoice.status} />
                 </StickyContainer>
