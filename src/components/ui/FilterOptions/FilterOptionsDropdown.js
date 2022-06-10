@@ -7,6 +7,7 @@ import {
     FILTER_PENDING,
     FILTER_DRAFT,
 } from "stores/actions/filterActions";
+import screen from "styles/mediaQuery/screens";
 
 const Container = styled.div`
     position: absolute;
@@ -16,11 +17,15 @@ const Container = styled.div`
     border-radius: 1.2rem;
     box-shadow: 0 1rem 2rem ${({ theme }) => theme.shadow.medium};
     padding: 2.4rem;
-    width: 130%;
+    width: 18rem;
     transform: translate(-12.5%, 110%);
 
     /* Toggle drop down visibility */
     display: ${({ open }) => (open ? "block" : "none")};
+
+    @media ${screen.tabletS} {
+        bottom: -2rem;
+    }
 `;
 
 const FilterOptionsList = styled.ul`

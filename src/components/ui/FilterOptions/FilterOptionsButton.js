@@ -1,3 +1,6 @@
+// Media Query
+import useMediaQuery from "@mui/material/useMediaQuery";
+import screen from "styles/mediaQuery/screens";
 // Styles
 import styled from "styled-components";
 import H3Secondary from "components/headings/H3Secondary";
@@ -27,9 +30,13 @@ const DownArrowIcon = styled(DownArrowSVG)`
 `;
 
 const FilterOptionsButton = ({ menuOpen, onClick }) => {
+    const tabletSmallScreen = useMediaQuery(screen.tabletS);
+
     return (
         <Button onClick={onClick}>
-            <ButtonText as="span">Filter by status</ButtonText>
+            <ButtonText as="span">
+                Filter{!tabletSmallScreen && " by status"}
+            </ButtonText>
             <DownArrowIcon className={menuOpen ? "open" : ""} />
         </Button>
     );

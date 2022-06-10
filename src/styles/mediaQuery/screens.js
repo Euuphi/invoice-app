@@ -10,7 +10,8 @@ const sizes = {
     laptop: "82em", // 1312px
     tabletL: "59em", // 944px
     tablet: "47em", // 752px
-    mobileL: "33rem", // 528px
+    tabletS: "39em", // 624px
+    mobileL: "33em", // 528px
 };
 
 /**

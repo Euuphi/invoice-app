@@ -3,6 +3,9 @@ import { showForm } from "stores/actions/formActions";
 import { resetInputs } from "stores/actions/formInputActions";
 import { pageScrollOff } from "stores/actions/uiActions";
 import styled from "styled-components";
+// Media Query
+import { useMediaQuery } from "@mui/material";
+import screen from "styles/mediaQuery/screens";
 // Themes
 import { colors } from "themes/colors";
 // Icon
@@ -49,12 +52,14 @@ const NewInvoiceButton = () => {
         dispatch(pageScrollOff());
     };
 
+    const tabletSmallScreen = useMediaQuery(screen.tabletS);
+
     return (
         <Button onClick={clickHandler}>
             <IconContainer>
                 <PlusIcon />
             </IconContainer>
-            New Invoice
+            New{!tabletSmallScreen && " invoice"}
         </Button>
     );
 };

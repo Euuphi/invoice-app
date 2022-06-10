@@ -18,6 +18,10 @@ const BackgroundContainer = styled.div`
     @media ${screen.tabletL} {
         padding: 7.1rem 4.8rem;
     }
+
+    @media ${screen.tabletS} {
+        padding: 3.2rem 2.4rem;
+    }
 `;
 
 const Background = ({ as, children }) => {
