@@ -13,11 +13,11 @@ const Details = ({
     clientAddress,
     clientEmail,
 }) => {
-    const tabletSmallScreen = useMediaQuery(screen.tabletS);
+    const tabletScreen = useMediaQuery(screen.tablet);
 
     return (
         <GridContainer
-            columns={!tabletSmallScreen ? "1fr 1fr 2fr" : "1fr 1fr"}
+            columns={!tabletScreen ? "1fr 1fr 2fr" : "1fr 1fr"}
             columnGap="5rem"
             rowGap="3.5rem"
             width="100%">
