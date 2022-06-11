@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import styled from "styled-components";
 // Styles
 import H3Secondary from "components/headings/H3Secondary";
@@ -9,6 +8,7 @@ const Button = styled.button`
     border: none;
     background-color: transparent;
     padding: 1.2rem 0.8rem;
+    padding-left: 0;
 
     display: flex;
     align-items: flex-start;
@@ -20,10 +20,9 @@ const Button = styled.button`
     }
 `;
 
-const GoBackButton = () => {
-    const router = useRouter();
+const GoBackButton = ({ onClick }) => {
     return (
-        <Button onClick={() => router.push("/")}>
+        <Button onClick={onClick}>
             <LeftArrowIcon />
             <H3Secondary as="span">Go back</H3Secondary>
         </Button>

@@ -19,10 +19,11 @@ import ActionBar from "components/ui/ActionBar";
 import InvoiceDetails from "components/invoice/InvoiceDetails";
 import InvoiceFormPage from "components/invoice/InvoiceFormPage";
 // Action Button Components
-import Card from "components/layout/Card";
 import ActionButtons from "components/ui/ActionButtons";
+import { useRouter } from "next/router";
 
 export default function InvoiceItem({ invoice }) {
+    const router = useRouter();
     const dispatch = useDispatch();
     const displayForm = useSelector((state) => state.form.display);
     const tabletScreen = useMediaQuery(screen.tablet);
@@ -30,6 +31,10 @@ export default function InvoiceItem({ invoice }) {
     useEffect(() => {
         dispatch(setFormInputs(invoice));
     }, [invoice, displayForm, dispatch]);
+
+    const goBackHandler = () => {
+        router.push("/");
+    };
 
     return (
         <>
@@ -39,7 +44,7 @@ export default function InvoiceItem({ invoice }) {
                 </Head>
                 <MainContainer>
                     <FlexContainer flexDirection="column" gap="2.6rem">
-                        <GoBackButton />
+                        <GoBackButton onClick={goBackHandler} />
                         <ActionBar status={invoice.status} />
                         <InvoiceDetails invoice={invoice} />
                         {displayForm && (
