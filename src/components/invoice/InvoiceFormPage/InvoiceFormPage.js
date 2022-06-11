@@ -1,12 +1,24 @@
 import styled from "styled-components";
-import screen from "styles/mediaQuery/screens";
 // Context
 import { FormProvider } from "context/FormContext";
+import { useDispatch } from "react-redux";
+import { pageScrollOn } from "stores/actions/uiActions";
+import {
+    hideForm,
+    resetAllInputErrors,
+    setSubmitting,
+} from "stores/actions/formActions";
+import { resetInputs } from "stores/actions/formInputActions";
 // Styles
 import H2Style from "styles/headings/H2Style";
+// Media Query
+import { useMediaQuery } from "@mui/material";
+import screen from "styles/mediaQuery/screens";
 // Components
 import Backdrop from "components/ui/Backdrop";
 import InvoiceForm from "components/forms/InvoiceForm/";
+import GoBackButton from "components/buttons/GoBackButton";
+import FlexContainer from "components/layout/FlexContainer";
 
 const FormBackground = styled.div`
     background-color: ${({ theme }) => theme.form.background};
@@ -30,6 +42,10 @@ const FormBackground = styled.div`
         padding-left: 0;
         width: 62rem;
     }
+
+    @media ${screen.tabletS} {
+        width: 100vw;
+    }
 `;
 
 const FormContainer = styled.div`
@@ -43,14 +59,34 @@ const FormTitle = styled.h2`
     ${H2Style}
 
     margin-bottom: 5.6rem;
+
+    @media ${screen.tabletS} {
+        margin-bottom: 3.2rem;
+    }
 `;
 
 const InvoiceFormPage = ({ formTitle, formStyle }) => {
+    const dispatch = useDispatch();
+    const tabletSmallScreen = useMediaQuery(screen.tabletS);
+
+    const goBackHandler = () => {
+        dispatch(hideForm());
+        dispatch(pageScrollOn());
+        dispatch(resetInputs());
+        dispatch(resetAllInputErrors());
+        dispatch(setSubmitting(false));
+    };
+
     return (
         <Backdrop>
             <FormBackground>
                 <FormContainer>
-                    <FormTitle>{formTitle}</FormTitle>
+                    <FlexContainer flexDirection="column" gap="1.2rem">
+                        {tabletSmallScreen && (
+                            <GoBackButton onClick={goBackHandler} />
+                        )}
+                        <FormTitle>{formTitle}</FormTitle>
+                    </FlexContainer>
                     <FormProvider>
                         <InvoiceForm formStyle={formStyle} />
                     </FormProvider>
