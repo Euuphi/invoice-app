@@ -44,15 +44,24 @@ const FormBackground = styled.div`
     }
 
     @media ${screen.tabletS} {
+        border-radius: 0;
         width: 100vw;
     }
 `;
 
 const FormContainer = styled.div`
     padding: 5.6rem;
-    padding-bottom: 0;
+    padding-bottom: 0 !important;
 
     position: relative;
+
+    @media ${screen.tabletS} {
+        padding: 4.2rem;
+    }
+
+    @media ${screen.mobile} {
+        padding: 3.2rem 2.4rem;
+    }
 `;
 
 const FormTitle = styled.h2`

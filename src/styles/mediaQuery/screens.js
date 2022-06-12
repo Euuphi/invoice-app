@@ -12,6 +12,7 @@ const sizes = {
     tablet: "47em", // 752px
     tabletS: "39em", // 624px
     mobileL: "33em", // 528px
+    mobile: "26em", // 416px
 };
 
 /**
