@@ -5,6 +5,9 @@ import addDays from "functions/addDays";
 import InputField from "../InputField";
 import FormGroup from "../FormGroup";
 import SelectField from "../SelectField";
+// Media Query
+import { useMediaQuery } from "@mui/material";
+import screen from "styles/mediaQuery/screens";
 
 const InvoiceFormDetails = () => {
     const dispatch = useDispatch();
@@ -30,14 +33,21 @@ const InvoiceFormDetails = () => {
         }
     }, [dateCreated, paymentTerm, dispatch]);
 
+    const tabletSmallScreen = useMediaQuery(screen.tabletS);
+
     return (
         <FormGroup columns="1fr 1fr">
             <InputField
                 inputType="date"
                 name="createdAt"
                 label="Invoice Date"
+                fullGridColumn={tabletSmallScreen}
             />
-            <SelectField name="paymentTerms" label="Payment Terms" />
+            <SelectField
+                name="paymentTerms"
+                label="Payment Terms"
+                fullGridColumn={tabletSmallScreen}
+            />
             <InputField
                 inputType="text"
                 name="description"

@@ -1,11 +1,16 @@
+// Media Query
+import { useMediaQuery } from "@mui/material";
+import screen from "styles/mediaQuery/screens";
 // Components
 import FormGroup from "components/forms/FormGroup";
 import FormGroupTitle from "components/forms/FormGroupTitle";
 import InputField from "components/forms/InputField";
 
 const BillFrom = () => {
+    const tabletSmallScreen = useMediaQuery(screen.tabletS);
+
     return (
-        <FormGroup columns="1fr 1fr 1fr">
+        <FormGroup columns={!tabletSmallScreen ? "1fr 1fr 1fr" : "1fr 1fr"}>
             <FormGroupTitle>Bill From</FormGroupTitle>
             <InputField
                 inputType="text"
@@ -32,6 +37,7 @@ const BillFrom = () => {
                 name="country"
                 label="Country"
                 formGroup="senderAddress"
+                fullGridColumn={tabletSmallScreen}
             />
         </FormGroup>
     );
