@@ -2,7 +2,7 @@
 
 ## Links
 
--   Live Site URL: [Invoice App](https://kaleidoscopic-piroshki-9af0f5.netlify.app/) (Not yet optimised for mobile and tablet)
+-   Live Site URL: [Invoice App](https://kaleidoscopic-piroshki-9af0f5.netlify.app/)
 -   Solution URL: [Github](https://github.com/Euuphi/invoice-app)
 
 This is a solution to Front-end Mentor's [Invoice app challenge](https://www.frontendmentor.io/challenges/invoice-app-i7KaLTQjl).
