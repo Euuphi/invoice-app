@@ -51,7 +51,8 @@ const ItemList = ({ formGroup }) => {
     };
 
     return (
-        <FormGroup>
+        <FormGroup
+            gap={tabletSmallScreen && items.length === 0 ? "0" : "4.8rem"}>
             <Heading>Item List</Heading>
             <GridContainer
                 alignItems="center"
