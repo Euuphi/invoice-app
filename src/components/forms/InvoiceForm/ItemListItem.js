@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
+// Media Query
+import { useMediaQuery } from "@mui/material";
+import screen from "styles/mediaQuery/screens";
 // Selectors
 import { getItems, getItemById } from "stores/selectors/formInputSelectors";
 // Actions
@@ -12,8 +15,10 @@ import convertCurrency from "functions/convertCurrency";
 import InputField from "components/forms/InputField";
 import TrashCanButton from "components/buttons/TrashCanButton";
 
-const ItemListItem = ({ id, formGroup, itemTotal, total }) => {
+const ItemListItem = ({ id, formGroup, itemTotal, total, showLabel }) => {
     const dispatch = useDispatch();
+    // Media Query
+    const tabletSmallScreen = useMediaQuery(screen.tabletS);
 
     // Variable to adjust padding of input fields
     const inputPadding = "1.7rem";
@@ -31,13 +36,19 @@ const ItemListItem = ({ id, formGroup, itemTotal, total }) => {
     return (
         <>
             <InputField
+                label={showLabel ? "Item Name" : ""}
                 name="name"
                 inputType="text"
                 formGroup={formGroup}
                 formId={id}
                 inputPadding={inputPadding}
+                inputStyle={
+                    tabletSmallScreen ? { marginBottom: "-2.4rem" } : {}
+                }
+                fullGridColumn={showLabel}
             />
             <InputField
+                label={showLabel ? "Qty." : ""}
                 name="quantity"
                 inputType="number"
                 formGroup={formGroup}
@@ -46,6 +57,7 @@ const ItemListItem = ({ id, formGroup, itemTotal, total }) => {
                 min="0"
             />
             <InputField
+                label={showLabel ? "Price" : ""}
                 name="price"
                 inputType="number"
                 formGroup={formGroup}
@@ -56,6 +68,7 @@ const ItemListItem = ({ id, formGroup, itemTotal, total }) => {
             />
             <InputField
                 disabled
+                label={showLabel ? "Total" : ""}
                 name="total"
                 inputType="text"
                 formGroup={formGroup}

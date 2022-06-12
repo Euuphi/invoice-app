@@ -1,6 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "stores/actions/formInputActions";
 import styled from "styled-components";
+// Media Query
+import { useMediaQuery } from "@mui/material";
+import screen from "styles/mediaQuery/screens";
 // Components
 import GridContainer from "components/layout/GridContainer";
 import ParagraphSmStyle from "styles/text/ParagraphSmStyle";
@@ -31,6 +34,7 @@ const Label = styled.label`
 const ItemList = ({ formGroup }) => {
     const dispatch = useDispatch();
     const items = useSelector((state) => state.formInput.items);
+    const tabletSmallScreen = useMediaQuery(screen.tabletS);
 
     const onAddClickHandler = (e) => {
         e.preventDefault();
@@ -51,21 +55,28 @@ const ItemList = ({ formGroup }) => {
             <Heading>Item List</Heading>
             <GridContainer
                 alignItems="center"
-                columns="8fr 3fr 4fr 4fr 1fr"
+                columns={
+                    !tabletSmallScreen
+                        ? "8fr 3fr 4fr 4fr 1fr"
+                        : "2fr 3fr 3fr 1fr"
+                }
                 columnGap="1.6rem"
-                rowGap="1.6rem">
-                <>
-                    <Label>Item Name</Label>
-                    <Label>Qty.</Label>
-                    <Label>Price</Label>
-                    <Label style={{ gridColumn: "span 2" }}>Total</Label>
-                </>
+                rowGap={!tabletSmallScreen ? "1.6rem" : "4.8rem"}>
+                {!tabletSmallScreen && (
+                    <>
+                        <Label>Item Name</Label>
+                        <Label>Qty.</Label>
+                        <Label>Price</Label>
+                        <Label style={{ gridColumn: "span 2" }}>Total</Label>
+                    </>
+                )}
                 {items.map((item) => {
                     return (
                         <ItemListItem
                             key={item.id}
                             id={item.id}
                             formGroup={formGroup}
+                            showLabel={tabletSmallScreen}
                         />
                     );
                 })}

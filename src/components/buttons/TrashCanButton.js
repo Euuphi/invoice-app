@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useMediaQuery } from "@mui/material";
+import screen from "styles/mediaQuery/screens";
 // Icons
 import TrashCanSVG from "images/svgs/icon-delete.svg";
 
@@ -9,6 +11,12 @@ const Button = styled.button`
 
     &:hover svg {
         color: #ec5757;
+    }
+
+    @media ${screen.tabletS} {
+        align-self: end;
+        justify-self: end;
+        padding-bottom: 1.7rem;
     }
 `;
 
