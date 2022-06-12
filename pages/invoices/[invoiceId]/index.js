@@ -40,7 +40,7 @@ export default function InvoiceItem({ invoice }) {
         <>
             <Background>
                 <Head>
-                    <title>Invoice App</title>
+                    <title>Invoice #{invoice.id}</title>
                 </Head>
                 <MainContainer>
                     <FlexContainer flexDirection="column" gap="2.6rem">
