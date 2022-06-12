@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ButtonStyle from "styles/buttons/ButtonStyle";
 
+// TODO: Add themes prop for reusability
 const Button = styled.button`
     ${ButtonStyle}
 
@@ -14,8 +15,8 @@ const Button = styled.button`
     }
 `;
 
-const SaveAsDraftButton = ({ onClick }) => {
-    return <Button onClick={onClick}>Save as Draft</Button>;
+const SaveAsDraftButton = ({ onClick, text }) => {
+    return <Button onClick={onClick}>{text}</Button>;
 };
 
 export default SaveAsDraftButton;

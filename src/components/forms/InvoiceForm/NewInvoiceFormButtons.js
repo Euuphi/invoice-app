@@ -18,6 +18,9 @@ import FormButtonsContainer from "components/layout/FormButtonsContainer";
 import CancelButton from "components/buttons/formButtons/CancelButton";
 import SaveAsDraftButton from "components/buttons/formButtons/SaveAsDraftButton";
 import SaveButton from "components/buttons/formButtons/SaveButton";
+// Media Query
+import { useMediaQuery } from "@mui/material";
+import screen from "styles/mediaQuery/screens";
 
 const NewInvoiceFormButtons = () => {
     const dispatch = useDispatch();
@@ -76,6 +79,9 @@ const NewInvoiceFormButtons = () => {
         router.reload(window.location.pathname);
     };
 
+    // Media Queries
+    const mobileLScreen = useMediaQuery(screen.mobileL);
+
     return (
         <FormButtonsContainer>
             <CancelButton
@@ -83,7 +89,10 @@ const NewInvoiceFormButtons = () => {
                 text="Discard"
                 margin="0 auto 0 0"
             />
-            <SaveAsDraftButton onClick={saveAsDraftHandler} />
+            <SaveAsDraftButton
+                onClick={saveAsDraftHandler}
+                text={!mobileLScreen ? "Save as Draft" : "Draft"}
+            />
             <SaveButton onClick={submitHandler} text="Save & Send" />
         </FormButtonsContainer>
     );
