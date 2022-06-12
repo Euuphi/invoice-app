@@ -4,7 +4,7 @@ const StickyContainer = styled.div`
     position: sticky;
     bottom: 0;
 
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.background.secondary};
     padding: 2.1rem;
 `;
 
